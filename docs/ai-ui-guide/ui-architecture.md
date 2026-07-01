@@ -29,6 +29,7 @@ For the new UI-first app, keep `common_libs.dart` but only export UI-safe items:
 - Flutter framework packages.
 - `flutter_localizations`.
 - `flutter_svg`.
+- `font_awesome_flutter`.
 - `go_router`.
 - `app.dart`.
 - `core/core.dart`.

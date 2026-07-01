@@ -1,0 +1,10 @@
+{
+  "@@locale": "en",
+  "appTitle": "Demo UI App",
+  "homeTitle": "UI foundation is ready",
+  "homeMessage": "Start adding feature screens with localized strings, demo UI models, reusable widgets, and go_router routes.",
+  "homeReadyTitle": "Guide conventions initialized",
+  "homeReadyMessage": "The app shell, theme, routing, localization, shared widgets, and feature-first folders are in place.",
+  "notFoundTitle": "Page not found",
+  "notFoundMessage": "The page you requested does not exist."
+}

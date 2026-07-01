@@ -73,6 +73,6 @@ Use route helpers instead of rebuilding route strings across widgets.
 ## Imports
 
 - Prefer relative imports.
-- Use `common_libs.dart` for stable UI dependencies.
+- Use `common_libs.dart` for stable UI dependencies, including
+  `font_awesome_flutter`.
 - Keep barrel exports focused on UI during the UI-first phase.
-

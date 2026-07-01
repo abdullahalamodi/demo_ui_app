@@ -1,11 +1,16 @@
 # Theme And Assets
 
-The source app centralizes colors, sizing, typography, component theme defaults,
-asset paths, and context helpers. The new UI should do the same.
+The UI should have one clear theme and asset system. Derive colors, spacing,
+typography, radii, component defaults, and image references from the project
+being built instead of copying exact values from a source app.
+
+Use the source project as visual direction, then translate it into semantic
+tokens that fit this app's structure, content density, platform targets, and
+brand needs.
 
 ## Theme Files
 
-Use this structure:
+Use a small central theme module. A typical structure is:
 
 ```text
 core/theme/
@@ -15,75 +20,98 @@ core/theme/
   theme.dart
 ```
 
-`theme.dart` should export the other files.
+`theme.dart` should export the other theme files. If the project already has a
+different theme structure, extend that structure instead of creating a parallel
+one.
 
-## Design Tokens
+## Color Tokens
 
-The source app uses constants such as:
+Define colors by role, not by where they happened to appear in a screenshot.
+The exact palette should be based on the project, but it should usually include
+tokens for:
 
-- `primaryColor`
-- `secondaryColor`
-- `darkBackgroundColor`
-- `lightBackgroundColor`
-- `grey100` through `grey900`
-- `kRadiusL`
-- `kRadiusM`
-- `kRadiusS`
-- `kHorizontalPagePadding`
-- `kPagePadding`
-- `kPageWithScrollPadding`
-- `kButtonHeight`
-- `kDrawerWidth`
+- primary and secondary brand actions
+- light and dark backgrounds
+- surfaces, cards, dividers, and input fills
+- readable foreground text at high, medium, and disabled emphasis
+- neutral grey steps for borders, labels, and inactive UI
+- success, warning, info, and destructive states
+- overlay, shadow, and scrim colors when used repeatedly
 
-Use named constants for all repeated design values. Feature widgets should not
-invent colors or spacing that should be part of the theme.
+Keep raw hex values inside the theme layer. Feature widgets should use
+`context.colorScheme`, `context.theme`, `context.customColors`, or named color
+tokens instead of direct color literals.
+
+## Size And Spacing Tokens
+
+Create named constants for repeated layout values. Choose the exact numbers from
+the project design and adjust them for mobile, tablet, and desktop density.
+Common token groups include:
+
+- page and section padding
+- small, medium, and large gaps
+- card, sheet, dialog, field, button, and image radii
+- standard control heights
+- toolbar, bottom bar, drawer, and navigation widths
+- icon sizes and avatar sizes
+- grid/list spacing and maximum content widths
+
+Use semantic names that describe intent, such as compact gap, page padding, card
+radius, or primary button height. Avoid naming constants after one current
+screen unless the value is truly screen-specific.
+
+Feature widgets may use one-off layout values only when the value is local to a
+single composition and would not be reused elsewhere.
 
 ## Typography
 
-The source app uses the `Alexandria` font family with weights from 100 to 900.
-The text theme uses:
+Configure the project font family and `TextTheme` in `AppTheme`. Pick type
+scale values that match the product's density and reading needs instead of
+copying exact sizes from another app.
 
-- `displayMedium` for large welcome or hero titles.
-- `headlineLarge` and `headlineMedium` for page-level headings.
-- `headlineSmall` for card titles and section titles.
-- `titleLarge`, `titleMedium`, and `titleSmall` for compact titles.
-- `bodyLarge`, `bodyMedium`, and `bodySmall` for normal content.
-- `labelLarge`, `labelMedium`, and `labelSmall` for buttons, hints, and labels.
+Use Material text roles consistently:
 
-Do not hardcode `TextStyle` from scratch in feature widgets unless a theme token
-does not exist. Prefer:
+- display styles for rare hero or welcome text
+- headline styles for page and major section titles
+- title styles for cards, dialogs, tabs, and compact headings
+- body styles for normal content
+- label styles for buttons, chips, hints, metadata, and form labels
+
+Do not build complete `TextStyle` objects inside feature widgets unless a
+theme token does not exist. Prefer deriving from the theme:
 
 ```dart
-style: context.textTheme.bodyMedium!.copyWith(color: grey400)
+style: context.textTheme.bodyMedium!.copyWith(
+  color: context.colorScheme.onSurfaceVariant,
+)
 ```
+
+Add new theme text styles or extensions when the same typography variant appears
+in several places.
 
 ## Component Theme Defaults
 
-Configure shared appearance in `AppTheme`:
+Configure shared appearance in `AppTheme` so feature widgets inherit consistent
+behavior by default. Include the component themes that the project actually
+uses, such as:
 
-- `useMaterial3: true`
-- `fontFamily: kFontFamily`
-- `scaffoldBackgroundColor`
-- `cardColor`
-- `colorScheme.primary`
-- `colorScheme.secondary`
-- `appBarTheme`
-- `tabBarTheme`
-- `inputDecorationTheme`
-- `dialogTheme`
-- `elevatedButtonTheme`
-- `outlinedButtonTheme`
-- `textButtonTheme`
-- `floatingActionButtonTheme`
-- `switchTheme`
-- custom `ThemeExtension`
+- `ColorScheme` for light and dark themes
+- `TextTheme` and `fontFamily`
+- `Scaffold`, `AppBar`, `NavigationBar`, `NavigationRail`, and `Drawer`
+- `Card`, `Dialog`, `BottomSheet`, and `SnackBar`
+- `InputDecoration`, `DropdownMenu`, `Checkbox`, `Radio`, and `Switch`
+- `ElevatedButton`, `FilledButton`, `OutlinedButton`, `TextButton`, and FABs
+- `TabBar`, `Chip`, `Divider`, `Icon`, and tooltip defaults
+- custom `ThemeExtension` values for project-specific tokens
 
-Feature widgets may override button color or radius for a specific variant, but
-the default should come from theme.
+Feature widgets may override a component for a clear variant, such as a
+destructive button or highlighted status chip. The default shape, density,
+padding, text style, and color behavior should come from the theme.
 
 ## Context Extensions
 
-Use a `BuildContext` extension similar to the source app:
+Provide a `BuildContext` extension for common UI accessors. Keep it aligned with
+the project's localization, custom theme extensions, and image/icon helpers:
 
 ```dart
 extension ContextExtensions on BuildContext {
@@ -93,56 +121,78 @@ extension ContextExtensions on BuildContext {
   TextTheme get textTheme => Theme.of(this).textTheme;
   ColorScheme get colorScheme => Theme.of(this).colorScheme;
   S get loc => S.of(this);
-
-  ColorFilter get svgColorFilter => ColorFilter.mode(
-        theme.iconTheme.color!,
-        BlendMode.srcIn,
-      );
 }
 ```
 
-Keep UI helpers such as snackbar display here when they are generic.
+Add helpers here only when they are generic and widely useful, such as snackbar
+display, responsive breakpoint checks, or shared SVG color filters.
 
 ## Assets
 
-Use a single asset constants class:
+Use one asset constants class or a small asset constants module. Match folder
+names to the project rather than copying a source app's asset tree.
+
+Example:
 
 ```dart
 class FixedAssets {
-  static const String _images = 'assets/images/';
-  static const String _svg = '${_images}svg/';
-  static const String _png = '${_images}png/';
-  static const String _gif = '${_images}gif/';
+  static const String _png = 'assets/images/png/';
+  static const String _svg = 'assets/images/svg/';
 
-  static const String appLogo = '${_svg}app_logo.svg';
-  static const String emptyState = '${_gif}empty_state.gif';
-  static const String arrowBack = '${_svg}arrow_back.svg';
+  // pngs
+  static const String background = '${_png}background.png';
+
+  // svgs
+  static const String logoWhite = '${_svg}logo-white.svg';
+
 }
 ```
 
 Rules:
 
-- Register assets in `pubspec.yaml`.
-- Use `SvgPicture.asset(FixedAssets.name)` for SVG icons.
+- Register asset folders or files in `pubspec.yaml`.
+- Use `FaIcon(FontAwesomeIcons.name)` for reusable UI icons from
+  `font_awesome_flutter`.
+- Use `SvgPicture.asset(FixedAssets.name)` for SVG assets.
 - Use `Image.asset(FixedAssets.name)` for local bitmap assets.
-- Use shared image widgets for repeated image behavior.
+- Use shared image widgets for repeated sizing, clipping, placeholders, and
+  error behavior.
 - Do not place raw asset paths inside feature widgets.
+- Prefer descriptive asset names based on their role in the UI, not temporary
+  file names from design exports.
+
+## Responsive Sizing
+
+Design tokens should support the breakpoints the app needs. Use responsive
+helpers or layout constraints for changes in:
+
+- page horizontal padding
+- grid column counts
+- max content width
+- navigation pattern, such as bottom bar versus rail or drawer
+- dialog and sheet width
+- image aspect ratios and card density
+
+Do not scatter breakpoint checks across unrelated widgets. Keep shared
+breakpoints and responsive calculations in theme constants, layout helpers, or
+context extensions.
 
 ## Card And Surface Style
 
-The common card pattern is:
+Build repeated surfaces from theme tokens:
 
 ```dart
 Container(
-  padding: const EdgeInsets.all(16),
-  margin: const EdgeInsets.only(bottom: 12),
+  padding: EdgeInsets.all(kCardPadding),
   decoration: BoxDecoration(
     color: context.theme.cardColor,
-    borderRadius: BorderRadius.circular(kRadiusM),
+    borderRadius: BorderRadius.circular(kCardRadius),
+    border: Border.all(color: context.colorScheme.outlineVariant),
   ),
   child: child,
 )
 ```
 
-Use `kRadiusM` for normal cards and fields. Use `kRadiusL` for larger images,
-buttons, and prominent containers.
+Use project-defined radius, padding, border, elevation, and surface colors. Cards
+should feel consistent across the app, but specific surfaces can have named
+variants when the product needs them.

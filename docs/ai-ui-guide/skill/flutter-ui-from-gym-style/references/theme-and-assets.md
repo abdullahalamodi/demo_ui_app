@@ -80,7 +80,8 @@ class FixedAssets {
 Rules:
 
 - Register asset folders in `pubspec.yaml`.
+- Use `FaIcon(FontAwesomeIcons.name)` from `font_awesome_flutter` for standard
+  UI icons.
 - Use `SvgPicture.asset(FixedAssets.name)` for SVGs.
 - Use `Image.asset(FixedAssets.name)` for local bitmaps.
 - Do not use raw asset paths in feature widgets.
-

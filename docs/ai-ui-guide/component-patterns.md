@@ -131,4 +131,10 @@ Use:
 - `GestureDetector` or `InkWell` for cards and icon rows.
 - `ConfirmationDialog` for destructive or high-friction confirmation.
 
+Use `FaIcon` and `FontAwesomeIcons` from `font_awesome_flutter` for standard UI
+icons. Prefer Font Awesome icons for buttons, empty states, metadata rows,
+tabs, navigation, and repeated controls so the app has one consistent icon
+style. Use Material `Icons` only when a platform-specific Material control
+requires it or Font Awesome does not provide a suitable match.
+
 Use `SvgPicture.asset` with `context.svgColorFilter` for theme-aware icons.
