@@ -1,0 +1,4 @@
+interface:
+  display_name: "Flutter UI From Gym Style"
+  short_description: "Build Flutter UI using this project style"
+  default_prompt: "Use $flutter-ui-from-gym-style to build a UI-first Flutter screen that follows the extracted Gym app architecture and widget style."
