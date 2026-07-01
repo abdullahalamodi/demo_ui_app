@@ -1,56 +1,76 @@
+import 'package:pinput/pinput.dart';
+
 import '../../../common_libs.dart';
 
-class OtpCodeInput extends StatelessWidget {
+class OtpCodeInput extends StatefulWidget {
   const OtpCodeInput({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        _OtpBox(value: context.loc.otpFirstDigit),
-        _OtpBox(value: ''),
-        _OtpBox(value: ''),
-        _OtpBox(value: ''),
-      ],
-    );
-  }
+  State<OtpCodeInput> createState() => _OtpCodeInputState();
 }
 
-class _OtpBox extends StatelessWidget {
-  const _OtpBox({required this.value});
+class _OtpCodeInputState extends State<OtpCodeInput> {
+  late final TextEditingController _controller;
 
-  final String value;
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_controller.text.isEmpty) {
+      _controller.value = TextEditingValue();
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final focused = value.isEmpty;
     final colors = context.customColors;
-
-    return Container(
+    final defaultPinTheme = PinTheme(
       width: 68,
       height: 70,
-      alignment: Alignment.center,
+      textStyle: context.textTheme.headlineMedium?.copyWith(
+        color: context.colorScheme.onSurface,
+      ),
       decoration: BoxDecoration(
         color: colors.surfaceRaised,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(
-          color: focused ? colors.focusRing : colors.borderMuted,
-          width: 1.2,
+        border: Border.all(color: colors.borderMuted, width: 1.2),
+      ),
+    );
+
+    final activePinTheme = defaultPinTheme.copyDecorationWith(
+      color: colors.surfaceRaised,
+      borderRadius: BorderRadius.circular(10),
+      border: Border.all(color: colors.focusRing, width: 1.2),
+    );
+
+    return SizedBox(
+      width: double.infinity,
+      child: Pinput(
+        controller: _controller,
+        length: 4,
+        defaultPinTheme: defaultPinTheme,
+        focusedPinTheme: activePinTheme,
+        followingPinTheme: activePinTheme,
+        submittedPinTheme: defaultPinTheme,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        pinAnimationType: PinAnimationType.none,
+        cursor: SizedBox(
+          width: 1.5,
+          height: 32,
+          child: ColoredBox(color: context.colorScheme.onSurface),
         ),
       ),
-      child: value.isEmpty
-          ? SizedBox(
-              width: 1.5,
-              height: 32,
-              child: ColoredBox(color: context.colorScheme.onSurface),
-            )
-          : Text(
-              value,
-              style: context.textTheme.headlineMedium?.copyWith(
-                color: context.colorScheme.onSurface,
-              ),
-            ),
     );
   }
 }

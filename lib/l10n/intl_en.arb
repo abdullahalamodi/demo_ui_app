@@ -37,6 +37,5 @@
   "wrongNumberChange": "Wrong Number?Change",
   "didntReceiveCodeResend": "Didn't receive a code? Resend",
   "verifyOtp": "Verify OTP",
-  "skip": "Skip",
-  "otpFirstDigit": "4"
+  "skip": "Skip"
 }
