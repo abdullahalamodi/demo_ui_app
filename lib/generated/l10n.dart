@@ -320,12 +320,6 @@ abstract class S {
   /// In en, this message translates to:
   /// **'Skip'**
   String get skip;
-
-  /// No description provided for @otpFirstDigit.
-  ///
-  /// In en, this message translates to:
-  /// **'4'**
-  String get otpFirstDigit;
 }
 
 class _SDelegate extends LocalizationsDelegate<S> {

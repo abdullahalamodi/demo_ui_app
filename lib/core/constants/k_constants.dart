@@ -15,5 +15,5 @@ const double kRadiusL = 16;
 const double kButtonHeight = 48;
 const double kMaxContentWidth = 1040;
 
-const EdgeInsets kScrollablePagePadding = EdgeInsets.fromLTRB(34, 26, 34, 0);
-const EdgeInsets kFixedPagePadding = EdgeInsets.fromLTRB(34, 26, 34, 36);
+const EdgeInsets kScrollablePagePadding = EdgeInsets.fromLTRB(24, 16, 24, 0);
+const EdgeInsets kFixedPagePadding = EdgeInsets.fromLTRB(24, 16, 24, 36);

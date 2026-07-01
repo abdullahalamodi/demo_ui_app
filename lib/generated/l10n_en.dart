@@ -124,7 +124,4 @@ class SEn extends S {
 
   @override
   String get skip => 'Skip';
-
-  @override
-  String get otpFirstDigit => '4';
 }
