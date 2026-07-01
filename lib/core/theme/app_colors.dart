@@ -1,9 +1,9 @@
 import '../../common_libs.dart';
 
-// light theme colors
+// Light theme colors.
 const primaryColor = Color(0xFF0F49C6);
-const secondaryColor = Color(0xFF0F766E);
-const borderColor = Color(0xFFE2DDD8);
+const secondaryColor = Color(0xFF44D2C9);
+const borderColor = Color(0xFFE6E8E7);
 
 @immutable
 class AppColors extends ThemeExtension<AppColors> {
@@ -25,6 +25,15 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.focusRing,
     required this.borderMuted,
     required this.accent,
+    required this.selection,
+    required this.onSelection,
+    required this.surfaceTinted,
+    required this.surfaceSelected,
+    required this.surfaceInverse,
+    required this.onSurfaceInverse,
+    required this.iconMuted,
+    required this.shadowSoft,
+    required this.packageProgress,
   });
 
   final Color success;
@@ -44,6 +53,15 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color focusRing;
   final Color borderMuted;
   final Color accent;
+  final Color selection;
+  final Color onSelection;
+  final Color surfaceTinted;
+  final Color surfaceSelected;
+  final Color surfaceInverse;
+  final Color onSurfaceInverse;
+  final Color iconMuted;
+  final Color shadowSoft;
+  final Color packageProgress;
 
   @override
   AppColors copyWith({
@@ -64,6 +82,15 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? focusRing,
     Color? borderMuted,
     Color? accent,
+    Color? selection,
+    Color? onSelection,
+    Color? surfaceTinted,
+    Color? surfaceSelected,
+    Color? surfaceInverse,
+    Color? onSurfaceInverse,
+    Color? iconMuted,
+    Color? shadowSoft,
+    Color? packageProgress,
   }) {
     return AppColors(
       success: success ?? this.success,
@@ -83,6 +110,15 @@ class AppColors extends ThemeExtension<AppColors> {
       focusRing: focusRing ?? this.focusRing,
       borderMuted: borderMuted ?? this.borderMuted,
       accent: accent ?? this.accent,
+      selection: selection ?? this.selection,
+      onSelection: onSelection ?? this.onSelection,
+      surfaceTinted: surfaceTinted ?? this.surfaceTinted,
+      surfaceSelected: surfaceSelected ?? this.surfaceSelected,
+      surfaceInverse: surfaceInverse ?? this.surfaceInverse,
+      onSurfaceInverse: onSurfaceInverse ?? this.onSurfaceInverse,
+      iconMuted: iconMuted ?? this.iconMuted,
+      shadowSoft: shadowSoft ?? this.shadowSoft,
+      packageProgress: packageProgress ?? this.packageProgress,
     );
   }
 
@@ -114,6 +150,19 @@ class AppColors extends ThemeExtension<AppColors> {
       focusRing: Color.lerp(focusRing, other.focusRing, t)!,
       borderMuted: Color.lerp(borderMuted, other.borderMuted, t)!,
       accent: Color.lerp(accent, other.accent, t)!,
+      selection: Color.lerp(selection, other.selection, t)!,
+      onSelection: Color.lerp(onSelection, other.onSelection, t)!,
+      surfaceTinted: Color.lerp(surfaceTinted, other.surfaceTinted, t)!,
+      surfaceSelected: Color.lerp(surfaceSelected, other.surfaceSelected, t)!,
+      surfaceInverse: Color.lerp(surfaceInverse, other.surfaceInverse, t)!,
+      onSurfaceInverse: Color.lerp(
+        onSurfaceInverse,
+        other.onSurfaceInverse,
+        t,
+      )!,
+      iconMuted: Color.lerp(iconMuted, other.iconMuted, t)!,
+      shadowSoft: Color.lerp(shadowSoft, other.shadowSoft, t)!,
+      packageProgress: Color.lerp(packageProgress, other.packageProgress, t)!,
     );
   }
 }
