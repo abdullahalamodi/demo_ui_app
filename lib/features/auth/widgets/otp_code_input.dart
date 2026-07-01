@@ -44,7 +44,7 @@ class _OtpCodeInputState extends State<OtpCodeInput> {
       decoration: BoxDecoration(
         color: colors.surfaceRaised,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: colors.borderMuted, width: 1.2),
+        border: Border.all(color: colors.border, width: 1.2),
       ),
     );
 

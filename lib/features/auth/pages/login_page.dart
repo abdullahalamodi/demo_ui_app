@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const AuthLogo(),
-                const SizedBox(height: 50),
+                const SizedBox(height: 46),
                 AuthHeader(title: context.loc.accountLoginTitle),
               ],
             ),
@@ -42,10 +42,13 @@ class LoginPage extends StatelessWidget {
               Row(
                 children: [
                   SizedBox(
-                    width: 18,
-                    height: 18,
+                    width: 16,
+                    height: 16,
                     child: Checkbox(
                       value: false,
+                      side: BorderSide(
+                        color: context.customColors.onSurfaceMuted,
+                      ),
                       onChanged: (_) {},
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     ),
@@ -53,10 +56,7 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(width: 10),
                   Text(
                     context.loc.rememberMe,
-                    style: context.textTheme.labelMedium?.copyWith(
-                      color: context.customColors.onSurfaceMuted,
-                      fontWeight: FontWeight.w400,
-                    ),
+                    style: context.textTheme.bodySmall,
                   ),
                   const Spacer(),
                   TextButton(

@@ -33,19 +33,20 @@ class MobileVerificationPage extends StatelessWidget {
             children: [
               Text(
                 context.loc.verificationPhoneNumber,
-                style: context.textTheme.titleLarge?.copyWith(
-                  color: context.customColors.onSurfaceStrong,
+                style: context.textTheme.headlineMedium?.copyWith(
+                  color: Colors.black,
                 ),
               ),
               const SizedBox(height: 6),
               TextButton(
                 onPressed: () {},
                 style: TextButton.styleFrom(
-                  foregroundColor: context.customColors.onSurfaceMuted,
                   minimumSize: Size.zero,
-                  textStyle: context.textTheme.bodySmall,
                 ),
-                child: Text(context.loc.wrongNumberChange),
+                child: Text(
+                  context.loc.wrongNumberChange,
+                  style: context.textTheme.bodySmall,
+                ),
               ),
               const SizedBox(height: 29),
               const OtpCodeInput(),
@@ -58,7 +59,10 @@ class MobileVerificationPage extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                child: Text(context.loc.didntReceiveCodeResend),
+                child: Text(
+                  context.loc.didntReceiveCodeResend,
+                  style: context.textTheme.bodySmall,
+                ),
               ),
               const SizedBox(height: 10),
               AuthPrimaryButton(

@@ -16,11 +16,10 @@ class AuthFooterLink extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onTap,
-      style: TextButton.styleFrom(
-        foregroundColor: context.customColors.onSurfaceMuted,
-        textStyle: context.textTheme.bodySmall,
+      child: Text(
+        '$text$action',
+        style: context.textTheme.bodySmall,
       ),
-      child: Text('$text$action'),
     );
   }
 }

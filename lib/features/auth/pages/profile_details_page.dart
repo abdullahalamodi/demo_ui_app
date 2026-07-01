@@ -26,7 +26,7 @@ class ProfileDetailsPage extends StatelessWidget {
                     child: TextButton(
                       onPressed: () => HomePage.go(context),
                       style: TextButton.styleFrom(
-                        foregroundColor: context.customColors.onMedia,
+                        foregroundColor: context.customColors.white,
                         textStyle: context.textTheme.labelMedium?.copyWith(
                           fontWeight: FontWeight.w500,
                         ),

@@ -15,7 +15,10 @@ class AuthPrimaryButton extends StatelessWidget {
     return SizedBox(
       height: 52,
       width: double.infinity,
-      child: FilledButton(onPressed: onPressed, child: Text(label)),
+      child: FilledButton(
+        onPressed: onPressed,
+        child: Text(label),
+      ),
     );
   }
 }
@@ -42,10 +45,11 @@ class AuthSecondaryButton extends StatelessWidget {
         style: FilledButton.styleFrom(
           backgroundColor: colors.surfaceRaised,
           foregroundColor: context.colorScheme.onSurface,
-          textStyle: context.textTheme.labelMedium,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
         ),
-        child: Text(label),
+        child: Text(
+          label,
+        ),
       ),
     );
   }
@@ -70,15 +74,22 @@ class SocialAuthButton extends StatelessWidget {
     return SizedBox(
       height: 52,
       width: double.infinity,
-      child: FilledButton.icon(
+      child: FilledButton(
         onPressed: onPressed,
-        icon: FaIcon(icon, size: 18),
-        label: Text(label),
         style: FilledButton.styleFrom(
           backgroundColor: colors.surfaceDisabled,
           foregroundColor: context.colorScheme.onSurface,
-          textStyle: context.textTheme.titleMedium,
+          textStyle: context.textTheme.labelLarge,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            FaIcon(icon, size: 18),
+            SizedBox(width: 32),
+            Text(label),
+            SizedBox(width: 32),
+          ],
         ),
       ),
     );

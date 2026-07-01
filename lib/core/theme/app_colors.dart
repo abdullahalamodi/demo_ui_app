@@ -3,7 +3,7 @@ import '../../common_libs.dart';
 // Light theme colors.
 const primaryColor = Color(0xFF0F49C6);
 const secondaryColor = Color(0xFF44D2C9);
-const borderColor = Color(0xFFE6E8E7);
+const borderColor = Color(0xFFD9D6D0);
 
 @immutable
 class AppColors extends ThemeExtension<AppColors> {
@@ -18,12 +18,12 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.onSurfaceMuted,
     required this.onSurfaceSubtle,
     required this.onSurfaceStrong,
-    required this.onMedia,
+    required this.white,
     required this.mediaScrimLow,
     required this.mediaScrimMedium,
     required this.mediaScrimHigh,
     required this.focusRing,
-    required this.borderMuted,
+    required this.border,
     required this.accent,
     required this.selection,
     required this.onSelection,
@@ -46,12 +46,12 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color onSurfaceMuted;
   final Color onSurfaceSubtle;
   final Color onSurfaceStrong;
-  final Color onMedia;
+  final Color white;
   final Color mediaScrimLow;
   final Color mediaScrimMedium;
   final Color mediaScrimHigh;
   final Color focusRing;
-  final Color borderMuted;
+  final Color border;
   final Color accent;
   final Color selection;
   final Color onSelection;
@@ -103,12 +103,12 @@ class AppColors extends ThemeExtension<AppColors> {
       onSurfaceMuted: onSurfaceMuted ?? this.onSurfaceMuted,
       onSurfaceSubtle: onSurfaceSubtle ?? this.onSurfaceSubtle,
       onSurfaceStrong: onSurfaceStrong ?? this.onSurfaceStrong,
-      onMedia: onMedia ?? this.onMedia,
+      white: onMedia ?? this.white,
       mediaScrimLow: mediaScrimLow ?? this.mediaScrimLow,
       mediaScrimMedium: mediaScrimMedium ?? this.mediaScrimMedium,
       mediaScrimHigh: mediaScrimHigh ?? this.mediaScrimHigh,
       focusRing: focusRing ?? this.focusRing,
-      borderMuted: borderMuted ?? this.borderMuted,
+      border: borderMuted ?? this.border,
       accent: accent ?? this.accent,
       selection: selection ?? this.selection,
       onSelection: onSelection ?? this.onSelection,
@@ -139,7 +139,7 @@ class AppColors extends ThemeExtension<AppColors> {
       onSurfaceMuted: Color.lerp(onSurfaceMuted, other.onSurfaceMuted, t)!,
       onSurfaceSubtle: Color.lerp(onSurfaceSubtle, other.onSurfaceSubtle, t)!,
       onSurfaceStrong: Color.lerp(onSurfaceStrong, other.onSurfaceStrong, t)!,
-      onMedia: Color.lerp(onMedia, other.onMedia, t)!,
+      white: Color.lerp(white, other.white, t)!,
       mediaScrimLow: Color.lerp(mediaScrimLow, other.mediaScrimLow, t)!,
       mediaScrimMedium: Color.lerp(
         mediaScrimMedium,
@@ -148,7 +148,7 @@ class AppColors extends ThemeExtension<AppColors> {
       )!,
       mediaScrimHigh: Color.lerp(mediaScrimHigh, other.mediaScrimHigh, t)!,
       focusRing: Color.lerp(focusRing, other.focusRing, t)!,
-      borderMuted: Color.lerp(borderMuted, other.borderMuted, t)!,
+      border: Color.lerp(border, other.border, t)!,
       accent: Color.lerp(accent, other.accent, t)!,
       selection: Color.lerp(selection, other.selection, t)!,
       onSelection: Color.lerp(onSelection, other.onSelection, t)!,

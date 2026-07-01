@@ -27,7 +27,7 @@ class AuthHeader extends StatelessWidget {
               Text(
                 title,
                 style: context.textTheme.displayLarge?.copyWith(
-                  color: colors.onMedia,
+                  color: colors.white,
                 ),
               ),
               if (subtitle case final subtitle?) ...[
@@ -35,7 +35,7 @@ class AuthHeader extends StatelessWidget {
                 Text(
                   subtitle,
                   style: context.textTheme.bodyLarge?.copyWith(
-                    color: colors.onMedia,
+                    color: colors.white,
                   ),
                 ),
               ],

@@ -18,7 +18,7 @@ class CreateAccountPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const AuthLogo(),
-                const SizedBox(height: 30),
+                const SizedBox(height: 26),
                 AuthHeader(title: context.loc.accountCreateTitle),
               ],
             ),

@@ -18,7 +18,7 @@ class OnboardingPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const AuthLogo(),
-                const Spacer(),
+                SizedBox(height: 46),
                 AuthHeader(
                   title: context.loc.onboardingTitle,
                   subtitle: context.loc.onboardingSubtitle,
@@ -41,10 +41,9 @@ class OnboardingPage extends StatelessWidget {
                             ),
                             const SizedBox(width: 10),
                             Text(
-                              context.loc.onboardingRating,
-                              style: context.textTheme.titleLarge?.copyWith(
-                                color: context.customColors.onMedia,
-                                fontWeight: FontWeight.w700,
+                              '4.7',
+                              style: context.textTheme.headlineMedium?.copyWith(
+                                color: context.customColors.white,
                               ),
                             ),
                           ],
@@ -52,8 +51,8 @@ class OnboardingPage extends StatelessWidget {
                         const SizedBox(height: 3),
                         Text(
                           context.loc.onboardingPlayersCount,
-                          style: context.textTheme.bodyMedium?.copyWith(
-                            color: context.customColors.onMedia,
+                          style: context.textTheme.bodyLarge?.copyWith(
+                            color: context.customColors.white,
                           ),
                         ),
                       ],
