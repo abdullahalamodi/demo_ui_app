@@ -9,7 +9,6 @@ class App extends StatelessWidget {
       title: 'Demo UI App',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light(),
-      darkTheme: AppTheme.dark(),
       routerConfig: appRouter,
       locale: const Locale('en'),
       supportedLocales: S.supportedLocales,

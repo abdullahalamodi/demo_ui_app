@@ -3,15 +3,15 @@ import '../../common_libs.dart';
 abstract final class AppTheme {
   static ThemeData light() {
     const colorScheme = ColorScheme.light(
-      primary: Color(0xFF2563EB),
+      primary: primaryColor,
       onPrimary: Color(0xFFFFFFFF),
-      secondary: Color(0xFF0F766E),
+      secondary: secondaryColor,
       onSecondary: Color(0xFFFFFFFF),
       surface: Color(0xFFFFFFFF),
       onSurface: Color(0xFF111827),
       surfaceContainerHighest: Color(0xFFF3F4F6),
       outline: Color(0xFFD1D5DB),
-      outlineVariant: Color(0xFFE5E7EB),
+      outlineVariant: borderColor,
       error: Color(0xFFB91C1C),
     );
 
@@ -24,33 +24,18 @@ abstract final class AppTheme {
         info: Color(0xFF0369A1),
         destructive: Color(0xFFB91C1C),
         surfaceMuted: Color(0xFFF9FAFB),
-      ),
-    );
-  }
-
-  static ThemeData dark() {
-    const colorScheme = ColorScheme.dark(
-      primary: Color(0xFF93C5FD),
-      onPrimary: Color(0xFF172554),
-      secondary: Color(0xFF5EEAD4),
-      onSecondary: Color(0xFF042F2E),
-      surface: Color(0xFF111827),
-      onSurface: Color(0xFFF9FAFB),
-      surfaceContainerHighest: Color(0xFF1F2937),
-      outline: Color(0xFF4B5563),
-      outlineVariant: Color(0xFF374151),
-      error: Color(0xFFFCA5A5),
-    );
-
-    return _build(
-      colorScheme: colorScheme,
-      brightness: Brightness.dark,
-      appColors: const AppColors(
-        success: Color(0xFF86EFAC),
-        warning: Color(0xFFFCD34D),
-        info: Color(0xFF7DD3FC),
-        destructive: Color(0xFFFCA5A5),
-        surfaceMuted: Color(0xFF1F2937),
+        surfaceRaised: Color(0xFFFFFFFF),
+        surfaceDisabled: Color(0xFFD5D5D5),
+        onSurfaceMuted: Color(0xFF555555),
+        onSurfaceSubtle: Color(0xFF9A9A9A),
+        onSurfaceStrong: Color(0xFF050505),
+        onMedia: Color(0xFFFFFFFF),
+        mediaScrimLow: Color(0x29000000),
+        mediaScrimMedium: Color(0x0A000000),
+        mediaScrimHigh: Color(0x57000000),
+        focusRing: Color(0xFFCCD8EE),
+        borderMuted: borderColor,
+        accent: Color(0xFFFFB532),
       ),
     );
   }
@@ -61,12 +46,67 @@ abstract final class AppTheme {
     required AppColors appColors,
   }) {
     final isDark = brightness == Brightness.dark;
-    final textTheme = Typography.material2021(platform: TargetPlatform.iOS)
+    final baseTextTheme = Typography.material2021(platform: TargetPlatform.iOS)
         .black
         .apply(
           bodyColor: colorScheme.onSurface,
           displayColor: colorScheme.onSurface,
         );
+    final textTheme = baseTextTheme.copyWith(
+      displayLarge: baseTextTheme.displayLarge?.copyWith(
+        fontSize: 46,
+        height: .98,
+        fontWeight: FontWeight.w400,
+        letterSpacing: 0,
+      ),
+      headlineMedium: baseTextTheme.headlineMedium?.copyWith(
+        fontSize: 30,
+        fontWeight: FontWeight.w700,
+        letterSpacing: 0,
+      ),
+      titleLarge: baseTextTheme.titleLarge?.copyWith(
+        fontSize: 28,
+        fontWeight: FontWeight.w800,
+        letterSpacing: 0,
+      ),
+      titleMedium: baseTextTheme.titleMedium?.copyWith(
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
+        letterSpacing: 0,
+      ),
+      bodyLarge: baseTextTheme.bodyLarge?.copyWith(
+        fontSize: 17,
+        height: 1.35,
+        fontWeight: FontWeight.w400,
+        letterSpacing: 0,
+      ),
+      bodyMedium: baseTextTheme.bodyMedium?.copyWith(
+        fontSize: 15,
+        fontWeight: FontWeight.w400,
+        height: 1,
+        letterSpacing: 0,
+      ),
+      bodySmall: baseTextTheme.bodySmall?.copyWith(
+        fontSize: 13,
+        fontWeight: FontWeight.w400,
+        letterSpacing: 0,
+      ),
+      labelLarge: baseTextTheme.labelLarge?.copyWith(
+        fontSize: 15,
+        fontWeight: FontWeight.w700,
+        letterSpacing: 0,
+      ),
+      labelMedium: baseTextTheme.labelMedium?.copyWith(
+        fontSize: 14,
+        fontWeight: FontWeight.w700,
+        letterSpacing: 0,
+      ),
+      labelSmall: baseTextTheme.labelSmall?.copyWith(
+        fontSize: 13,
+        fontWeight: FontWeight.w700,
+        letterSpacing: 0,
+      ),
+    );
 
     return ThemeData(
       useMaterial3: true,
@@ -98,24 +138,36 @@ abstract final class AppTheme {
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
+        isDense: true,
         filled: true,
-        fillColor: colorScheme.surfaceContainerHighest.withValues(alpha: .45),
+        fillColor: appColors.surfaceRaised,
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 22,
+          vertical: 17,
+        ),
+        suffixIconColor: colorScheme.onSurface,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(kRadiusS),
-          borderSide: BorderSide(color: colorScheme.outlineVariant),
+          borderSide: BorderSide(color: appColors.borderMuted),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(kRadiusS),
-          borderSide: BorderSide(color: colorScheme.outlineVariant),
+          borderSide: BorderSide(color: appColors.borderMuted),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(kRadiusS),
-          borderSide: BorderSide(color: colorScheme.primary, width: 1.5),
+          borderSide: BorderSide(color: appColors.focusRing, width: 1.2),
         ),
+      ),
+      textSelectionTheme: TextSelectionThemeData(
+        cursorColor: colorScheme.onSurface,
       ),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
           minimumSize: const Size.fromHeight(kButtonHeight),
+          backgroundColor: colorScheme.primary,
+          foregroundColor: colorScheme.onPrimary,
+          textStyle: textTheme.labelLarge,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(kRadiusS),
           ),
@@ -128,6 +180,18 @@ abstract final class AppTheme {
             borderRadius: BorderRadius.circular(kRadiusS),
           ),
         ),
+      ),
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(
+          foregroundColor: appColors.onSurfaceMuted,
+          padding: EdgeInsets.zero,
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          textStyle: textTheme.bodySmall,
+        ),
+      ),
+      checkboxTheme: CheckboxThemeData(
+        side: BorderSide(color: appColors.onSurfaceSubtle),
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ),
       dividerTheme: DividerThemeData(
         color: colorScheme.outlineVariant,

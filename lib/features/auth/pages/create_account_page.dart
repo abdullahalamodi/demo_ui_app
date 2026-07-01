@@ -26,7 +26,6 @@ class CreateAccountPage extends StatelessWidget {
         ),
         AuthBottomSheet(
           top: 247,
-          topPadding: 58,
           child: Column(
             children: [
               const AuthTextField(
@@ -56,19 +55,10 @@ class CreateAccountPage extends StatelessWidget {
                 onPressed: () => MobileVerificationPage.go(context),
               ),
               const SizedBox(height: 8),
-              TextButton(
-                onPressed: () => LoginPage.go(context),
-                style: TextButton.styleFrom(
-                  foregroundColor: const Color(0xFF555555),
-                  padding: EdgeInsets.zero,
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  textStyle: const TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: 0,
-                  ),
-                ),
-                child: const Text('New Member?Join Us'),
+              AuthFooterLink(
+                text: 'New Member?',
+                action: 'Join Us',
+                onTap: () => LoginPage.go(context),
               ),
             ],
           ),

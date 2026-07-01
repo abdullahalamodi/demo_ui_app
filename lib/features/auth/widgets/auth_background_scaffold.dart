@@ -7,6 +7,8 @@ class AuthBackgroundScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.customColors;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Stack(
@@ -19,9 +21,9 @@ class AuthBackgroundScaffold extends StatelessWidget {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Colors.black.withValues(alpha: .16),
-                  Colors.black.withValues(alpha: .04),
-                  Colors.black.withValues(alpha: .34),
+                  colors.mediaScrimLow,
+                  colors.mediaScrimMedium,
+                  colors.mediaScrimHigh,
                 ],
                 stops: const [0, .43, 1],
               ),

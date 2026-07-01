@@ -6,5 +6,5 @@ abstract final class FixedAssets {
   static const String background = '${_png}background.png';
 
   // svgs
-  static const String logoWhite = '${_svg}logo-white.svg';
+  static const String logoWhite = '${_svg}logo_white.svg';
 }

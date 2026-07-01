@@ -26,12 +26,8 @@ class _AuthTextFieldState extends State<AuthTextField> {
       children: [
         Text(
           widget.label,
-          style: const TextStyle(
-            color: Color(0xFF9A9A9A),
-            fontSize: 15,
-            fontWeight: FontWeight.w400,
-            height: 1,
-            letterSpacing: 0,
+          style: context.textTheme.bodyMedium?.copyWith(
+            color: context.customColors.onSurfaceSubtle,
           ),
         ),
         const SizedBox(height: 8),
@@ -39,15 +35,7 @@ class _AuthTextFieldState extends State<AuthTextField> {
           initialValue: widget.initialValue,
           obscureText: _obscure,
           obscuringCharacter: '*',
-          cursorColor: const Color(0xFF111111),
           decoration: InputDecoration(
-            isDense: true,
-            filled: true,
-            fillColor: Colors.white,
-            contentPadding: const EdgeInsets.symmetric(
-              horizontal: 22,
-              vertical: 17,
-            ),
             suffixIcon: widget.obscure
                 ? IconButton(
                     onPressed: () => setState(() => _obscure = !_obscure),
@@ -56,23 +44,13 @@ class _AuthTextFieldState extends State<AuthTextField> {
                           ? FontAwesomeIcons.eyeSlash
                           : FontAwesomeIcons.eye,
                       size: 17,
-                      color: const Color(0xFF242424),
+                      color: context.colorScheme.onSurface,
                     ),
                   )
                 : null,
-            border: _border(const Color(0xFFD8D2CC)),
-            enabledBorder: _border(const Color(0xFFD8D2CC)),
-            focusedBorder: _border(const Color(0xFFCAD6EF)),
           ),
         ),
       ],
-    );
-  }
-
-  OutlineInputBorder _border(Color color) {
-    return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(8),
-      borderSide: BorderSide(color: color),
     );
   }
 }

@@ -4,8 +4,8 @@ class AuthBottomSheet extends StatelessWidget {
   const AuthBottomSheet({
     required this.child,
     required this.top,
-    this.horizontalPadding = 34,
-    this.topPadding = 56,
+    this.horizontalPadding = 32,
+    this.topPadding = 36,
     super.key,
   });
 
@@ -17,10 +17,11 @@ class AuthBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const bodyTop = 24.0;
-    const bodyRadius = 60.0;
+    const bodyRadius = 50.0;
     const capLeft = 40.0;
     const capHeight = 48.0;
     const capRadius = 48.0;
+    final colors = context.customColors;
 
     return Positioned(
       left: 0,
@@ -30,42 +31,39 @@ class AuthBottomSheet extends StatelessWidget {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          const Positioned.fill(
-            top: bodyTop,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(bodyRadius),
-                ),
-              ),
-            ),
-          ),
-          const Positioned(
+          Positioned(
             left: capLeft,
             right: 0,
             top: 10,
             height: capHeight,
             child: DecoratedBox(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: colors.surfaceRaised,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(capRadius),
                 ),
               ),
             ),
           ),
-          SafeArea(
-            top: false,
-            child: SingleChildScrollView(
-              padding: EdgeInsets.fromLTRB(
-                horizontalPadding,
-                topPadding,
-                horizontalPadding,
-                24,
+          Positioned.fill(
+            top: bodyTop,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                color: colors.surfaceRaised,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(bodyRadius),
+                ),
               ),
-              physics: const ClampingScrollPhysics(),
-              child: child,
+              child: SingleChildScrollView(
+                padding: EdgeInsets.fromLTRB(
+                  horizontalPadding,
+                  topPadding,
+                  horizontalPadding,
+                  24,
+                ),
+                physics: ClampingScrollPhysics(),
+                child: child,
+              ),
             ),
           ),
         ],

@@ -26,13 +26,9 @@ class ProfileDetailsPage extends StatelessWidget {
                     child: TextButton(
                       onPressed: () => HomePage.go(context),
                       style: TextButton.styleFrom(
-                        foregroundColor: Colors.white,
-                        padding: EdgeInsets.zero,
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        textStyle: const TextStyle(
-                          fontSize: 14,
+                        foregroundColor: context.customColors.onMedia,
+                        textStyle: context.textTheme.labelMedium?.copyWith(
                           fontWeight: FontWeight.w500,
-                          letterSpacing: 0,
                         ),
                       ),
                       child: Row(
@@ -51,7 +47,6 @@ class ProfileDetailsPage extends StatelessWidget {
         ),
         AuthBottomSheet(
           top: 346,
-          topPadding: 58,
           child: Column(
             children: [
               const AuthTextField(
@@ -74,19 +69,10 @@ class ProfileDetailsPage extends StatelessWidget {
                 onPressed: () => HomePage.go(context),
               ),
               const SizedBox(height: 8),
-              TextButton(
-                onPressed: () => LoginPage.go(context),
-                style: TextButton.styleFrom(
-                  foregroundColor: const Color(0xFF555555),
-                  padding: EdgeInsets.zero,
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  textStyle: const TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: 0,
-                  ),
-                ),
-                child: const Text('New Member?Join Us'),
+              AuthFooterLink(
+                text: 'New Member?',
+                action: 'Join Us',
+                onTap: () => LoginPage.go(context),
               ),
             ],
           ),

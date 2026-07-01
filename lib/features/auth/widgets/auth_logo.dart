@@ -9,7 +9,6 @@ class AuthLogo extends StatelessWidget {
       FixedAssets.logoWhite,
       width: 128,
       fit: BoxFit.cover,
-      
     );
   }
 }

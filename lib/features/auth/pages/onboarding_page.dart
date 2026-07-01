@@ -31,35 +31,30 @@ class OnboardingPage extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 2),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
-                      children: const [
+                      children: [
                         Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             FaIcon(
                               FontAwesomeIcons.solidStar,
                               size: 23,
-                              color: Color(0xFFFFB532),
+                              color: context.customColors.accent,
                             ),
-                            SizedBox(width: 10),
+                            const SizedBox(width: 10),
                             Text(
                               '4.7',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 28,
+                              style: context.textTheme.titleLarge?.copyWith(
+                                color: context.customColors.onMedia,
                                 fontWeight: FontWeight.w700,
-                                letterSpacing: 0,
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: 3),
+                        const SizedBox(height: 3),
                         Text(
                           'from 1,800+ Players',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w400,
-                            letterSpacing: 0,
+                          style: context.textTheme.bodyMedium?.copyWith(
+                            color: context.customColors.onMedia,
                           ),
                         ),
                       ],

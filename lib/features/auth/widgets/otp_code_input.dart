@@ -25,32 +25,30 @@ class _OtpBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final focused = value.isEmpty;
+    final colors = context.customColors;
 
     return Container(
       width: 68,
       height: 70,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: colors.surfaceRaised,
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
-          color: focused ? const Color(0xFFCCD8EE) : const Color(0xFFE2DDD8),
+          color: focused ? colors.focusRing : colors.borderMuted,
           width: 1.2,
         ),
       ),
       child: value.isEmpty
-          ? const SizedBox(
+          ? SizedBox(
               width: 1.5,
               height: 32,
-              child: ColoredBox(color: Color(0xFF111111)),
+              child: ColoredBox(color: context.colorScheme.onSurface),
             )
           : Text(
               value,
-              style: const TextStyle(
-                fontSize: 30,
-                color: Color(0xFF111111),
-                fontWeight: FontWeight.w700,
-                letterSpacing: 0,
+              style: context.textTheme.headlineMedium?.copyWith(
+                color: context.colorScheme.onSurface,
               ),
             ),
     );

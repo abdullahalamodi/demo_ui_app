@@ -16,8 +16,9 @@ class MobileVerificationPage extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(34, 26, 34, 0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 AuthLogo(),
+
                 SizedBox(height: 200),
                 AuthHeader(title: 'Mobile\nVerification'),
               ],
@@ -27,31 +28,22 @@ class MobileVerificationPage extends StatelessWidget {
         AuthBottomSheet(
           top: 432,
           horizontalPadding: 34,
-          topPadding: 62,
+          topPadding: 52,
           child: Column(
             children: [
-              const Text(
+              Text(
                 '+966 52 8121948',
-                style: TextStyle(
-                  color: Color(0xFF050505),
-                  fontSize: 28,
-                  fontWeight: FontWeight.w800,
-                  letterSpacing: 0,
+                style: context.textTheme.titleLarge?.copyWith(
+                  color: context.customColors.onSurfaceStrong,
                 ),
               ),
               const SizedBox(height: 6),
               TextButton(
                 onPressed: () {},
                 style: TextButton.styleFrom(
-                  foregroundColor: const Color(0xFF555555),
-                  padding: EdgeInsets.zero,
+                  foregroundColor: context.customColors.onSurfaceMuted,
                   minimumSize: Size.zero,
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  textStyle: const TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: 0,
-                  ),
+                  textStyle: context.textTheme.bodySmall,
                 ),
                 child: const Text('Wrong Number?Change'),
               ),
@@ -61,11 +53,9 @@ class MobileVerificationPage extends StatelessWidget {
               TextButton(
                 onPressed: () {},
                 style: TextButton.styleFrom(
-                  foregroundColor: const Color(0xFF444444),
-                  textStyle: const TextStyle(
-                    fontSize: 14,
+                  foregroundColor: context.customColors.onSurfaceMuted,
+                  textStyle: context.textTheme.labelMedium?.copyWith(
                     fontWeight: FontWeight.w400,
-                    letterSpacing: 0,
                   ),
                 ),
                 child: const Text("Didn't receive a code? Resend"),
