@@ -4,7 +4,8 @@ abstract final class FixedAssets {
 
   // pngs
   static const String background = '${_png}background.png';
+  static const String logoWhite = '${_png}logo-white.png';
 
   // svgs
-  static const String logoWhite = '${_svg}logo_white.svg';
+  static const String keep = '${_svg}keep.svg';
 }

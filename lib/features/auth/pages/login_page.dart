@@ -13,13 +13,13 @@ class LoginPage extends StatelessWidget {
       children: [
         SafeArea(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(34, 26, 34, 0),
+            padding: kScrollablePagePadding,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                AuthLogo(),
-                SizedBox(height: 50),
-                AuthHeader(title: 'Account\nLogin'),
+              children: [
+                const AuthLogo(),
+                const SizedBox(height: 50),
+                AuthHeader(title: context.loc.accountLoginTitle),
               ],
             ),
           ),
@@ -28,14 +28,14 @@ class LoginPage extends StatelessWidget {
           top: 287,
           child: Column(
             children: [
-              const AuthTextField(
-                label: 'E-mail',
-                initialValue: 'hello@gmail.com',
+              AuthTextField(
+                label: context.loc.emailLabel,
+                initialValue: context.loc.demoEmailValue,
               ),
               const SizedBox(height: 19),
-              const AuthTextField(
-                label: 'Password',
-                initialValue: 'password',
+              AuthTextField(
+                label: context.loc.passwordLabel,
+                initialValue: context.loc.demoPasswordValue,
                 obscure: true,
               ),
               const SizedBox(height: 18),
@@ -52,7 +52,7 @@ class LoginPage extends StatelessWidget {
                   ),
                   const SizedBox(width: 10),
                   Text(
-                    'Remember me',
+                    context.loc.rememberMe,
                     style: context.textTheme.labelMedium?.copyWith(
                       color: context.customColors.onSurfaceMuted,
                       fontWeight: FontWeight.w400,
@@ -65,31 +65,31 @@ class LoginPage extends StatelessWidget {
                       foregroundColor: context.colorScheme.onSurface,
                       textStyle: context.textTheme.labelSmall,
                     ),
-                    child: const Text('Forgot Password?'),
+                    child: Text(context.loc.forgotPassword),
                   ),
                 ],
               ),
               const SizedBox(height: 18),
               SocialAuthButton(
-                label: 'Continue with Google',
+                label: context.loc.continueWithGoogle,
                 icon: FontAwesomeIcons.google,
                 onPressed: () {},
               ),
               const SizedBox(height: 13),
               SocialAuthButton(
-                label: 'Continue with Apple',
+                label: context.loc.continueWithApple,
                 icon: FontAwesomeIcons.apple,
                 onPressed: () {},
               ),
               const SizedBox(height: 18),
               AuthPrimaryButton(
-                label: 'Login Now',
+                label: context.loc.loginNow,
                 onPressed: () => MobileVerificationPage.go(context),
               ),
               const SizedBox(height: 8),
               AuthFooterLink(
-                text: 'New Member?',
-                action: 'Join Us',
+                text: context.loc.newMember,
+                action: context.loc.joinUs,
                 onTap: () => CreateAccountPage.go(context),
               ),
             ],

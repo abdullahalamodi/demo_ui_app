@@ -13,16 +13,15 @@ class OnboardingPage extends StatelessWidget {
       children: [
         SafeArea(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(34, 26, 34, 36),
+            padding: kFixedPagePadding,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const AuthLogo(),
                 const Spacer(),
-                const AuthHeader(
-                  title: "Athelete's\nPerfect\nHideaways",
-                  subtitle:
-                      'Lorem ipsum dolor sit amet, conse\nctetur adipiscing elit, sed do eiu\nsmod tempor incididunt ut labor\ne et dolore m',
+                AuthHeader(
+                  title: context.loc.onboardingTitle,
+                  subtitle: context.loc.onboardingSubtitle,
                 ),
                 const Spacer(flex: 5),
                 Align(
@@ -42,7 +41,7 @@ class OnboardingPage extends StatelessWidget {
                             ),
                             const SizedBox(width: 10),
                             Text(
-                              '4.7',
+                              context.loc.onboardingRating,
                               style: context.textTheme.titleLarge?.copyWith(
                                 color: context.customColors.onMedia,
                                 fontWeight: FontWeight.w700,
@@ -52,7 +51,7 @@ class OnboardingPage extends StatelessWidget {
                         ),
                         const SizedBox(height: 3),
                         Text(
-                          'from 1,800+ Players',
+                          context.loc.onboardingPlayersCount,
                           style: context.textTheme.bodyMedium?.copyWith(
                             color: context.customColors.onMedia,
                           ),
@@ -63,7 +62,7 @@ class OnboardingPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 33),
                 AuthSecondaryButton(
-                  label: 'Get Started',
+                  label: context.loc.getStarted,
                   onPressed: () => LoginPage.go(context),
                 ),
               ],

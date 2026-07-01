@@ -134,6 +134,198 @@ abstract class S {
   /// In en, this message translates to:
   /// **'The page you requested does not exist.'**
   String get notFoundMessage;
+
+  /// No description provided for @onboardingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Athelete\'s\nPerfect\nHideaways'**
+  String get onboardingTitle;
+
+  /// No description provided for @onboardingSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Lorem ipsum dolor sit amet, conse\nctetur adipiscing elit, sed do eiu\nsmod tempor incididunt ut labor\ne et dolore m'**
+  String get onboardingSubtitle;
+
+  /// No description provided for @onboardingRating.
+  ///
+  /// In en, this message translates to:
+  /// **'4.7'**
+  String get onboardingRating;
+
+  /// No description provided for @onboardingPlayersCount.
+  ///
+  /// In en, this message translates to:
+  /// **'from 1,800+ Players'**
+  String get onboardingPlayersCount;
+
+  /// No description provided for @getStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Started'**
+  String get getStarted;
+
+  /// No description provided for @accountLoginTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Account\nLogin'**
+  String get accountLoginTitle;
+
+  /// No description provided for @accountCreateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Account\nCreate'**
+  String get accountCreateTitle;
+
+  /// No description provided for @mobileVerificationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobile\nVerification'**
+  String get mobileVerificationTitle;
+
+  /// No description provided for @profileDetailsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile\nDetails'**
+  String get profileDetailsTitle;
+
+  /// No description provided for @emailLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'E-mail'**
+  String get emailLabel;
+
+  /// No description provided for @mobileNoLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Mobile No.'**
+  String get mobileNoLabel;
+
+  /// No description provided for @passwordLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get passwordLabel;
+
+  /// No description provided for @confirmPasswordLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Password'**
+  String get confirmPasswordLabel;
+
+  /// No description provided for @nameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get nameLabel;
+
+  /// No description provided for @genderLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Gender'**
+  String get genderLabel;
+
+  /// No description provided for @ageLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Age'**
+  String get ageLabel;
+
+  /// No description provided for @demoEmailValue.
+  ///
+  /// In en, this message translates to:
+  /// **'hello@gmail.com'**
+  String get demoEmailValue;
+
+  /// No description provided for @demoPasswordValue.
+  ///
+  /// In en, this message translates to:
+  /// **'password'**
+  String get demoPasswordValue;
+
+  /// No description provided for @maskedPasswordValue.
+  ///
+  /// In en, this message translates to:
+  /// **'**********'**
+  String get maskedPasswordValue;
+
+  /// No description provided for @rememberMe.
+  ///
+  /// In en, this message translates to:
+  /// **'Remember me'**
+  String get rememberMe;
+
+  /// No description provided for @forgotPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot Password?'**
+  String get forgotPassword;
+
+  /// No description provided for @continueWithGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Google'**
+  String get continueWithGoogle;
+
+  /// No description provided for @continueWithApple.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue with Apple'**
+  String get continueWithApple;
+
+  /// No description provided for @loginNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Login Now'**
+  String get loginNow;
+
+  /// No description provided for @newMember.
+  ///
+  /// In en, this message translates to:
+  /// **'New Member?'**
+  String get newMember;
+
+  /// No description provided for @joinUs.
+  ///
+  /// In en, this message translates to:
+  /// **'Join Us'**
+  String get joinUs;
+
+  /// No description provided for @verificationPhoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'+966 52 8121948'**
+  String get verificationPhoneNumber;
+
+  /// No description provided for @wrongNumberChange.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong Number?Change'**
+  String get wrongNumberChange;
+
+  /// No description provided for @didntReceiveCodeResend.
+  ///
+  /// In en, this message translates to:
+  /// **'Didn\'t receive a code? Resend'**
+  String get didntReceiveCodeResend;
+
+  /// No description provided for @verifyOtp.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify OTP'**
+  String get verifyOtp;
+
+  /// No description provided for @skip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get skip;
+
+  /// No description provided for @otpFirstDigit.
+  ///
+  /// In en, this message translates to:
+  /// **'4'**
+  String get otpFirstDigit;
 }
 
 class _SDelegate extends LocalizationsDelegate<S> {

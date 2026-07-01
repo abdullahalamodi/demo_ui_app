@@ -13,13 +13,13 @@ class CreateAccountPage extends StatelessWidget {
       children: [
         SafeArea(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(34, 26, 34, 0),
+            padding: kScrollablePagePadding,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                AuthLogo(),
-                SizedBox(height: 30),
-                AuthHeader(title: 'Account\nCreate'),
+              children: [
+                const AuthLogo(),
+                const SizedBox(height: 30),
+                AuthHeader(title: context.loc.accountCreateTitle),
               ],
             ),
           ),
@@ -28,36 +28,36 @@ class CreateAccountPage extends StatelessWidget {
           top: 247,
           child: Column(
             children: [
-              const AuthTextField(
-                label: 'E-mail',
-                initialValue: 'hello@gmail.com',
+              AuthTextField(
+                label: context.loc.emailLabel,
+                initialValue: context.loc.demoEmailValue,
               ),
               const SizedBox(height: 19),
-              const AuthTextField(
-                label: 'Mobile No.',
-                initialValue: 'hello@gmail.com',
+              AuthTextField(
+                label: context.loc.mobileNoLabel,
+                initialValue: context.loc.demoEmailValue,
               ),
               const SizedBox(height: 19),
-              const AuthTextField(
-                label: 'Password',
-                initialValue: '**********',
+              AuthTextField(
+                label: context.loc.passwordLabel,
+                initialValue: context.loc.maskedPasswordValue,
                 obscure: true,
               ),
               const SizedBox(height: 19),
-              const AuthTextField(
-                label: 'Confirm Password',
-                initialValue: '**********',
+              AuthTextField(
+                label: context.loc.confirmPasswordLabel,
+                initialValue: context.loc.maskedPasswordValue,
                 obscure: true,
               ),
               const SizedBox(height: 33),
               AuthPrimaryButton(
-                label: 'Login Now',
+                label: context.loc.loginNow,
                 onPressed: () => MobileVerificationPage.go(context),
               ),
               const SizedBox(height: 8),
               AuthFooterLink(
-                text: 'New Member?',
-                action: 'Join Us',
+                text: context.loc.newMember,
+                action: context.loc.joinUs,
                 onTap: () => LoginPage.go(context),
               ),
             ],

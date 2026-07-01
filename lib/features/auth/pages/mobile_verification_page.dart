@@ -13,14 +13,14 @@ class MobileVerificationPage extends StatelessWidget {
       children: [
         SafeArea(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(34, 26, 34, 0),
+            padding: kScrollablePagePadding,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AuthLogo(),
+                const AuthLogo(),
 
-                SizedBox(height: 200),
-                AuthHeader(title: 'Mobile\nVerification'),
+                const SizedBox(height: 200),
+                AuthHeader(title: context.loc.mobileVerificationTitle),
               ],
             ),
           ),
@@ -32,7 +32,7 @@ class MobileVerificationPage extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                '+966 52 8121948',
+                context.loc.verificationPhoneNumber,
                 style: context.textTheme.titleLarge?.copyWith(
                   color: context.customColors.onSurfaceStrong,
                 ),
@@ -45,7 +45,7 @@ class MobileVerificationPage extends StatelessWidget {
                   minimumSize: Size.zero,
                   textStyle: context.textTheme.bodySmall,
                 ),
-                child: const Text('Wrong Number?Change'),
+                child: Text(context.loc.wrongNumberChange),
               ),
               const SizedBox(height: 29),
               const OtpCodeInput(),
@@ -58,11 +58,11 @@ class MobileVerificationPage extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                child: const Text("Didn't receive a code? Resend"),
+                child: Text(context.loc.didntReceiveCodeResend),
               ),
               const SizedBox(height: 10),
               AuthPrimaryButton(
-                label: 'Verify OTP',
+                label: context.loc.verifyOtp,
                 onPressed: () => ProfileDetailsPage.go(context),
               ),
             ],

@@ -7,8 +7,8 @@ class OtpCodeInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: const [
-        _OtpBox(value: '4'),
+      children: [
+        _OtpBox(value: context.loc.otpFirstDigit),
         _OtpBox(value: ''),
         _OtpBox(value: ''),
         _OtpBox(value: ''),

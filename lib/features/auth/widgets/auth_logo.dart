@@ -5,7 +5,7 @@ class AuthLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(
+    return Image.asset(
       FixedAssets.logoWhite,
       width: 128,
       fit: BoxFit.cover,

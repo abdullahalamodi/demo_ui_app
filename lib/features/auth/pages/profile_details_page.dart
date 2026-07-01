@@ -13,14 +13,14 @@ class ProfileDetailsPage extends StatelessWidget {
       children: [
         SafeArea(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(34, 26, 34, 0),
+            padding: kScrollablePagePadding,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const AuthLogo(),
                 const SizedBox(height: 100),
                 AuthHeader(
-                  title: 'Profile\nDetails',
+                  title: context.loc.profileDetailsTitle,
                   trailing: Padding(
                     padding: const EdgeInsets.only(bottom: 3),
                     child: TextButton(
@@ -33,7 +33,7 @@ class ProfileDetailsPage extends StatelessWidget {
                       ),
                       child: Row(
                         children: [
-                          Text('Skip'),
+                          Text(context.loc.skip),
                           const SizedBox(width: 5),
                           FaIcon(FontAwesomeIcons.angleRight, size: 14),
                         ],
@@ -49,29 +49,29 @@ class ProfileDetailsPage extends StatelessWidget {
           top: 346,
           child: Column(
             children: [
-              const AuthTextField(
-                label: 'Name',
-                initialValue: 'hello@gmail.com',
+              AuthTextField(
+                label: context.loc.nameLabel,
+                initialValue: context.loc.demoEmailValue,
               ),
               const SizedBox(height: 19),
-              const AuthTextField(
-                label: 'Gender',
-                initialValue: 'hello@gmail.com',
+              AuthTextField(
+                label: context.loc.genderLabel,
+                initialValue: context.loc.demoEmailValue,
               ),
               const SizedBox(height: 19),
-              const AuthTextField(
-                label: 'Age',
-                initialValue: 'hello@gmail.com',
+              AuthTextField(
+                label: context.loc.ageLabel,
+                initialValue: context.loc.demoEmailValue,
               ),
               const SizedBox(height: 32),
               AuthPrimaryButton(
-                label: 'Login Now',
+                label: context.loc.loginNow,
                 onPressed: () => HomePage.go(context),
               ),
               const SizedBox(height: 8),
               AuthFooterLink(
-                text: 'New Member?',
-                action: 'Join Us',
+                text: context.loc.newMember,
+                action: context.loc.joinUs,
                 onTap: () => LoginPage.go(context),
               ),
             ],
