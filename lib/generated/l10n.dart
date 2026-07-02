@@ -123,6 +123,108 @@ abstract class S {
   /// **'The app shell, theme, routing, localization, shared widgets, and feature-first folders are in place.'**
   String get homeReadyMessage;
 
+  /// No description provided for @homeGreeting.
+  ///
+  /// In en, this message translates to:
+  /// **'Hi, {name}'**
+  String homeGreeting(String name);
+
+  /// No description provided for @homeWelcomeBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome Back'**
+  String get homeWelcomeBack;
+
+  /// No description provided for @homeSettingsAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get homeSettingsAction;
+
+  /// No description provided for @homeNotificationsAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get homeNotificationsAction;
+
+  /// No description provided for @homeSavedAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved venues'**
+  String get homeSavedAction;
+
+  /// No description provided for @homeShareAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Share venue'**
+  String get homeShareAction;
+
+  /// No description provided for @homeSelectCity.
+  ///
+  /// In en, this message translates to:
+  /// **'Select City'**
+  String get homeSelectCity;
+
+  /// No description provided for @homeNearest.
+  ///
+  /// In en, this message translates to:
+  /// **'Nearest'**
+  String get homeNearest;
+
+  /// No description provided for @homeIndoor.
+  ///
+  /// In en, this message translates to:
+  /// **'Indoor'**
+  String get homeIndoor;
+
+  /// No description provided for @homeAvailableTimeslots.
+  ///
+  /// In en, this message translates to:
+  /// **'Available Timeslots'**
+  String get homeAvailableTimeslots;
+
+  /// No description provided for @homeFilter.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter'**
+  String get homeFilter;
+
+  /// No description provided for @homeSort.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort'**
+  String get homeSort;
+
+  /// No description provided for @homeNavHome.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get homeNavHome;
+
+  /// No description provided for @homeNavCalendar.
+  ///
+  /// In en, this message translates to:
+  /// **'Calendar'**
+  String get homeNavCalendar;
+
+  /// No description provided for @homeNavProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get homeNavProfile;
+
+  /// No description provided for @homeNavTrophy.
+  ///
+  /// In en, this message translates to:
+  /// **'Trophy'**
+  String get homeNavTrophy;
+
+  /// No description provided for @homeNavMenu.
+  ///
+  /// In en, this message translates to:
+  /// **'Menu'**
+  String get homeNavMenu;
+
   /// No description provided for @notFoundTitle.
   ///
   /// In en, this message translates to:

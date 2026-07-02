@@ -17,6 +17,14 @@ This is a Flutter app named `demo_ui_app`.
 - Generated localization output: `lib/generated`
 - Image assets: `assets/images/png` and `assets/images/svg`
 
+## Project Docs
+
+- Consult `docs/` before making UI, architecture, localization, demo-data,
+  naming, theme, or asset decisions.
+- Use `docs/ai-ui-guide/README.md` as the index for the AI UI guide.
+- Follow the relevant docs alongside these instructions when they apply to the
+  task.
+
 ## Commands
 
 Run these from the repository root:
@@ -25,8 +33,6 @@ Run these from the repository root:
 - Format Dart code: `dart format .`
 - Analyze: `flutter analyze`
 - Regenerate Flutter localization after ARB changes: `flutter gen-l10n`
-- Regenerate model code only when generated models are added or changed:
-  `dart run build_runner build --delete-conflicting-outputs`
 
 ## Coding Conventions
 
@@ -43,14 +49,12 @@ Run these from the repository root:
 - Use `context.loc` for user-facing strings.
 - Add or change localized strings in `lib/l10n/intl_en.arb`, then run `flutter gen-l10n`.
 - Reuse the existing theme tokens, constants, and `context` extensions before adding new styling helpers.
+- Treat theme and typography as evolving shared contracts. Before changing a
+  shared theme token or `TextTheme` role, check existing usages and add a new
+  variant or local override when the change is feature-specific.
 - Keep layouts compact and responsive. Verify that text does not overflow on narrow screens.
 - Use existing auth/home widgets as patterns for page structure, spacing, and typography.
 
-## Testing And Verification
-
-- Before finishing code changes, run `dart format .` and `flutter analyze`.
-- Run `flutter test` when tests exist or when adding tests.
-- If changing visuals, manually inspect the affected screen in at least one small mobile viewport.
 
 ## Git Hygiene
 

@@ -89,6 +89,34 @@ style: context.textTheme.bodyMedium!.copyWith(
 Add new theme text styles or extensions when the same typography variant appears
 in several places.
 
+## Theme Evolution During Early Deployment
+
+The theme, font sizes, typography, and component defaults are still expected to
+evolve while features are being deployed. Treat the theme as a shared contract,
+not as a finished design system.
+
+Before changing an existing theme token, text role, component default, radius,
+spacing value, or color role:
+
+- Search for existing usages and inspect the affected screens or widgets.
+- Decide whether the requested feature needs a new variant instead of changing
+  the shared token.
+- Avoid changing a shared typography role, such as `headlineMedium`, when it is
+  already used by other screens and the change is only needed for one new page
+  or widget.
+- Update shared theme values only when the new behavior is intended for every
+  existing usage of that token.
+- Check for responsive and localization impact, especially text overflow on
+  narrow screens.
+
+When adding a new widget or page, first reuse existing theme roles and tokens.
+If no suitable token exists, add the smallest reusable theme addition that
+matches the new pattern. Keep one-off styling local until the same visual choice
+appears in several places.
+
+Document meaningful new theme tokens or typography variants in this guide as
+the design system matures.
+
 ## Component Theme Defaults
 
 Configure shared appearance in `AppTheme` so feature widgets inherit consistent

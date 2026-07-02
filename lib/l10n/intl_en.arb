@@ -5,6 +5,30 @@
   "homeMessage": "Start adding feature screens with localized strings, demo UI models, reusable widgets, and go_router routes.",
   "homeReadyTitle": "Guide conventions initialized",
   "homeReadyMessage": "The app shell, theme, routing, localization, shared widgets, and feature-first folders are in place.",
+  "homeGreeting": "Hi, {name}",
+  "@homeGreeting": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "homeWelcomeBack": "Welcome Back",
+  "homeSettingsAction": "Settings",
+  "homeNotificationsAction": "Notifications",
+  "homeSavedAction": "Saved venues",
+  "homeShareAction": "Share venue",
+  "homeSelectCity": "Select City",
+  "homeNearest": "Nearest",
+  "homeIndoor": "Indoor",
+  "homeAvailableTimeslots": "Available Timeslots",
+  "homeFilter": "Filter",
+  "homeSort": "Sort",
+  "homeNavHome": "Home",
+  "homeNavCalendar": "Calendar",
+  "homeNavProfile": "Profile",
+  "homeNavTrophy": "Trophy",
+  "homeNavMenu": "Menu",
   "notFoundTitle": "Page not found",
   "notFoundMessage": "The page you requested does not exist.",
   "onboardingTitle": "Athelete's\nPerfect\nHideaways",

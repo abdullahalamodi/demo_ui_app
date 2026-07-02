@@ -26,6 +26,59 @@ class SEn extends S {
       'The app shell, theme, routing, localization, shared widgets, and feature-first folders are in place.';
 
   @override
+  String homeGreeting(String name) {
+    return 'Hi, $name';
+  }
+
+  @override
+  String get homeWelcomeBack => 'Welcome Back';
+
+  @override
+  String get homeSettingsAction => 'Settings';
+
+  @override
+  String get homeNotificationsAction => 'Notifications';
+
+  @override
+  String get homeSavedAction => 'Saved venues';
+
+  @override
+  String get homeShareAction => 'Share venue';
+
+  @override
+  String get homeSelectCity => 'Select City';
+
+  @override
+  String get homeNearest => 'Nearest';
+
+  @override
+  String get homeIndoor => 'Indoor';
+
+  @override
+  String get homeAvailableTimeslots => 'Available Timeslots';
+
+  @override
+  String get homeFilter => 'Filter';
+
+  @override
+  String get homeSort => 'Sort';
+
+  @override
+  String get homeNavHome => 'Home';
+
+  @override
+  String get homeNavCalendar => 'Calendar';
+
+  @override
+  String get homeNavProfile => 'Profile';
+
+  @override
+  String get homeNavTrophy => 'Trophy';
+
+  @override
+  String get homeNavMenu => 'Menu';
+
+  @override
   String get notFoundTitle => 'Page not found';
 
   @override
