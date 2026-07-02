@@ -5,6 +5,7 @@ class ShowHomeCourtContent extends StatelessWidget {
     required this.venue,
     required this.selectedTab,
     required this.selectedReservationDateId,
+    required this.selectedCoachDateId,
     required this.selectedTimeslotId,
     required this.selectedDurationId,
     required this.selectedCourtId,
@@ -14,11 +15,14 @@ class ShowHomeCourtContent extends StatelessWidget {
     required this.onSharePressed,
     required this.onTabSelected,
     required this.onReservationDateSelected,
+    required this.onCoachDateSelected,
     required this.onTimeslotSelected,
     required this.onDurationSelected,
     required this.onCourtSelected,
     required this.onCancelPressed,
     required this.onBookPressed,
+    required this.onCoachBookPressed,
+    required this.onCoachShowProfilePressed,
     required this.onSubscriptionPressed,
     super.key,
   });
@@ -26,6 +30,7 @@ class ShowHomeCourtContent extends StatelessWidget {
   final HomeCourtVenue venue;
   final HomeCourtDetailTab selectedTab;
   final String selectedReservationDateId;
+  final String selectedCoachDateId;
   final String selectedTimeslotId;
   final String selectedDurationId;
   final String selectedCourtId;
@@ -35,11 +40,14 @@ class ShowHomeCourtContent extends StatelessWidget {
   final VoidCallback onSharePressed;
   final ValueChanged<HomeCourtDetailTab> onTabSelected;
   final ValueChanged<HomeReservationDate> onReservationDateSelected;
+  final ValueChanged<HomeCoachDate> onCoachDateSelected;
   final ValueChanged<HomeTimeSlot> onTimeslotSelected;
   final ValueChanged<HomeBookingDuration> onDurationSelected;
   final ValueChanged<HomeBookingCourt> onCourtSelected;
   final VoidCallback onCancelPressed;
   final VoidCallback onBookPressed;
+  final ValueChanged<HomeCoachProfile> onCoachBookPressed;
+  final ValueChanged<HomeCoachProfile> onCoachShowProfilePressed;
   final VoidCallback onSubscriptionPressed;
 
   @override
@@ -58,11 +66,11 @@ class ShowHomeCourtContent extends StatelessWidget {
                     ),
                   ),
                   child: SingleChildScrollView(
-                    padding: const EdgeInsetsDirectional.fromSTEB(
+                    padding: EdgeInsetsDirectional.fromSTEB(
                       13,
                       20,
                       13,
-                      134,
+                      26,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,6 +106,15 @@ class ShowHomeCourtContent extends StatelessWidget {
                             onDurationSelected: onDurationSelected,
                             onCourtSelected: onCourtSelected,
                             onUsePackagePressed: () {},
+                          ),
+                        if (selectedTab == HomeCourtDetailTab.coaches)
+                          HomeCourtCoachesTab(
+                            dates: HomeCoachDate.demoItems,
+                            coaches: HomeCoachProfile.demoItems,
+                            selectedDateId: selectedCoachDateId,
+                            onDateSelected: onCoachDateSelected,
+                            onBookPressed: onCoachBookPressed,
+                            onShowProfilePressed: onCoachShowProfilePressed,
                           ),
                       ],
                     ),

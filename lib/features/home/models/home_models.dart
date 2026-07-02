@@ -89,6 +89,78 @@ class HomeBookingPackage {
   );
 }
 
+class HomeCoachDate {
+  const HomeCoachDate({
+    required this.id,
+    required this.day,
+    required this.weekday,
+  });
+
+  final String id;
+  final String day;
+  final String weekday;
+
+  static const initialSelectedId = 'coach-date-21';
+
+  static const demoItems = [
+    HomeCoachDate(id: 'coach-date-19', day: '19', weekday: 'Sat'),
+    HomeCoachDate(id: 'coach-date-20', day: '20', weekday: 'Sun'),
+    HomeCoachDate(id: 'coach-date-21', day: '21', weekday: 'Mon'),
+    HomeCoachDate(id: 'coach-date-22', day: '22', weekday: 'Tue'),
+    HomeCoachDate(id: 'coach-date-23', day: '23', weekday: 'Wed'),
+    HomeCoachDate(id: 'coach-date-24', day: '24', weekday: 'Thu'),
+    HomeCoachDate(id: 'coach-date-25', day: '25', weekday: 'Fri'),
+    HomeCoachDate(id: 'coach-date-26', day: '26', weekday: 'Sat'),
+  ];
+}
+
+class HomeCoachProfile {
+  const HomeCoachProfile({
+    required this.id,
+    required this.name,
+    required this.avatarAsset,
+    required this.sport,
+    required this.level,
+    required this.timeslots,
+  });
+
+  final String id;
+  final String name;
+  final String avatarAsset;
+  final String sport;
+  final String level;
+  final List<HomeTimeSlot> timeslots;
+
+  static const demoItems = [
+    HomeCoachProfile(
+      id: 'coach-ibrahim-1',
+      name: 'Ibrahim Hassan',
+      avatarAsset: FixedAssets.homeProfileAvatar,
+      sport: 'Padel',
+      level: 'Advanced',
+      timeslots: _demoTimeslots,
+    ),
+    HomeCoachProfile(
+      id: 'coach-ibrahim-2',
+      name: 'Ibrahim Hassan',
+      avatarAsset: FixedAssets.homeProfileAvatar,
+      sport: 'Padel',
+      level: 'Advanced',
+      timeslots: _demoTimeslots,
+    ),
+  ];
+
+  static const _demoTimeslots = [
+    HomeTimeSlot(id: 'coach-01-am', time: '01:00', period: 'am'),
+    HomeTimeSlot(id: 'coach-02-am', time: '02:00', period: 'am'),
+    HomeTimeSlot(id: 'coach-03-am-1', time: '03:00', period: 'am'),
+    HomeTimeSlot(id: 'coach-03-am-2', time: '03:00', period: 'am'),
+    HomeTimeSlot(id: 'coach-03-am-3', time: '03:00', period: 'am'),
+    HomeTimeSlot(id: 'coach-03-am-4', time: '03:00', period: 'am'),
+    HomeTimeSlot(id: 'coach-03-am-5', time: '03:00', period: 'am'),
+  ];
+}
+
 class HomeReservationDate {
   const HomeReservationDate({
     required this.id,

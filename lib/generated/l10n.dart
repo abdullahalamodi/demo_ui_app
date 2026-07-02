@@ -363,6 +363,24 @@ abstract class S {
   /// **'Community'**
   String get homeCourtTabCommunity;
 
+  /// No description provided for @homeCoachesPackages.
+  ///
+  /// In en, this message translates to:
+  /// **'Packages'**
+  String get homeCoachesPackages;
+
+  /// No description provided for @homeCoachesProfiles.
+  ///
+  /// In en, this message translates to:
+  /// **'Profiles'**
+  String get homeCoachesProfiles;
+
+  /// No description provided for @homeCoachesShowProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Show Profile'**
+  String get homeCoachesShowProfile;
+
   /// No description provided for @homeCourtAmenityRacket.
   ///
   /// In en, this message translates to:

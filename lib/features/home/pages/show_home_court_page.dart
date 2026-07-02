@@ -22,6 +22,7 @@ class ShowHomeCourtPage extends StatefulWidget {
 class _ShowHomeCourtPageState extends State<ShowHomeCourtPage> {
   HomeCourtDetailTab _selectedTab = HomeCourtDetailTab.home;
   String _selectedReservationDateId = HomeReservationDate.initialSelectedId;
+  String _selectedCoachDateId = HomeCoachDate.initialSelectedId;
   String _selectedTimeslotId = '12-am';
   String _selectedDurationId = HomeBookingDuration.initialSelectedId;
   String _selectedCourtId = HomeBookingCourt.initialSelectedId;
@@ -50,6 +51,10 @@ class _ShowHomeCourtPageState extends State<ShowHomeCourtPage> {
     }
 
     setState(() => _selectedReservationDateId = date.id);
+  }
+
+  void _selectCoachDate(HomeCoachDate date) {
+    setState(() => _selectedCoachDateId = date.id);
   }
 
   void _selectTimeslot(HomeTimeSlot timeslot) {
@@ -81,6 +86,7 @@ class _ShowHomeCourtPageState extends State<ShowHomeCourtPage> {
             venue: venue,
             selectedTab: _selectedTab,
             selectedReservationDateId: _selectedReservationDateId,
+            selectedCoachDateId: _selectedCoachDateId,
             selectedTimeslotId: _selectedTimeslotId,
             selectedDurationId: _selectedDurationId,
             selectedCourtId: _selectedCourtId,
@@ -90,11 +96,14 @@ class _ShowHomeCourtPageState extends State<ShowHomeCourtPage> {
             onSharePressed: () {},
             onTabSelected: _selectTab,
             onReservationDateSelected: _selectReservationDate,
+            onCoachDateSelected: _selectCoachDate,
             onTimeslotSelected: _selectTimeslot,
             onDurationSelected: _selectDuration,
             onCourtSelected: _selectCourt,
             onCancelPressed: _handleBack,
             onBookPressed: () {},
+            onCoachBookPressed: (_) {},
+            onCoachShowProfilePressed: (_) {},
             onSubscriptionPressed: () {},
           ),
         ),

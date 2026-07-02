@@ -150,6 +150,15 @@ class SEn extends S {
   String get homeCourtTabCommunity => 'Community';
 
   @override
+  String get homeCoachesPackages => 'Packages';
+
+  @override
+  String get homeCoachesProfiles => 'Profiles';
+
+  @override
+  String get homeCoachesShowProfile => 'Show Profile';
+
+  @override
   String get homeCourtAmenityRacket => 'Racket';
 
   @override

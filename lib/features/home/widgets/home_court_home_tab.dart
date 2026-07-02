@@ -20,6 +20,7 @@ class HomeCourtHomeTab extends StatelessWidget {
         _DescriptionPanel(description: venue.description),
         const SizedBox(height: 28),
         _StatsRow(venue: venue),
+        const SizedBox(height: 28),
       ],
     );
   }
