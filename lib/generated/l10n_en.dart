@@ -135,6 +135,51 @@ class SEn extends S {
   String get homeNavMenu => 'Menu';
 
   @override
+  String get homeCourtTabBooking => 'Booking';
+
+  @override
+  String get homeCourtTabCoaches => 'Coaches';
+
+  @override
+  String get homeCourtTabOpenMatch => 'Open Match';
+
+  @override
+  String get homeCourtTabCompetitions => 'Competitions';
+
+  @override
+  String get homeCourtTabCommunity => 'Community';
+
+  @override
+  String get homeCourtAmenityRacket => 'Racket';
+
+  @override
+  String get homeCourtAmenityBall => 'Ball';
+
+  @override
+  String get homeCourtAmenityShower => 'Shower';
+
+  @override
+  String get homeCourtAmenityToilet => 'Toilet';
+
+  @override
+  String get homeCourtAmenityWater => 'Water';
+
+  @override
+  String get homeCourtRating => 'Rating';
+
+  @override
+  String get homeCourtDistance => 'Distance';
+
+  @override
+  String get homeCourtZone => 'Zone';
+
+  @override
+  String get homeCourtBook => 'Book';
+
+  @override
+  String get homeCourtGetSubscriptionPack => 'Get Subscription Pack';
+
+  @override
   String get notFoundTitle => 'Page not found';
 
   @override

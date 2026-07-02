@@ -333,6 +333,96 @@ abstract class S {
   /// **'Menu'**
   String get homeNavMenu;
 
+  /// No description provided for @homeCourtTabBooking.
+  ///
+  /// In en, this message translates to:
+  /// **'Booking'**
+  String get homeCourtTabBooking;
+
+  /// No description provided for @homeCourtTabCoaches.
+  ///
+  /// In en, this message translates to:
+  /// **'Coaches'**
+  String get homeCourtTabCoaches;
+
+  /// No description provided for @homeCourtTabOpenMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Match'**
+  String get homeCourtTabOpenMatch;
+
+  /// No description provided for @homeCourtTabCompetitions.
+  ///
+  /// In en, this message translates to:
+  /// **'Competitions'**
+  String get homeCourtTabCompetitions;
+
+  /// No description provided for @homeCourtTabCommunity.
+  ///
+  /// In en, this message translates to:
+  /// **'Community'**
+  String get homeCourtTabCommunity;
+
+  /// No description provided for @homeCourtAmenityRacket.
+  ///
+  /// In en, this message translates to:
+  /// **'Racket'**
+  String get homeCourtAmenityRacket;
+
+  /// No description provided for @homeCourtAmenityBall.
+  ///
+  /// In en, this message translates to:
+  /// **'Ball'**
+  String get homeCourtAmenityBall;
+
+  /// No description provided for @homeCourtAmenityShower.
+  ///
+  /// In en, this message translates to:
+  /// **'Shower'**
+  String get homeCourtAmenityShower;
+
+  /// No description provided for @homeCourtAmenityToilet.
+  ///
+  /// In en, this message translates to:
+  /// **'Toilet'**
+  String get homeCourtAmenityToilet;
+
+  /// No description provided for @homeCourtAmenityWater.
+  ///
+  /// In en, this message translates to:
+  /// **'Water'**
+  String get homeCourtAmenityWater;
+
+  /// No description provided for @homeCourtRating.
+  ///
+  /// In en, this message translates to:
+  /// **'Rating'**
+  String get homeCourtRating;
+
+  /// No description provided for @homeCourtDistance.
+  ///
+  /// In en, this message translates to:
+  /// **'Distance'**
+  String get homeCourtDistance;
+
+  /// No description provided for @homeCourtZone.
+  ///
+  /// In en, this message translates to:
+  /// **'Zone'**
+  String get homeCourtZone;
+
+  /// No description provided for @homeCourtBook.
+  ///
+  /// In en, this message translates to:
+  /// **'Book'**
+  String get homeCourtBook;
+
+  /// No description provided for @homeCourtGetSubscriptionPack.
+  ///
+  /// In en, this message translates to:
+  /// **'Get Subscription Pack'**
+  String get homeCourtGetSubscriptionPack;
+
   /// No description provided for @notFoundTitle.
   ///
   /// In en, this message translates to:

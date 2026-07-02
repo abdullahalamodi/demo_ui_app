@@ -72,63 +72,118 @@ class HomeCourtVenue {
     required this.id,
     required this.name,
     required this.location,
+    required this.clubSubtitle,
     required this.imageAsset,
+    required this.galleryAssets,
     required this.distanceKm,
     required this.price,
+    required this.bookingPrice,
     required this.rating,
     required this.isIndoor,
+    required this.zone,
+    required this.description,
+    required this.amenities,
     required this.timeslots,
   });
 
   final String id;
   final String name;
   final String location;
+  final String clubSubtitle;
   final String imageAsset;
+  final List<String> galleryAssets;
   final double distanceKm;
   final int price;
+  final double bookingPrice;
   final double rating;
   final bool isIndoor;
+  final String zone;
+  final String description;
+  final List<HomeCourtAmenity> amenities;
   final List<HomeTimeSlot> timeslots;
 
   String get distanceText => distanceKm.toStringAsFixed(1);
   String get priceText => price.toString();
+  String get bookingPriceText => bookingPrice.toStringAsFixed(2);
   String get ratingText => rating.toStringAsFixed(1);
+  String get detailRatingText => '${rating.round()} Stars';
+  String get detailDistanceText => '${distanceKm.round()} Kms';
+  String get detailTypeText => isIndoor ? 'Indoor' : 'Outdoor';
 
   static const demoItems = [
     HomeCourtVenue(
       id: 'court-smash-1',
       name: 'The Court Smash',
       location: 'Al Juffair',
+      clubSubtitle: 'Padel Club',
       imageAsset: FixedAssets.homeCourt,
+      galleryAssets: _galleryAssets,
       distanceKm: 4,
       price: 90,
-      rating: 4.9,
+      bookingPrice: 35.50,
+      rating: 4,
       isIndoor: true,
+      zone: 'Jeddah',
+      description: _detailDescription,
+      amenities: HomeCourtAmenity.demoItems,
       timeslots: _activeTimeslots,
     ),
     HomeCourtVenue(
       id: 'court-smash-2',
       name: 'The Court Smash',
       location: 'Al Juffair',
+      clubSubtitle: 'Padel Club',
       imageAsset: FixedAssets.homeCourt,
+      galleryAssets: _galleryAssets,
       distanceKm: 4,
       price: 90,
-      rating: 4.9,
+      bookingPrice: 35.50,
+      rating: 4,
       isIndoor: true,
+      zone: 'Jeddah',
+      description: _detailDescription,
+      amenities: HomeCourtAmenity.demoItems,
       timeslots: _mutedTimeslots,
     ),
     HomeCourtVenue(
       id: 'court-smash-3',
       name: 'The Court Smash',
       location: 'Al Juffair',
+      clubSubtitle: 'Padel Club',
       imageAsset: FixedAssets.homeCourt,
+      galleryAssets: _galleryAssets,
       distanceKm: 4,
       price: 90,
-      rating: 4.9,
+      bookingPrice: 35.50,
+      rating: 4,
       isIndoor: true,
+      zone: 'Jeddah',
+      description: _detailDescription,
+      amenities: HomeCourtAmenity.demoItems,
       timeslots: _activeTimeslots,
     ),
   ];
+
+  static HomeCourtVenue demoById(String id) {
+    return demoItems.firstWhere(
+      (venue) => venue.id == id,
+      orElse: () => demoItems.first,
+    );
+  }
+
+  static const _galleryAssets = [
+    FixedAssets.homeCourt,
+    FixedAssets.homeCourt,
+    FixedAssets.homeCourt,
+  ];
+
+  static const _detailDescription =
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elititam et, '
+      'consectetur adipiscing elit, sed don m ad minim ventam Lorem ipsum '
+      'dolor sit amet, consectetur adipiscing elititam et, consectetur '
+      'adipiscing elit, sed don m ad minim ventam Lorem ipsum dolor sit amet, '
+      'consectetur adipiscing elititam et, consectetur adipiscing elit, sed '
+      'don';
 
   static const _activeTimeslots = [
     HomeTimeSlot(id: '10-am', time: '10:00', period: 'am'),
@@ -178,6 +233,41 @@ class HomeCourtVenue {
     ),
   ];
 }
+
+class HomeCourtAmenity {
+  const HomeCourtAmenity({
+    required this.type,
+    required this.icon,
+  });
+
+  final HomeCourtAmenityType type;
+  final FaIconData icon;
+
+  static const demoItems = [
+    HomeCourtAmenity(
+      type: HomeCourtAmenityType.racket,
+      icon: FontAwesomeIcons.tableTennisPaddleBall,
+    ),
+    HomeCourtAmenity(
+      type: HomeCourtAmenityType.ball,
+      icon: FontAwesomeIcons.baseball,
+    ),
+    HomeCourtAmenity(
+      type: HomeCourtAmenityType.shower,
+      icon: FontAwesomeIcons.shower,
+    ),
+    HomeCourtAmenity(
+      type: HomeCourtAmenityType.toilet,
+      icon: FontAwesomeIcons.toilet,
+    ),
+    HomeCourtAmenity(
+      type: HomeCourtAmenityType.water,
+      icon: FontAwesomeIcons.bottleWater,
+    ),
+  ];
+}
+
+enum HomeCourtAmenityType { racket, ball, shower, toilet, water }
 
 enum HomeBottomNavItem {
   home,

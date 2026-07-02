@@ -79,75 +79,76 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: Align(
           alignment: AlignmentDirectional.topCenter,
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 430),
-            child: Stack(
-              children: [
-                ListView(
-                  padding: const EdgeInsetsDirectional.fromSTEB(
-                    13,
-                    28,
-                    13,
-                    185,
+          child: Stack(
+            children: [
+              ListView(
+                padding: const EdgeInsetsDirectional.fromSTEB(
+                  13,
+                  28,
+                  13,
+                  185,
+                ),
+                children: [
+                  HomeHeader(
+                    user: HomeUser.demo,
+                    onFilterPressed: _showFilterSheet,
+                    onNotificationsPressed: () {},
                   ),
-                  children: [
-                    HomeHeader(
-                      user: HomeUser.demo,
-                      onFilterPressed: _showFilterSheet,
-                      onNotificationsPressed: () {},
-                    ),
-                    const SizedBox(height: 28),
-                    HomeSportCategoryRail(
-                      categories: HomeSportCategory.demoItems,
-                      selectedId: _selectedSportId,
-                      onSelected: _selectSport,
-                    ),
-                    const SizedBox(height: 22),
-                    HomeCitySelector(onPressed: () {}),
-                    const SizedBox(height: 16),
-                    for (final venue in venues) ...[
-                      HomeCourtCard(
-                        venue: venue,
-                        isFavorite: _favoriteVenueIds.contains(venue.id),
-                        selectedTimeslotId: _selectedTimeslotIdFor(venue),
-                        onFavoritePressed: () => _toggleFavorite(venue),
-                        onSharePressed: () {},
-                        onTimeslotSelected: (timeslot) {
-                          _selectTimeslot(venue, timeslot);
-                        },
+                  const SizedBox(height: 28),
+                  HomeSportCategoryRail(
+                    categories: HomeSportCategory.demoItems,
+                    selectedId: _selectedSportId,
+                    onSelected: _selectSport,
+                  ),
+                  const SizedBox(height: 22),
+                  HomeCitySelector(onPressed: () {}),
+                  const SizedBox(height: 16),
+                  for (final venue in venues) ...[
+                    HomeCourtCard(
+                      venue: venue,
+                      isFavorite: _favoriteVenueIds.contains(venue.id),
+                      selectedTimeslotId: _selectedTimeslotIdFor(venue),
+                      onFavoritePressed: () => _toggleFavorite(venue),
+                      onSharePressed: () {},
+                      onTimeslotSelected: (timeslot) {
+                        _selectTimeslot(venue, timeslot);
+                      },
+                      onPressed: () => ShowHomeCourtPage.go(
+                        context,
+                        venue.id,
                       ),
-                      if (venue != venues.last) const SizedBox(height: 12),
-                    ],
-                  ],
-                ),
-                PositionedDirectional(
-                  start: 0,
-                  end: 0,
-                  bottom: 0,
-                  child: const HomeBottomGradient(),
-                ),
-                PositionedDirectional(
-                  start: 0,
-                  end: 0,
-                  bottom: 92,
-                  child: Center(
-                    child: HomeFilterSortBar(
-                      onFilterPressed: _showFilterSheet,
-                      onSortPressed: () {},
                     ),
+                    if (venue != venues.last) const SizedBox(height: 12),
+                  ],
+                ],
+              ),
+              PositionedDirectional(
+                start: 0,
+                end: 0,
+                bottom: 0,
+                child: const HomeBottomGradient(),
+              ),
+              PositionedDirectional(
+                start: 0,
+                end: 0,
+                bottom: 92,
+                child: Center(
+                  child: HomeFilterSortBar(
+                    onFilterPressed: _showFilterSheet,
+                    onSortPressed: () {},
                   ),
                 ),
-                PositionedDirectional(
-                  start: 0,
-                  end: 0,
-                  bottom: 0,
-                  child: HomeBottomNavBar(
-                    selectedItem: _selectedNavItem,
-                    onSelected: _selectNavItem,
-                  ),
+              ),
+              PositionedDirectional(
+                start: 0,
+                end: 0,
+                bottom: 0,
+                child: HomeBottomNavBar(
+                  selectedItem: _selectedNavItem,
+                  onSelected: _selectNavItem,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

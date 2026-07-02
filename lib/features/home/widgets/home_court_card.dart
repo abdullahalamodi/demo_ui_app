@@ -8,6 +8,7 @@ class HomeCourtCard extends StatelessWidget {
     required this.onFavoritePressed,
     required this.onSharePressed,
     required this.onTimeslotSelected,
+    this.onPressed,
     super.key,
   });
 
@@ -17,6 +18,7 @@ class HomeCourtCard extends StatelessWidget {
   final VoidCallback onFavoritePressed;
   final VoidCallback onSharePressed;
   final ValueChanged<HomeTimeSlot> onTimeslotSelected;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -26,113 +28,118 @@ class HomeCourtCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(kRadiusL),
         side: BorderSide(color: context.colorScheme.outlineVariant),
       ),
-      child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(13, 14, 13, 14),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(kRadiusS),
-                  child: Image.asset(
-                    venue.imageAsset,
-                    width: 77,
-                    height: 83,
-                    fit: BoxFit.cover,
+      child: InkWell(
+        onTap: onPressed,
+        borderRadius: BorderRadius.circular(kRadiusL),
+        child: Padding(
+          padding: const EdgeInsetsDirectional.fromSTEB(13, 14, 13, 14),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(kRadiusS),
+                    child: Image.asset(
+                      venue.imageAsset,
+                      width: 77,
+                      height: 83,
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
-                            child: Text(
-                              venue.name,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: context.textTheme.titleLarge?.copyWith(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                venue.name,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: context.textTheme.titleLarge?.copyWith(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ),
-                          ),
-                          const SizedBox(width: 6),
-                          _CardIconButton(
-                            icon: isFavorite
-                                ? FontAwesomeIcons.solidHeart
-                                : FontAwesomeIcons.heart,
-                            tooltip: context.loc.homeSavedAction,
-                            onPressed: onFavoritePressed,
-                          ),
-                          const SizedBox(width: 8),
-                          _CardIconButton(
-                            icon: FontAwesomeIcons.shareNodes,
-                            tooltip: context.loc.homeShareAction,
-                            onPressed: onSharePressed,
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 7),
-                      _LocationRow(venue: venue),
-                      const SizedBox(height: 13),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            _MetricChip(
-                              icon: FontAwesomeIcons.circleDollarToSlot,
-                              label: venue.priceText,
+                            const SizedBox(width: 6),
+                            _CardIconButton(
+                              icon: isFavorite
+                                  ? FontAwesomeIcons.solidHeart
+                                  : FontAwesomeIcons.heart,
+                              tooltip: context.loc.homeSavedAction,
+                              onPressed: onFavoritePressed,
                             ),
                             const SizedBox(width: 8),
-                            _MetricChip(
-                              icon: FontAwesomeIcons.star,
-                              label: venue.ratingText,
-                            ),
-                            const SizedBox(width: 8),
-                            _MetricChip(
-                              icon: FontAwesomeIcons.volleyball,
-                              label: context.loc.homeIndoor,
+                            _CardIconButton(
+                              icon: FontAwesomeIcons.shareNodes,
+                              tooltip: context.loc.homeShareAction,
+                              onPressed: onSharePressed,
                             ),
                           ],
                         ),
-                      ),
-                    ],
+                        const SizedBox(height: 7),
+                        _LocationRow(venue: venue),
+                        const SizedBox(height: 13),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              _MetricChip(
+                                icon: FontAwesomeIcons.circleDollarToSlot,
+                                label: venue.priceText,
+                              ),
+                              const SizedBox(width: 8),
+                              _MetricChip(
+                                icon: FontAwesomeIcons.star,
+                                label: venue.ratingText,
+                              ),
+                              const SizedBox(width: 8),
+                              _MetricChip(
+                                icon: FontAwesomeIcons.volleyball,
+                                label: context.loc.homeIndoor,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
+                ],
+              ),
+              const SizedBox(height: 24),
+              Text(
+                context.loc.homeAvailableTimeslots,
+                style: context.textTheme.titleMedium?.copyWith(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
                 ),
-              ],
-            ),
-            const SizedBox(height: 24),
-            Text(
-              context.loc.homeAvailableTimeslots,
-              style: context.textTheme.titleMedium?.copyWith(
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
               ),
-            ),
-            const SizedBox(height: 13),
-            SizedBox(
-              height: 46,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                itemCount: venue.timeslots.length,
-                separatorBuilder: (context, index) => const SizedBox(width: 17),
-                itemBuilder: (context, index) {
-                  final timeslot = venue.timeslots[index];
-                  return HomeTimeslotChip(
-                    timeslot: timeslot,
-                    isSelected: selectedTimeslotId == timeslot.id,
-                    onSelected: () => onTimeslotSelected(timeslot),
-                  );
-                },
+              const SizedBox(height: 13),
+              SizedBox(
+                height: 46,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: venue.timeslots.length,
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(width: 17),
+                  itemBuilder: (context, index) {
+                    final timeslot = venue.timeslots[index];
+                    return HomeTimeslotChip(
+                      timeslot: timeslot,
+                      isSelected: selectedTimeslotId == timeslot.id,
+                      onSelected: () => onTimeslotSelected(timeslot),
+                    );
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

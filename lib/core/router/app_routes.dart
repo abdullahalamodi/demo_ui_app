@@ -6,4 +6,8 @@ abstract final class AppRoutes {
   static const profileDetails = '/profile-details';
   static const home = '/home';
   static const searchResult = '/search-result';
+
+  static String showHomeCourt([String? id]) {
+    return '/home/courts/${id ?? ':id'}';
+  }
 }

@@ -101,6 +101,10 @@ class _SearchResultPageState extends State<SearchResultPage> {
                         onTimeslotSelected: (timeslot) {
                           _selectTimeslot(venue, timeslot);
                         },
+                        onPressed: () => ShowHomeCourtPage.go(
+                          context,
+                          venue.id,
+                        ),
                       ),
                       if (venue != venues.last) const SizedBox(height: 12),
                     ],

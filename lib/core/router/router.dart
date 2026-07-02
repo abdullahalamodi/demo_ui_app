@@ -37,6 +37,13 @@ final GoRouter appRouter = GoRouter(
           const NoTransitionPage(child: HomePage()),
     ),
     GoRoute(
+      path: AppRoutes.showHomeCourt(),
+      pageBuilder: (context, state) {
+        final id = state.pathParameters['id'] ?? '';
+        return NoTransitionPage(child: ShowHomeCourtPage(id: id));
+      },
+    ),
+    GoRoute(
       path: AppRoutes.searchResult,
       pageBuilder: (context, state) =>
           const NoTransitionPage(child: SearchResultPage()),
