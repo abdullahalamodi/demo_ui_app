@@ -9,7 +9,10 @@ class ShowHomeCourtPage extends StatefulWidget {
   final String id;
 
   static void go(BuildContext context, String id) {
-    context.push(AppRoutes.showHomeCourt(id));
+    context.pushNamed(
+      AppRoutes.showHomeCourtName,
+      pathParameters: {'id': id},
+    );
   }
 
   @override
@@ -18,6 +21,10 @@ class ShowHomeCourtPage extends StatefulWidget {
 
 class _ShowHomeCourtPageState extends State<ShowHomeCourtPage> {
   HomeCourtDetailTab _selectedTab = HomeCourtDetailTab.home;
+  String _selectedReservationDateId = HomeReservationDate.initialSelectedId;
+  String _selectedTimeslotId = '12-am';
+  String _selectedDurationId = HomeBookingDuration.initialSelectedId;
+  String _selectedCourtId = HomeBookingCourt.initialSelectedId;
   bool _isFavorite = false;
 
   void _handleBack() {
@@ -37,6 +44,30 @@ class _ShowHomeCourtPageState extends State<ShowHomeCourtPage> {
     setState(() => _selectedTab = tab);
   }
 
+  void _selectReservationDate(HomeReservationDate date) {
+    if (date.isBooked) {
+      return;
+    }
+
+    setState(() => _selectedReservationDateId = date.id);
+  }
+
+  void _selectTimeslot(HomeTimeSlot timeslot) {
+    if (!timeslot.isEnabled) {
+      return;
+    }
+
+    setState(() => _selectedTimeslotId = timeslot.id);
+  }
+
+  void _selectDuration(HomeBookingDuration duration) {
+    setState(() => _selectedDurationId = duration.id);
+  }
+
+  void _selectCourt(HomeBookingCourt court) {
+    setState(() => _selectedCourtId = court.id);
+  }
+
   @override
   Widget build(BuildContext context) {
     final venue = HomeCourtVenue.demoById(widget.id);
@@ -49,11 +80,19 @@ class _ShowHomeCourtPageState extends State<ShowHomeCourtPage> {
           child: ShowHomeCourtContent(
             venue: venue,
             selectedTab: _selectedTab,
+            selectedReservationDateId: _selectedReservationDateId,
+            selectedTimeslotId: _selectedTimeslotId,
+            selectedDurationId: _selectedDurationId,
+            selectedCourtId: _selectedCourtId,
             isFavorite: _isFavorite,
             onBackPressed: _handleBack,
             onFavoritePressed: _toggleFavorite,
             onSharePressed: () {},
             onTabSelected: _selectTab,
+            onReservationDateSelected: _selectReservationDate,
+            onTimeslotSelected: _selectTimeslot,
+            onDurationSelected: _selectDuration,
+            onCourtSelected: _selectCourt,
             onCancelPressed: _handleBack,
             onBookPressed: () {},
             onSubscriptionPressed: () {},

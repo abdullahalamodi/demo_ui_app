@@ -4,7 +4,7 @@ class SearchResultPage extends StatefulWidget {
   const SearchResultPage({super.key});
 
   static void push(BuildContext context) {
-    context.push(AppRoutes.searchResult);
+    context.pushNamed(AppRoutes.searchResultName);
   }
 
   @override

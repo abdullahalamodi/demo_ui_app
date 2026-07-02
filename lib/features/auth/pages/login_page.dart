@@ -4,7 +4,7 @@ class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   static void go(BuildContext context) {
-    context.go(AppRoutes.login);
+    context.goNamed(AppRoutes.loginName);
   }
 
   @override

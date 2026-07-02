@@ -69,6 +69,41 @@
   "homeCourtZone": "Zone",
   "homeCourtBook": "Book",
   "homeCourtGetSubscriptionPack": "Get Subscription Pack",
+  "homeBookingActivePackage": "Active Package",
+  "homeBookingSessions": "{count} Sessions",
+  "@homeBookingSessions": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeBookingSessionsLeft": "{count} Left",
+  "@homeBookingSessionsLeft": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeBookingUse": "Use",
+  "homeBookingReservationDate": "Reservation date",
+  "homeBookingAvailable": "Available",
+  "homeBookingBooked": "Booked",
+  "homeBookingTimeslot": "Timeslot",
+  "homeBookingDurationMinutes": "{minutes}min",
+  "@homeBookingDurationMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "homeBookingChooseCourt": "Choose a court",
+  "homeBookingCourtTypeLegend": "A,C Indoor     B Outdoor",
+  "homeBookingCourtMixed": "Mixed",
+  "homeBookingCourtLadiesOnly": "Ladies Only",
+  "homeBookingCourtPrivate": "Private",
   "notFoundTitle": "Page not found",
   "notFoundMessage": "The page you requested does not exist.",
   "onboardingTitle": "Athelete's\nPerfect\nHideaways",

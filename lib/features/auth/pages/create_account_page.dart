@@ -4,7 +4,7 @@ class CreateAccountPage extends StatelessWidget {
   const CreateAccountPage({super.key});
 
   static void go(BuildContext context) {
-    context.go(AppRoutes.createAccount);
+    context.goNamed(AppRoutes.createAccountName);
   }
 
   @override

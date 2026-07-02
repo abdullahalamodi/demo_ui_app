@@ -4,7 +4,7 @@ class MobileVerificationPage extends StatelessWidget {
   const MobileVerificationPage({super.key});
 
   static void go(BuildContext context) {
-    context.go(AppRoutes.mobileVerification);
+    context.goNamed(AppRoutes.mobileVerificationName);
   }
 
   @override

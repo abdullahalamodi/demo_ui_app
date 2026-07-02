@@ -79,7 +79,7 @@ class ListProductsPage extends StatelessWidget {
   const ListProductsPage({super.key});
 
   static void go(BuildContext context) {
-    context.go(AppRoutes.products);
+    context.goNamed(AppRoutes.productsName);
   }
 
   @override
@@ -164,7 +164,10 @@ class ShowProductPage extends StatelessWidget {
   final int id;
 
   static void go(BuildContext context, int id) {
-    context.go('${AppRoutes.products}/${AppRoutes.productDetails(id)}');
+    context.goNamed(
+      AppRoutes.productDetailsName,
+      pathParameters: {'id': id.toString()},
+    );
   }
 
   @override
@@ -220,12 +223,14 @@ class ShowProductContent extends StatelessWidget {
 ```dart
 GoRoute(
   path: AppRoutes.products,
+  name: AppRoutes.productsName,
   pageBuilder: (context, state) => const NoTransitionPage(
     child: ListProductsPage(),
   ),
   routes: [
     GoRoute(
       path: AppRoutes.productDetails(),
+      name: AppRoutes.productDetailsName,
       pageBuilder: (context, state) {
         final id = int.parse(state.pathParameters['id']!);
         return NoTransitionPage(

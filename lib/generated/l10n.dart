@@ -423,6 +423,90 @@ abstract class S {
   /// **'Get Subscription Pack'**
   String get homeCourtGetSubscriptionPack;
 
+  /// No description provided for @homeBookingActivePackage.
+  ///
+  /// In en, this message translates to:
+  /// **'Active Package'**
+  String get homeBookingActivePackage;
+
+  /// No description provided for @homeBookingSessions.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} Sessions'**
+  String homeBookingSessions(int count);
+
+  /// No description provided for @homeBookingSessionsLeft.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} Left'**
+  String homeBookingSessionsLeft(int count);
+
+  /// No description provided for @homeBookingUse.
+  ///
+  /// In en, this message translates to:
+  /// **'Use'**
+  String get homeBookingUse;
+
+  /// No description provided for @homeBookingReservationDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Reservation date'**
+  String get homeBookingReservationDate;
+
+  /// No description provided for @homeBookingAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Available'**
+  String get homeBookingAvailable;
+
+  /// No description provided for @homeBookingBooked.
+  ///
+  /// In en, this message translates to:
+  /// **'Booked'**
+  String get homeBookingBooked;
+
+  /// No description provided for @homeBookingTimeslot.
+  ///
+  /// In en, this message translates to:
+  /// **'Timeslot'**
+  String get homeBookingTimeslot;
+
+  /// No description provided for @homeBookingDurationMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes}min'**
+  String homeBookingDurationMinutes(int minutes);
+
+  /// No description provided for @homeBookingChooseCourt.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a court'**
+  String get homeBookingChooseCourt;
+
+  /// No description provided for @homeBookingCourtTypeLegend.
+  ///
+  /// In en, this message translates to:
+  /// **'A,C Indoor     B Outdoor'**
+  String get homeBookingCourtTypeLegend;
+
+  /// No description provided for @homeBookingCourtMixed.
+  ///
+  /// In en, this message translates to:
+  /// **'Mixed'**
+  String get homeBookingCourtMixed;
+
+  /// No description provided for @homeBookingCourtLadiesOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'Ladies Only'**
+  String get homeBookingCourtLadiesOnly;
+
+  /// No description provided for @homeBookingCourtPrivate.
+  ///
+  /// In en, this message translates to:
+  /// **'Private'**
+  String get homeBookingCourtPrivate;
+
   /// No description provided for @notFoundTitle.
   ///
   /// In en, this message translates to:

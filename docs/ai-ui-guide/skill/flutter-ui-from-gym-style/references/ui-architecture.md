@@ -61,14 +61,16 @@ Do not add `providers`, `repositories`, or `services` for UI-first work.
 
 Follow the existing `go_router` pattern:
 
-- Define path constants in `AppRoutes`.
+- Define path constants and route-name constants in `AppRoutes`.
 - Build routes in `router.dart`.
 - Use `ShellRoute` for shared layout.
 - Use `NoTransitionPage` for simple transitions.
+- Add `name:` to every `GoRoute`.
 - Put static navigation helpers on pages:
   `static go(BuildContext context)` and `static push(...)`.
 
-Use route helpers instead of rebuilding route strings across widgets.
+Use route helpers with `goNamed` and `pushNamed` instead of rebuilding route
+strings across widgets.
 
 ## Imports
 

@@ -11,5 +11,5 @@ abstract final class FixedAssets {
   static const String homeProfileAvatar = '${_png}home-profile-avatar.png';
 
   // svgs
-  static const String keep = '${_svg}keep.svg';
+  static const String court = '${_svg}court.svg';
 }

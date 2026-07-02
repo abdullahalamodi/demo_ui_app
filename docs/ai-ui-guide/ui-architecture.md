@@ -110,19 +110,24 @@ Rules:
 
 Follow the source app's `go_router` pattern:
 
-- Put path constants in `AppRoutes`.
+- Put path constants and route-name constants in `AppRoutes`.
 - Put router construction in `router.dart`.
 - Use `GoRoute` for feature pages.
 - Use `ShellRoute` for pages that share a layout such as an app bar and drawer.
 - Use `NoTransitionPage` when matching the source project's simple transition
   behavior.
-- Add static helpers on page classes so callers do not rebuild route strings.
+- Add `name:` to every `GoRoute`.
+- Add static helpers on page classes so callers use named routes instead of
+  rebuilding route strings.
 
 Example:
 
 ```dart
 abstract class AppRoutes {
   static const products = '/products';
+  static const productsName = 'products';
+
+  static const productDetailsName = 'product-details';
   static productDetails([int? id]) => 'details/${id ?? ':id'}';
 }
 ```
@@ -134,7 +139,10 @@ class ShowProductPage extends StatelessWidget {
   final int id;
 
   static void go(BuildContext context, int id) {
-    context.go('${AppRoutes.products}/${AppRoutes.productDetails(id)}');
+    context.goNamed(
+      AppRoutes.productDetailsName,
+      pathParameters: {'id': id.toString()},
+    );
   }
 
   @override

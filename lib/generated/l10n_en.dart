@@ -180,6 +180,54 @@ class SEn extends S {
   String get homeCourtGetSubscriptionPack => 'Get Subscription Pack';
 
   @override
+  String get homeBookingActivePackage => 'Active Package';
+
+  @override
+  String homeBookingSessions(int count) {
+    return '$count Sessions';
+  }
+
+  @override
+  String homeBookingSessionsLeft(int count) {
+    return '$count Left';
+  }
+
+  @override
+  String get homeBookingUse => 'Use';
+
+  @override
+  String get homeBookingReservationDate => 'Reservation date';
+
+  @override
+  String get homeBookingAvailable => 'Available';
+
+  @override
+  String get homeBookingBooked => 'Booked';
+
+  @override
+  String get homeBookingTimeslot => 'Timeslot';
+
+  @override
+  String homeBookingDurationMinutes(int minutes) {
+    return '${minutes}min';
+  }
+
+  @override
+  String get homeBookingChooseCourt => 'Choose a court';
+
+  @override
+  String get homeBookingCourtTypeLegend => 'A,C Indoor     B Outdoor';
+
+  @override
+  String get homeBookingCourtMixed => 'Mixed';
+
+  @override
+  String get homeBookingCourtLadiesOnly => 'Ladies Only';
+
+  @override
+  String get homeBookingCourtPrivate => 'Private';
+
+  @override
   String get notFoundTitle => 'Page not found';
 
   @override

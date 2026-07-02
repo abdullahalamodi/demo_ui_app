@@ -4,7 +4,7 @@ class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
 
   static void go(BuildContext context) {
-    context.go(AppRoutes.onboarding);
+    context.goNamed(AppRoutes.onboardingName);
   }
 
   @override

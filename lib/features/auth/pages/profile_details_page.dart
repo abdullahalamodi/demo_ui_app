@@ -4,7 +4,7 @@ class ProfileDetailsPage extends StatelessWidget {
   const ProfileDetailsPage({super.key});
 
   static void go(BuildContext context) {
-    context.go(AppRoutes.profileDetails);
+    context.goNamed(AppRoutes.profileDetailsName);
   }
 
   @override

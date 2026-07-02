@@ -4,11 +4,19 @@ class ShowHomeCourtContent extends StatelessWidget {
   const ShowHomeCourtContent({
     required this.venue,
     required this.selectedTab,
+    required this.selectedReservationDateId,
+    required this.selectedTimeslotId,
+    required this.selectedDurationId,
+    required this.selectedCourtId,
     required this.isFavorite,
     required this.onBackPressed,
     required this.onFavoritePressed,
     required this.onSharePressed,
     required this.onTabSelected,
+    required this.onReservationDateSelected,
+    required this.onTimeslotSelected,
+    required this.onDurationSelected,
+    required this.onCourtSelected,
     required this.onCancelPressed,
     required this.onBookPressed,
     required this.onSubscriptionPressed,
@@ -17,11 +25,19 @@ class ShowHomeCourtContent extends StatelessWidget {
 
   final HomeCourtVenue venue;
   final HomeCourtDetailTab selectedTab;
+  final String selectedReservationDateId;
+  final String selectedTimeslotId;
+  final String selectedDurationId;
+  final String selectedCourtId;
   final bool isFavorite;
   final VoidCallback onBackPressed;
   final VoidCallback onFavoritePressed;
   final VoidCallback onSharePressed;
   final ValueChanged<HomeCourtDetailTab> onTabSelected;
+  final ValueChanged<HomeReservationDate> onReservationDateSelected;
+  final ValueChanged<HomeTimeSlot> onTimeslotSelected;
+  final ValueChanged<HomeBookingDuration> onDurationSelected;
+  final ValueChanged<HomeBookingCourt> onCourtSelected;
   final VoidCallback onCancelPressed;
   final VoidCallback onBookPressed;
   final VoidCallback onSubscriptionPressed;
@@ -46,7 +62,7 @@ class ShowHomeCourtContent extends StatelessWidget {
                       13,
                       20,
                       13,
-                      50,
+                      134,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,6 +82,23 @@ class ShowHomeCourtContent extends StatelessWidget {
                         const SizedBox(height: 22),
                         if (selectedTab == HomeCourtDetailTab.home)
                           HomeCourtHomeTab(venue: venue),
+                        if (selectedTab == HomeCourtDetailTab.booking)
+                          HomeCourtBookingTab(
+                            venue: venue,
+                            package: HomeBookingPackage.demo,
+                            dates: HomeReservationDate.demoItems,
+                            durations: HomeBookingDuration.demoItems,
+                            courts: HomeBookingCourt.demoItems,
+                            selectedDateId: selectedReservationDateId,
+                            selectedTimeslotId: selectedTimeslotId,
+                            selectedDurationId: selectedDurationId,
+                            selectedCourtId: selectedCourtId,
+                            onDateSelected: onReservationDateSelected,
+                            onTimeslotSelected: onTimeslotSelected,
+                            onDurationSelected: onDurationSelected,
+                            onCourtSelected: onCourtSelected,
+                            onUsePackagePressed: () {},
+                          ),
                       ],
                     ),
                   ),

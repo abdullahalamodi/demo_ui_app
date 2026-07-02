@@ -4,7 +4,7 @@ class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   static void go(BuildContext context) {
-    context.go(AppRoutes.home);
+    context.goNamed(AppRoutes.homeName);
   }
 
   @override
