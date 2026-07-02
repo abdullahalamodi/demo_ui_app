@@ -3,13 +3,13 @@ import '../../../common_libs.dart';
 class HomeHeader extends StatelessWidget {
   const HomeHeader({
     required this.user,
-    required this.onSettingsPressed,
+    required this.onFilterPressed,
     required this.onNotificationsPressed,
     super.key,
   });
 
   final HomeUser user;
-  final VoidCallback onSettingsPressed;
+  final VoidCallback onFilterPressed;
   final VoidCallback onNotificationsPressed;
 
   @override
@@ -66,7 +66,7 @@ class HomeHeader extends StatelessWidget {
               icon: FontAwesomeIcons.sliders,
               size: actionSize,
               tooltip: context.loc.homeSettingsAction,
-              onPressed: onSettingsPressed,
+              onPressed: onFilterPressed,
             ),
             SizedBox(width: actionGap),
             _HeaderActionButton(

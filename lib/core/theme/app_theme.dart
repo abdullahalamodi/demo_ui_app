@@ -16,7 +16,7 @@ abstract final class AppTheme {
       surfaceContainerHighest: Color(0xFFEAF4F0),
       onSurfaceVariant: Color(0xFF6F7474),
       outline: Color(0xFFD8DEDC),
-      outlineVariant: borderColor,
+      outlineVariant: Color(0xFFD9D6D0),
       error: Color(0xFFB42318),
     );
 
@@ -39,7 +39,7 @@ abstract final class AppTheme {
         mediaScrimMedium: Color(0x33000000),
         mediaScrimHigh: Color(0x57000000),
         focusRing: Color(0xFFBDEBE6),
-        border: borderColor,
+        border: Color(0xFFD9D6D0),
         accent: Color(0xFFFFC83D),
         selection: secondaryColor,
         onSelection: Color(0xFF10201E),

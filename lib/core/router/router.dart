@@ -36,6 +36,11 @@ final GoRouter appRouter = GoRouter(
       pageBuilder: (context, state) =>
           const NoTransitionPage(child: HomePage()),
     ),
+    GoRoute(
+      path: AppRoutes.searchResult,
+      pageBuilder: (context, state) =>
+          const NoTransitionPage(child: SearchResultPage()),
+    ),
   ],
   errorBuilder: (context, state) => const NotFoundPage(),
 );

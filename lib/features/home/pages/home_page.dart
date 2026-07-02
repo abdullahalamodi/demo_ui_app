@@ -40,6 +40,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> _showFilterSheet() {
+    final pageContext = context;
+
     return showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
@@ -47,7 +49,12 @@ class _HomePageState extends State<HomePage> {
       barrierColor: context.colorScheme.primary.withValues(alpha: .08),
       backgroundColor: Colors.transparent,
       elevation: 0,
-      builder: (context) => const HomeFilterSheet(),
+      builder: (sheetContext) => HomeFilterSheet(
+        onApplyPressed: () {
+          Navigator.of(sheetContext).pop();
+          SearchResultPage.push(pageContext);
+        },
+      ),
     );
   }
 
@@ -86,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     HomeHeader(
                       user: HomeUser.demo,
-                      onSettingsPressed: () {},
+                      onFilterPressed: _showFilterSheet,
                       onNotificationsPressed: () {},
                     ),
                     const SizedBox(height: 28),
@@ -109,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                           _selectTimeslot(venue, timeslot);
                         },
                       ),
-                      if (venue != venues.last) const SizedBox(height: 13),
+                      if (venue != venues.last) const SizedBox(height: 12),
                     ],
                   ],
                 ),
@@ -117,23 +124,7 @@ class _HomePageState extends State<HomePage> {
                   start: 0,
                   end: 0,
                   bottom: 0,
-                  child: IgnorePointer(
-                    child: Container(
-                      height: 175,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            context.colorScheme.surface.withValues(alpha: 0),
-                            context.colorScheme.surface.withValues(alpha: .94),
-                            context.colorScheme.surface,
-                          ],
-                          stops: const [0, .38, 1],
-                        ),
-                      ),
-                    ),
-                  ),
+                  child: const HomeBottomGradient(),
                 ),
                 PositionedDirectional(
                   start: 0,

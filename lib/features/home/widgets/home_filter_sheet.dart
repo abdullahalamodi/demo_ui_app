@@ -5,7 +5,12 @@ enum _HomeSortOption { nearest, priceLowToHigh }
 enum _HomeDurationOption { sixty, ninety, oneTwenty }
 
 class HomeFilterSheet extends StatefulWidget {
-  const HomeFilterSheet({super.key});
+  const HomeFilterSheet({
+    this.onApplyPressed,
+    super.key,
+  });
+
+  final VoidCallback? onApplyPressed;
 
   @override
   State<HomeFilterSheet> createState() => _HomeFilterSheetState();
@@ -199,7 +204,9 @@ class _HomeFilterSheetState extends State<HomeFilterSheet> {
                         child: _FilterActionButton(
                           label: context.loc.homeApply,
                           isPrimary: true,
-                          onPressed: () => Navigator.of(context).pop(),
+                          onPressed:
+                              widget.onApplyPressed ??
+                              () => Navigator.of(context).pop(),
                         ),
                       ),
                     ],

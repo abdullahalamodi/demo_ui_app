@@ -147,6 +147,18 @@ abstract class S {
   /// **'Notifications'**
   String get homeNotificationsAction;
 
+  /// No description provided for @homeSearchResults.
+  ///
+  /// In en, this message translates to:
+  /// **'Search Results'**
+  String get homeSearchResults;
+
+  /// No description provided for @homeCourtCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} Court'**
+  String homeCourtCount(int count);
+
   /// No description provided for @homeSavedAction.
   ///
   /// In en, this message translates to:

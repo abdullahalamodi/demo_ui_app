@@ -16,6 +16,15 @@
   "homeWelcomeBack": "Welcome Back",
   "homeSettingsAction": "Settings",
   "homeNotificationsAction": "Notifications",
+  "homeSearchResults": "Search Results",
+  "homeCourtCount": "{count} Court",
+  "@homeCourtCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "homeSavedAction": "Saved venues",
   "homeShareAction": "Share venue",
   "homeSelectCity": "Select City",

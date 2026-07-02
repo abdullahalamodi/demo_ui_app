@@ -40,6 +40,14 @@ class SEn extends S {
   String get homeNotificationsAction => 'Notifications';
 
   @override
+  String get homeSearchResults => 'Search Results';
+
+  @override
+  String homeCourtCount(int count) {
+    return '$count Court';
+  }
+
+  @override
   String get homeSavedAction => 'Saved venues';
 
   @override
