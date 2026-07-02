@@ -189,6 +189,102 @@ abstract class S {
   /// **'Filter'**
   String get homeFilter;
 
+  /// No description provided for @homeFilterResults.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter Results'**
+  String get homeFilterResults;
+
+  /// No description provided for @homeAvailability.
+  ///
+  /// In en, this message translates to:
+  /// **'Availability'**
+  String get homeAvailability;
+
+  /// No description provided for @homeShowNonAvailableClubs.
+  ///
+  /// In en, this message translates to:
+  /// **'Show Non Available Clubs'**
+  String get homeShowNonAvailableClubs;
+
+  /// No description provided for @homeSortBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort by'**
+  String get homeSortBy;
+
+  /// No description provided for @homePriceLowToHigh.
+  ///
+  /// In en, this message translates to:
+  /// **'Price Low to High'**
+  String get homePriceLowToHigh;
+
+  /// No description provided for @homeCoach.
+  ///
+  /// In en, this message translates to:
+  /// **'Coach'**
+  String get homeCoach;
+
+  /// No description provided for @homeTrainWithCoach.
+  ///
+  /// In en, this message translates to:
+  /// **'Train with a Coach'**
+  String get homeTrainWithCoach;
+
+  /// No description provided for @homeDuration.
+  ///
+  /// In en, this message translates to:
+  /// **'Duration'**
+  String get homeDuration;
+
+  /// No description provided for @homeDuration60Min.
+  ///
+  /// In en, this message translates to:
+  /// **'60 min'**
+  String get homeDuration60Min;
+
+  /// No description provided for @homeDuration90Min.
+  ///
+  /// In en, this message translates to:
+  /// **'90 min'**
+  String get homeDuration90Min;
+
+  /// No description provided for @homeDuration120Min.
+  ///
+  /// In en, this message translates to:
+  /// **'120 min'**
+  String get homeDuration120Min;
+
+  /// No description provided for @homeType.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get homeType;
+
+  /// No description provided for @homeOutdoor.
+  ///
+  /// In en, this message translates to:
+  /// **'Outdoor'**
+  String get homeOutdoor;
+
+  /// No description provided for @homeRoofed.
+  ///
+  /// In en, this message translates to:
+  /// **'Roofed'**
+  String get homeRoofed;
+
+  /// No description provided for @homeCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get homeCancel;
+
+  /// No description provided for @homeApply.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply'**
+  String get homeApply;
+
   /// No description provided for @homeSort.
   ///
   /// In en, this message translates to:

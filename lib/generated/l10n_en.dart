@@ -61,6 +61,54 @@ class SEn extends S {
   String get homeFilter => 'Filter';
 
   @override
+  String get homeFilterResults => 'Filter Results';
+
+  @override
+  String get homeAvailability => 'Availability';
+
+  @override
+  String get homeShowNonAvailableClubs => 'Show Non Available Clubs';
+
+  @override
+  String get homeSortBy => 'Sort by';
+
+  @override
+  String get homePriceLowToHigh => 'Price Low to High';
+
+  @override
+  String get homeCoach => 'Coach';
+
+  @override
+  String get homeTrainWithCoach => 'Train with a Coach';
+
+  @override
+  String get homeDuration => 'Duration';
+
+  @override
+  String get homeDuration60Min => '60 min';
+
+  @override
+  String get homeDuration90Min => '90 min';
+
+  @override
+  String get homeDuration120Min => '120 min';
+
+  @override
+  String get homeType => 'Type';
+
+  @override
+  String get homeOutdoor => 'Outdoor';
+
+  @override
+  String get homeRoofed => 'Roofed';
+
+  @override
+  String get homeCancel => 'Cancel';
+
+  @override
+  String get homeApply => 'Apply';
+
+  @override
   String get homeSort => 'Sort';
 
   @override

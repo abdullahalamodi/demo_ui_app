@@ -4,6 +4,10 @@
 
 These instructions apply to the whole repository.
 
+## spsicfc instructions
+
+- no need to run on web I will test it manulay.
+
 ## Project Overview
 
 This is a Flutter app named `demo_ui_app`.

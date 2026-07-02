@@ -39,6 +39,18 @@ class _HomePageState extends State<HomePage> {
     setState(() => _selectedNavItem = item);
   }
 
+  Future<void> _showFilterSheet() {
+    return showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      useSafeArea: true,
+      barrierColor: context.colorScheme.primary.withValues(alpha: .08),
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      builder: (context) => const HomeFilterSheet(),
+    );
+  }
+
   String _timeslotKey(HomeCourtVenue venue, HomeTimeSlot timeslot) {
     return '${venue.id}:${timeslot.id}';
   }
@@ -129,7 +141,7 @@ class _HomePageState extends State<HomePage> {
                   bottom: 92,
                   child: Center(
                     child: HomeFilterSortBar(
-                      onFilterPressed: () {},
+                      onFilterPressed: _showFilterSheet,
                       onSortPressed: () {},
                     ),
                   ),
