@@ -1,7 +1,7 @@
 import '../../common_libs.dart';
 
 // Light theme colors.
-const primaryColor = Color(0xFF0F49C6);
+const primaryColor = Color(0xFF083DB2);
 const secondaryColor = Color(0xFF44D2C9);
 
 @immutable

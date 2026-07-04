@@ -25,7 +25,7 @@ class AuthBackgroundScaffold extends StatelessWidget {
                   colors.mediaScrimMedium,
                   colors.mediaScrimHigh,
                 ],
-                stops: const [0, .43, 1],
+                stops: const [0, .9, 1],
               ),
             ),
           ),
