@@ -83,6 +83,10 @@ flutter:
         - asset: assets/fonts/Poppins-BlackItalic.ttf
           weight: 900
           style: italic
+    - family: TexGyreAdventor
+      fonts:
+        - asset: assets/fonts/tex-gyre-adventor.bold.otf
+          weight: 700
 
   # To add assets to your application, add an assets section, like this:
   # assets:

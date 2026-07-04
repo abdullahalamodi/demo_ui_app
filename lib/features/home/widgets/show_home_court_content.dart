@@ -1,5 +1,7 @@
 import '../../../common_libs.dart';
 
+const _priceFontFamily = 'TexGyreAdventor';
+
 class ShowHomeCourtContent extends StatelessWidget {
   const ShowHomeCourtContent({
     required this.venue,
@@ -186,14 +188,16 @@ class _SelectedHomeCourtTabContent extends StatelessWidget {
         onCourtSelected: onCourtSelected,
         onUsePackagePressed: () {},
       ),
-      HomeCourtDetailTab.coaches => HomeCourtCoachesTab(
-        dates: HomeCoachDate.demoItems,
-        coaches: HomeCoachProfile.demoItems,
-        selectedDateId: selectedCoachDateId,
-        onDateSelected: onCoachDateSelected,
-        onBookPressed: onCoachBookPressed,
-        onShowProfilePressed: onCoachShowProfilePressed,
-      ),
+
+      // HomeCourtDetailTab.coaches => HomeCourtCoachesTab(
+      //   dates: HomeCoachDate.demoItems,
+      //   coaches: HomeCoachProfile.demoItems,
+      //   selectedDateId: selectedCoachDateId,
+      //   onDateSelected: onCoachDateSelected,
+      //   onBookPressed: onCoachBookPressed,
+      //   onShowProfilePressed: onCoachShowProfilePressed,
+      // ),
+      HomeCourtDetailTab.coaches ||
       HomeCourtDetailTab.openMatch ||
       HomeCourtDetailTab.competitions ||
       HomeCourtDetailTab.community => const SizedBox.shrink(),
@@ -335,10 +339,9 @@ class _ActionButton extends StatelessWidget {
                       Text(
                         price!,
                         maxLines: 1,
-                        style: context.textTheme.titleMedium?.copyWith(
-                          fontSize: 16,
+                        style: textStyle?.copyWith(
+                          fontFamily: _priceFontFamily,
                           fontWeight: FontWeight.w700,
-                          color: foregroundColor,
                         ),
                       ),
                     ],
