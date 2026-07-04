@@ -49,9 +49,6 @@ class AuthSecondaryButton extends StatelessWidget {
         ),
         child: Text(
           label,
-          style: context.textTheme.titleMedium!.copyWith(
-            fontWeight: FontWeight.w700,
-          ),
         ),
       ),
     );
@@ -84,7 +81,9 @@ class SocialAuthButton extends StatelessWidget {
         style: FilledButton.styleFrom(
           backgroundColor: colors.surfaceDisabled,
           foregroundColor: context.colorScheme.onSurface,
-          textStyle: context.textTheme.labelLarge,
+          textStyle: context.textTheme.titleMedium!.copyWith(
+            fontWeight: FontWeight.w400,
+          ),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           padding: const EdgeInsets.symmetric(horizontal: 26),
         ),

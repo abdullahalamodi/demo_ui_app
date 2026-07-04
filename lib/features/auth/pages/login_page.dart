@@ -42,8 +42,8 @@ class LoginPage extends StatelessWidget {
               Row(
                 children: [
                   SizedBox(
-                    width: 16,
-                    height: 16,
+                    width: 15,
+                    height: 15,
                     child: Checkbox(
                       value: false,
                       side: BorderSide(
@@ -56,8 +56,8 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(width: 10),
                   Text(
                     context.loc.rememberMe,
-                    style: context.textTheme.bodySmall!.copyWith(
-                      fontWeight: FontWeight.w200,
+                    style: context.textTheme.bodyMedium!.copyWith(
+                      fontWeight: FontWeight.w300,
                     ),
                   ),
                   const Spacer(),
@@ -65,9 +65,7 @@ class LoginPage extends StatelessWidget {
                     onPressed: () {},
                     style: TextButton.styleFrom(
                       foregroundColor: context.colorScheme.onSurface,
-                      textStyle: context.textTheme.labelMedium!.copyWith(
-                        fontWeight: FontWeight.w700,
-                      ),
+                      textStyle: context.textTheme.labelMedium,
                     ),
                     child: Text(context.loc.forgotPassword),
                   ),

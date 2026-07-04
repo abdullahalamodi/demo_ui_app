@@ -83,7 +83,7 @@ abstract final class AppTheme {
     final baseTextTheme = materialTextTheme.apply(fontFamily: 'Poppins');
     final textTheme = baseTextTheme.copyWith(
       displayLarge: baseTextTheme.displayLarge?.copyWith(
-        fontSize: 48,
+        fontSize: 52,
         height: 1.08,
         fontWeight: FontWeight.w400,
       ),
@@ -119,7 +119,7 @@ abstract final class AppTheme {
       ),
       titleMedium: baseTextTheme.titleMedium?.copyWith(
         fontSize: 15,
-        fontWeight: FontWeight.w700,
+        fontWeight: FontWeight.w600,
         color: Colors.black,
       ),
       titleSmall: baseTextTheme.titleSmall?.copyWith(

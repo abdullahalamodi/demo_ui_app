@@ -35,7 +35,7 @@ class OnboardingPage extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             AppSvgIcon(
-                              FixedAssets.star,
+                              FixedAssets.starFilled,
                               size: 23,
                               color: context.customColors.accent,
                             ),
@@ -44,6 +44,8 @@ class OnboardingPage extends StatelessWidget {
                               '4.7',
                               style: context.textTheme.headlineMedium?.copyWith(
                                 color: context.customColors.white,
+                                fontSize: 30,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                           ],
@@ -53,6 +55,8 @@ class OnboardingPage extends StatelessWidget {
                           context.loc.onboardingPlayersCount,
                           style: context.textTheme.bodyLarge?.copyWith(
                             color: context.customColors.white,
+                            fontWeight: FontWeight.w300,
+                            fontSize: 16,
                           ),
                         ),
                       ],
