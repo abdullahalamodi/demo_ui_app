@@ -87,7 +87,7 @@ class ShowHomeCourtContent extends StatelessWidget {
                           selectedTab: selectedTab,
                           onSelected: onTabSelected,
                         ),
-                        const SizedBox(height: 12),
+                        const SizedBox(height: 22),
                         _SelectedHomeCourtTabContent(
                           selectedTab: selectedTab,
                           venue: venue,
@@ -327,15 +327,19 @@ class _ActionButton extends StatelessWidget {
                     children: [
                       AppSvgIcon(
                         FixedAssets.riyalSymbol,
-                        width: 10,
-                        height: 11,
+                        width: 14,
+                        height: 14,
                         color: foregroundColor,
                       ),
-                      const SizedBox(width: 4),
+                      const SizedBox(width: 6),
                       Text(
                         price!,
                         maxLines: 1,
-                        style: textStyle,
+                        style: context.textTheme.titleMedium?.copyWith(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                          color: foregroundColor,
+                        ),
                       ),
                     ],
                   ),

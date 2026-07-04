@@ -34,11 +34,15 @@ abstract final class FixedAssets {
   static const String riyalSymbol = '${_svg}riyal-symbol.svg';
   static const String share = '${_svg}share.svg';
   static const String showerCourtService = '${_svg}shower-court-service.svg';
+  static const String sessions = '${_svg}sessions.svg';
   static const String sortAscending = '${_svg}sort-ascending.svg';
   static const String star = '${_svg}star.svg';
   static const String starFilled = '${_svg}star-filled.svg';
+  static const String sun = '${_svg}Path 47130.svg';
   static const String tennisBall = '${_svg}tennis-ball.svg';
+  static const String tennisCourt = '${_svg}icon_concepts__sports_leisure.svg';
   static const String tennisRacket = '${_svg}tennis-racket.svg';
+  static const String moon = '${_svg}Path 47132.svg';
   static const String toiletCourtService = '${_svg}toilet-court-service.svg';
   static const String user = '${_svg}user.svg';
   static const String waterCourtService = '${_svg}water-court-service.svg';

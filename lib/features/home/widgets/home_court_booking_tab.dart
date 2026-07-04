@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import '../../../common_libs.dart';
 
 class HomeCourtBookingTab extends StatelessWidget {
@@ -43,23 +44,23 @@ class HomeCourtBookingTab extends StatelessWidget {
           context.loc.homeBookingActivePackage,
           style: _sectionTitleStyle(context),
         ),
-        const SizedBox(height: 20),
+        const SizedBox(height: 18),
         _ActivePackageCard(
           package: package,
           onUsePressed: onUsePackagePressed,
         ),
-        const SizedBox(height: 28),
+        const SizedBox(height: 18),
         _SectionHeading(
           title: context.loc.homeBookingReservationDate,
           trailing: _AvailabilityLegend(),
         ),
-        const SizedBox(height: 14),
+        const SizedBox(height: 12),
         _DateSelector(
           dates: dates,
           selectedDateId: selectedDateId,
           onSelected: onDateSelected,
         ),
-        const SizedBox(height: 26),
+        const SizedBox(height: 18),
         Text(
           context.loc.homeBookingTimeslot,
           style: _sectionTitleStyle(context),
@@ -70,7 +71,7 @@ class HomeCourtBookingTab extends StatelessWidget {
           selectedTimeslotId: selectedTimeslotId,
           onSelected: onTimeslotSelected,
         ),
-        const SizedBox(height: 26),
+        const SizedBox(height: 18),
         Text(
           context.loc.homeDuration,
           style: _sectionTitleStyle(context),
@@ -81,10 +82,22 @@ class HomeCourtBookingTab extends StatelessWidget {
           selectedDurationId: selectedDurationId,
           onSelected: onDurationSelected,
         ),
-        const SizedBox(height: 26),
+        const SizedBox(height: 18),
         _SectionHeading(
           title: context.loc.homeBookingChooseCourt,
-          trailing: _CourtTypeLegend(),
+          trailing: Row(
+            children: [
+              _CourtTypeLegend(
+                courtType: 'A,C',
+                courtLable: 'Indoor',
+              ),
+              const SizedBox(width: 12),
+              _CourtTypeLegend(
+                courtType: 'B',
+                courtLable: 'Outdoor',
+              ),
+            ],
+          ),
         ),
         const SizedBox(height: 14),
         _CourtGrid(
@@ -131,15 +144,16 @@ class _ActivePackageCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: context.textTheme.titleLarge?.copyWith(
                         fontSize: 15,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     const SizedBox(height: 10),
                     Row(
                       children: [
-                        FaIcon(
-                          FontAwesomeIcons.chartSimple,
-                          size: 15,
+                        AppSvgIcon(
+                          FixedAssets.sessions,
+                          width: 10,
+                          height: 12,
                           color: context.colorScheme.onSurface,
                         ),
                         const SizedBox(width: 8),
@@ -151,7 +165,7 @@ class _ActivePackageCard extends StatelessWidget {
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: context.textTheme.bodyMedium?.copyWith(
-                              fontSize: 12,
+                              fontSize: 11,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
@@ -170,11 +184,15 @@ class _ActivePackageCard extends StatelessWidget {
                   onPressed: onUsePressed,
                   style: FilledButton.styleFrom(
                     minimumSize: const Size(43, 39),
+                    textStyle: context.textTheme.bodySmall?.copyWith(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w500,
+                    ),
                     padding: const EdgeInsetsDirectional.symmetric(
                       horizontal: 12,
                     ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(kRadiusM),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                   child: Text(
@@ -214,7 +232,7 @@ class _RemainingSessionsBadge extends StatelessWidget {
       padding: const EdgeInsetsDirectional.symmetric(horizontal: 12),
       decoration: BoxDecoration(
         color: context.colorScheme.surface,
-        borderRadius: BorderRadius.circular(kRadiusM),
+        borderRadius: BorderRadius.circular(10),
       ),
       alignment: AlignmentDirectional.center,
       child: Text(
@@ -222,7 +240,7 @@ class _RemainingSessionsBadge extends StatelessWidget {
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         style: context.textTheme.bodyMedium?.copyWith(
-          fontSize: 12,
+          fontSize: 11,
           fontWeight: FontWeight.w400,
         ),
       ),
@@ -252,7 +270,7 @@ class _SectionHeading extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 12),
-        Flexible(child: trailing),
+        trailing,
       ],
     );
   }
@@ -281,19 +299,41 @@ class _AvailabilityLegend extends StatelessWidget {
 }
 
 class _CourtTypeLegend extends StatelessWidget {
-  const _CourtTypeLegend();
+  const _CourtTypeLegend({
+    required this.courtType,
+    required this.courtLable,
+  });
+  final String courtType;
+  final String courtLable;
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      context.loc.homeBookingCourtTypeLegend,
-      maxLines: 1,
-      overflow: TextOverflow.ellipsis,
-      textAlign: TextAlign.end,
-      style: context.textTheme.bodyMedium?.copyWith(
-        fontSize: 11,
-        color: context.colorScheme.onSurface,
-      ),
+    return Row(
+      children: [
+        Text(
+          courtType,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          textAlign: TextAlign.end,
+          style: context.textTheme.bodyMedium?.copyWith(
+            fontSize: 11,
+            fontWeight: FontWeight.w400,
+            color: context.colorScheme.onSurface,
+          ),
+        ),
+        const SizedBox(width: 4),
+        Text(
+          courtLable,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          textAlign: TextAlign.end,
+          style: context.textTheme.bodyMedium?.copyWith(
+            fontSize: 11,
+            fontWeight: FontWeight.w300,
+            color: context.colorScheme.onSurface,
+          ),
+        ),
+      ],
     );
   }
 }
@@ -312,14 +352,14 @@ class _LegendItem extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(Icons.circle, size: 5, color: color),
+        Icon(Icons.circle, size: 6, color: color),
         const SizedBox(width: 6),
         Text(
           label,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: context.textTheme.bodyMedium?.copyWith(
-            fontSize: 11,
+            fontSize: 10,
             color: color,
           ),
         ),
@@ -379,14 +419,12 @@ class _DateCard extends StatelessWidget {
 
     return Material(
       color: isSelected
-          ? context.customColors.selection.withValues(alpha: .28)
+          ? Color.fromARGB(108, 133, 206, 195)
           : context.colorScheme.surface,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(kRadiusS),
         side: BorderSide(
-          color: isSelected
-              ? Colors.transparent
-              : context.colorScheme.outlineVariant,
+          color: isSelected ? Colors.transparent : Color(0xFFE8E8E8),
         ),
       ),
       child: InkWell(
@@ -402,8 +440,8 @@ class _DateCard extends StatelessWidget {
                 date.day,
                 maxLines: 1,
                 style: context.textTheme.titleLarge?.copyWith(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
                   color: foregroundColor,
                 ),
               ),
@@ -412,7 +450,7 @@ class _DateCard extends StatelessWidget {
                 maxLines: 1,
                 style: context.textTheme.bodyMedium?.copyWith(
                   fontSize: 11,
-                  fontWeight: FontWeight.w400,
+                  fontWeight: FontWeight.w300,
                   color: foregroundColor,
                 ),
               ),
@@ -472,20 +510,16 @@ class _BookingTimeslotCard extends StatelessWidget {
     final foregroundColor = timeslot.isEnabled
         ? context.colorScheme.onSurface
         : context.customColors.onSurfaceSubtle;
-    final iconColor = timeslot.isMorning
-        ? context.customColors.accent
-        : const Color(0xFF2C3C68);
+    final iconAsset = timeslot.isMorning ? FixedAssets.sun : FixedAssets.moon;
 
     return Material(
       color: isSelected
-          ? context.customColors.selection.withValues(alpha: .28)
+          ? Color.fromARGB(108, 133, 206, 195)
           : context.colorScheme.surface,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(kRadiusS),
         side: BorderSide(
-          color: isSelected
-              ? Colors.transparent
-              : context.colorScheme.outlineVariant,
+          color: isSelected ? Colors.transparent : Color(0xFFE8E8E8),
         ),
       ),
       child: InkWell(
@@ -497,13 +531,10 @@ class _BookingTimeslotCard extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              FaIcon(
-                timeslot.isMorning
-                    ? FontAwesomeIcons.sun
-                    : FontAwesomeIcons.solidMoon,
-                size: 14,
+              AppSvgIcon(
+                iconAsset,
                 color: timeslot.isEnabled
-                    ? iconColor
+                    ? null
                     : context.customColors.onSurfaceSubtle,
               ),
               const SizedBox(height: 8),
@@ -578,14 +609,12 @@ class _DurationButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: isSelected
-          ? context.customColors.selection.withValues(alpha: .28)
+          ? Color.fromARGB(108, 133, 206, 195)
           : context.colorScheme.surface,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(kRadiusS),
         side: BorderSide(
-          color: isSelected
-              ? Colors.transparent
-              : context.colorScheme.outlineVariant,
+          color: isSelected ? Colors.transparent : Color(0xFFE8E8E8),
         ),
       ),
       child: InkWell(
@@ -660,7 +689,7 @@ class _CourtCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: isSelected
-          ? context.customColors.selection.withValues(alpha: .28)
+          ? Color.fromARGB(108, 133, 206, 195)
           : context.customColors.surfaceTinted,
       borderRadius: BorderRadius.circular(kRadiusS),
       child: InkWell(
@@ -672,8 +701,7 @@ class _CourtCard extends StatelessWidget {
               top: 11,
               start: 15,
               child: AppSvgIcon(
-                FixedAssets.padel,
-                size: 15,
+                FixedAssets.tennisCourt,
                 color: context.colorScheme.onSurface,
               ),
             ),
@@ -723,13 +751,13 @@ class _CourtCard extends StatelessWidget {
                 top: 11,
                 end: 11,
                 child: Container(
-                  width: 15,
-                  height: 15,
+                  width: 14,
+                  height: 14,
                   decoration: BoxDecoration(
                     color: const Color(0xFF299181),
                     shape: BoxShape.circle,
                     border: Border.all(
-                      color: context.customColors.surfaceSelected,
+                      color: Colors.white,
                       width: 1,
                     ),
                   ),
