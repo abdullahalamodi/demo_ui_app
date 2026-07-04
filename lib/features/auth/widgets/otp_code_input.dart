@@ -40,18 +40,20 @@ class _OtpCodeInputState extends State<OtpCodeInput> {
       height: 70,
       textStyle: context.textTheme.headlineMedium?.copyWith(
         color: context.colorScheme.onSurface,
+        fontSize: 28,
+        fontWeight: FontWeight.w600,
       ),
       decoration: BoxDecoration(
         color: colors.surfaceRaised,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(kRadiusL),
         border: Border.all(color: colors.border, width: 1.2),
       ),
     );
 
     final activePinTheme = defaultPinTheme.copyDecorationWith(
       color: colors.surfaceRaised,
-      borderRadius: BorderRadius.circular(10),
-      border: Border.all(color: colors.focusRing, width: 1.2),
+      borderRadius: BorderRadius.circular(kRadiusL),
+      border: Border.all(color: Color(0xFFD1D7EB), width: 1.2),
     );
 
     return SizedBox(
@@ -66,8 +68,8 @@ class _OtpCodeInputState extends State<OtpCodeInput> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         pinAnimationType: PinAnimationType.none,
         cursor: SizedBox(
-          width: 1.5,
-          height: 32,
+          width: 2,
+          height: 28,
           child: ColoredBox(color: context.colorScheme.onSurface),
         ),
       ),

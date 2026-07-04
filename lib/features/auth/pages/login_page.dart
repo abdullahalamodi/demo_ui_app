@@ -1,11 +1,18 @@
 import '../../../common_libs.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   static void go(BuildContext context) {
     context.goNamed(AppRoutes.loginName);
   }
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  bool _rememberMe = false;
 
   @override
   Widget build(BuildContext context) {
@@ -41,23 +48,26 @@ class LoginPage extends StatelessWidget {
               const SizedBox(height: 18),
               Row(
                 children: [
-                  SizedBox(
-                    width: 15,
-                    height: 15,
-                    child: Checkbox(
-                      value: false,
-                      side: BorderSide(
-                        color: context.customColors.onSurfaceMuted,
-                      ),
-                      onChanged: (_) {},
-                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Text(
-                    context.loc.rememberMe,
-                    style: context.textTheme.bodyMedium!.copyWith(
-                      fontWeight: FontWeight.w300,
+                  GestureDetector(
+                    onTap: () {
+                      setState(() => _rememberMe = !_rememberMe);
+                    },
+                    behavior: HitTestBehavior.opaque,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        AppSelectionMark(
+                          isSelected: _rememberMe,
+                          isSquare: true,
+                        ),
+                        const SizedBox(width: 10),
+                        Text(
+                          context.loc.rememberMe,
+                          style: context.textTheme.bodyMedium!.copyWith(
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   const Spacer(),

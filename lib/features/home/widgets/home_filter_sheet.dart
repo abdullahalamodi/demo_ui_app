@@ -365,7 +365,7 @@ class _RadioOption<T> extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          _SelectionMark(isSelected: isSelected),
+          AppSelectionMark(isSelected: isSelected),
           const SizedBox(width: 14),
           Text(
             label,
@@ -400,7 +400,7 @@ class _CheckboxOption extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          _SelectionMark(isSelected: value, isSquare: true),
+          AppSelectionMark(isSelected: value, isSquare: true),
           const SizedBox(width: 14),
           Text(
             label,
@@ -412,40 +412,6 @@ class _CheckboxOption extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class _SelectionMark extends StatelessWidget {
-  const _SelectionMark({
-    required this.isSelected,
-    this.isSquare = false,
-  });
-
-  final bool isSelected;
-  final bool isSquare;
-
-  @override
-  Widget build(BuildContext context) {
-    final borderRadius = BorderRadius.circular(isSquare ? kRadiusXs : 9.2);
-
-    return Container(
-      width: 18.4,
-      height: 18.4,
-      alignment: AlignmentDirectional.center,
-      decoration: BoxDecoration(
-        borderRadius: borderRadius,
-        border: Border.all(color: const Color(0xFFD1D7EB)),
-      ),
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 120),
-        width: isSelected ? 8.4 : 0,
-        height: isSelected ? 8.4 : 0,
-        decoration: BoxDecoration(
-          color: Colors.black,
-          borderRadius: BorderRadius.circular(isSquare ? 2 : kRadiusPill),
-        ),
       ),
     );
   }

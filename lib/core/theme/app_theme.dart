@@ -208,11 +208,12 @@ abstract final class AppTheme {
           vertical: 22,
         ),
         constraints: const BoxConstraints(minHeight: kButtonHeight),
-        hintStyle: textTheme.bodyMedium?.copyWith(
+        hintStyle: textTheme.labelMedium?.copyWith(
           color: colorScheme.onSurfaceVariant,
         ),
         labelStyle: textTheme.labelMedium?.copyWith(
           color: colorScheme.onSurfaceVariant,
+          fontWeight: FontWeight.w400,
         ),
         prefixIconColor: appColors.iconMuted,
         suffixIconColor: appColors.iconMuted,

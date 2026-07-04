@@ -47,7 +47,7 @@ class HomeCitySelector extends StatelessWidget {
                   quarterTurns: 3,
                   child: AppSvgIcon(
                     FixedAssets.chevronLeft,
-                    size: 16,
+                    size: 11,
                     color: context.colorScheme.onSurface,
                   ),
                 ),

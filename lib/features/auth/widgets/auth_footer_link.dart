@@ -18,7 +18,11 @@ class AuthFooterLink extends StatelessWidget {
       onPressed: onTap,
       child: Text(
         '$text$action',
-        style: context.textTheme.bodySmall,
+
+        style: context.textTheme.bodySmall!.copyWith(
+          fontWeight: FontWeight.w300,
+          fontSize: 13,
+        ),
       ),
     );
   }

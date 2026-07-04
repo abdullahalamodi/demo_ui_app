@@ -35,6 +35,8 @@ class MobileVerificationPage extends StatelessWidget {
                 context.loc.verificationPhoneNumber,
                 style: context.textTheme.headlineMedium?.copyWith(
                   color: Colors.black,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 28,
                 ),
               ),
               const SizedBox(height: 6),
@@ -45,7 +47,10 @@ class MobileVerificationPage extends StatelessWidget {
                 ),
                 child: Text(
                   context.loc.wrongNumberChange,
-                  style: context.textTheme.bodySmall,
+                  style: context.textTheme.bodySmall!.copyWith(
+                    fontWeight: FontWeight.w300,
+                    fontSize: 13,
+                  ),
                 ),
               ),
               const SizedBox(height: 29),
@@ -61,7 +66,10 @@ class MobileVerificationPage extends StatelessWidget {
                 ),
                 child: Text(
                   context.loc.didntReceiveCodeResend,
-                  style: context.textTheme.bodySmall,
+                  style: context.textTheme.bodyMedium!.copyWith(
+                    fontWeight: FontWeight.w300,
+                    fontSize: 14,
+                  ),
                 ),
               ),
               const SizedBox(height: 10),

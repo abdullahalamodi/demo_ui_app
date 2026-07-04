@@ -18,7 +18,7 @@ class ProfileDetailsPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const AuthLogo(),
-                const SizedBox(height: 100),
+                const SizedBox(height: 120),
                 AuthHeader(
                   title: context.loc.profileDetailsTitle,
                   trailing: Padding(
@@ -33,13 +33,20 @@ class ProfileDetailsPage extends StatelessWidget {
                       ),
                       child: Row(
                         children: [
-                          Text(context.loc.skip),
+                          Text(
+                            context.loc.skip,
+                            style: context.textTheme.labelMedium?.copyWith(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 15,
+                              color: context.customColors.white,
+                            ),
+                          ),
                           const SizedBox(width: 5),
                           RotatedBox(
                             quarterTurns: 2,
                             child: AppSvgIcon(
                               FixedAssets.chevronLeft,
-                              size: 14,
+                              size: 7,
                               color: context.customColors.white,
                             ),
                           ),

@@ -29,10 +29,11 @@ class AuthHeader extends StatelessWidget {
                 style: context.textTheme.displayLarge?.copyWith(
                   color: colors.white,
                   fontWeight: FontWeight.w400,
+                  // height: 1,
                 ),
               ),
               if (subtitle case final subtitle?) ...[
-                const SizedBox(height: 18),
+                const SizedBox(height: 10),
                 Text(
                   subtitle,
                   style: context.textTheme.bodyLarge?.copyWith(

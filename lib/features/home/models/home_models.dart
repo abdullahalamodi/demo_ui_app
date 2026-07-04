@@ -47,8 +47,8 @@ class HomeSportCategory {
     ),
     HomeSportCategory(
       id: 'table-tennis',
-      iconAsset: FixedAssets.tennisBall,
-      label: 'Paddle',
+      iconAsset: FixedAssets.padel,
+      label: 'Table Tennis',
     ),
   ];
 }

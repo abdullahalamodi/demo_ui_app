@@ -63,7 +63,7 @@ class OnboardingPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 33),
+                const SizedBox(height: 28),
                 AuthSecondaryButton(
                   label: context.loc.getStarted,
                   onPressed: () => LoginPage.go(context),

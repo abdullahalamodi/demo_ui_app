@@ -36,6 +36,7 @@ class _AuthTextFieldState extends State<AuthTextField> {
           child: TextFormField(
             initialValue: widget.initialValue,
             obscureText: _obscure,
+            style: context.textTheme.labelLarge?.copyWith(),
             obscuringCharacter: '*',
             decoration: InputDecoration(
               suffixIcon: widget.obscure

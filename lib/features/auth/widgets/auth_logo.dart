@@ -7,7 +7,7 @@ class AuthLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       FixedAssets.logoWhite,
-      width: 128,
+      width: 139,
       fit: BoxFit.cover,
     );
   }

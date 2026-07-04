@@ -22,5 +22,5 @@ const double kIconButtonSize = 48;
 const double kBottomActionHeight = 56;
 const double kMaxContentWidth = 1040;
 
-const EdgeInsets kScrollablePagePadding = EdgeInsets.fromLTRB(16, 0, 16, 0);
-const EdgeInsets kFixedPagePadding = EdgeInsets.fromLTRB(16, 0, 16, 32);
+const EdgeInsets kScrollablePagePadding = EdgeInsets.fromLTRB(32, 0, 32, 0);
+const EdgeInsets kFixedPagePadding = EdgeInsets.fromLTRB(32, 0, 32, 24);
