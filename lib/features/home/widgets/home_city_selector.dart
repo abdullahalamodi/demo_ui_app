@@ -25,8 +25,8 @@ class HomeCitySelector extends StatelessWidget {
             padding: const EdgeInsetsDirectional.symmetric(horizontal: 17),
             child: Row(
               children: [
-                FaIcon(
-                  FontAwesomeIcons.locationDot,
+                AppSvgIcon(
+                  FixedAssets.location,
                   size: 20,
                   color: context.colorScheme.onSurface,
                 ),
@@ -43,10 +43,13 @@ class HomeCitySelector extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 12),
-                FaIcon(
-                  FontAwesomeIcons.chevronDown,
-                  size: 16,
-                  color: context.colorScheme.onSurface,
+                RotatedBox(
+                  quarterTurns: 3,
+                  child: AppSvgIcon(
+                    FixedAssets.chevronLeft,
+                    size: 16,
+                    color: context.colorScheme.onSurface,
+                  ),
                 ),
               ],
             ),

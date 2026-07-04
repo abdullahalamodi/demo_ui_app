@@ -671,8 +671,8 @@ class _CourtCard extends StatelessWidget {
             PositionedDirectional(
               top: 11,
               start: 15,
-              child: FaIcon(
-                FontAwesomeIcons.tableTennisPaddleBall,
+              child: AppSvgIcon(
+                FixedAssets.padel,
                 size: 15,
                 color: context.colorScheme.onSurface,
               ),
@@ -681,15 +681,12 @@ class _CourtCard extends StatelessWidget {
               top: 11,
               end: 12,
               bottom: 11,
-              child: SvgPicture.asset(
+              child: AppSvgIcon(
                 FixedAssets.court,
                 width: 34,
-                colorFilter: ColorFilter.mode(
-                  isSelected
-                      ? const Color(0xFFAFB199)
-                      : const Color(0xFFC7DAD5),
-                  BlendMode.srcIn,
-                ),
+                color: isSelected
+                    ? const Color(0xFFAFB199)
+                    : const Color(0xFFC7DAD5),
               ),
             ),
             PositionedDirectional(

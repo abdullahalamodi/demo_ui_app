@@ -76,7 +76,7 @@ abstract final class AppTheme {
     final materialTextTheme =
         Typography.material2021(
           platform: TargetPlatform.iOS,
-        ).black.apply(
+        ).white.apply(
           bodyColor: colorScheme.onSurface,
           displayColor: colorScheme.onSurface,
         );
@@ -86,67 +86,56 @@ abstract final class AppTheme {
         fontSize: 48,
         height: 1.08,
         fontWeight: FontWeight.w400,
-        letterSpacing: 0,
       ),
       displayMedium: baseTextTheme.displayMedium?.copyWith(
         fontSize: 24,
         height: 1.1,
         fontWeight: FontWeight.w700,
-        letterSpacing: 0,
       ),
       displaySmall: baseTextTheme.displaySmall?.copyWith(
         fontSize: 20,
         height: 1.15,
         fontWeight: FontWeight.w700,
-        letterSpacing: 0,
       ),
       headlineLarge: baseTextTheme.headlineLarge?.copyWith(
         fontSize: 28,
         height: 1.2,
         fontWeight: FontWeight.w700,
-        letterSpacing: 0,
       ),
       headlineMedium: baseTextTheme.headlineMedium?.copyWith(
         fontSize: 24,
         height: 1.2,
         fontWeight: FontWeight.w600,
-        letterSpacing: 0,
       ),
       headlineSmall: baseTextTheme.headlineSmall?.copyWith(
         fontSize: 16,
         height: 1.22,
         fontWeight: FontWeight.w700,
-        letterSpacing: 0,
       ),
       titleLarge: baseTextTheme.titleLarge?.copyWith(
         fontSize: 16,
         height: 1.25,
         fontWeight: FontWeight.w700,
-        letterSpacing: 0,
       ),
       titleMedium: baseTextTheme.titleMedium?.copyWith(
         fontSize: 15,
-        height: 1.25,
-        fontWeight: FontWeight.w600,
-        letterSpacing: 0,
+        fontWeight: FontWeight.w700,
+        color: Colors.black,
       ),
       titleSmall: baseTextTheme.titleSmall?.copyWith(
         fontSize: 13,
         height: 1.25,
         fontWeight: FontWeight.w700,
-        letterSpacing: 0,
       ),
       bodyLarge: baseTextTheme.bodyLarge?.copyWith(
         fontSize: 14,
         height: 1.38,
         fontWeight: FontWeight.w400,
-        letterSpacing: 0,
       ),
       bodyMedium: baseTextTheme.bodyMedium?.copyWith(
         fontSize: 13,
         fontWeight: FontWeight.w400,
         height: 1.32,
-        letterSpacing: 0,
         color: Colors.black,
       ),
       bodySmall: baseTextTheme.bodySmall?.copyWith(
@@ -258,6 +247,7 @@ abstract final class AppTheme {
           backgroundColor: colorScheme.primary,
           foregroundColor: colorScheme.onPrimary,
           textStyle: textTheme.titleMedium,
+
           padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 12),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(kRadiusM),

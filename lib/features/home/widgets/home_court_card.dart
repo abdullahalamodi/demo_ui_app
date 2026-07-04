@@ -69,15 +69,16 @@ class HomeCourtCard extends StatelessWidget {
                             ),
                             const SizedBox(width: 6),
                             _CardIconButton(
-                              icon: isFavorite
-                                  ? FontAwesomeIcons.solidHeart
-                                  : FontAwesomeIcons.heart,
+                              iconAsset: FixedAssets.heart,
                               tooltip: context.loc.homeSavedAction,
+                              color: isFavorite
+                                  ? context.colorScheme.primary
+                                  : context.colorScheme.onSurface,
                               onPressed: onFavoritePressed,
                             ),
                             const SizedBox(width: 8),
                             _CardIconButton(
-                              icon: FontAwesomeIcons.shareNodes,
+                              iconAsset: FixedAssets.share,
                               tooltip: context.loc.homeShareAction,
                               onPressed: onSharePressed,
                             ),
@@ -91,17 +92,17 @@ class HomeCourtCard extends StatelessWidget {
                           child: Row(
                             children: [
                               _MetricChip(
-                                icon: FontAwesomeIcons.circleDollarToSlot,
+                                iconAsset: FixedAssets.riyalSymbol,
                                 label: venue.priceText,
                               ),
                               const SizedBox(width: 8),
                               _MetricChip(
-                                icon: FontAwesomeIcons.star,
+                                iconAsset: FixedAssets.star,
                                 label: venue.ratingText,
                               ),
                               const SizedBox(width: 8),
                               _MetricChip(
-                                icon: FontAwesomeIcons.volleyball,
+                                iconAsset: FixedAssets.tennisBall,
                                 label: context.loc.homeIndoor,
                               ),
                             ],
@@ -155,8 +156,8 @@ class _LocationRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        FaIcon(
-          FontAwesomeIcons.locationDot,
+        AppSvgIcon(
+          FixedAssets.locationPin,
           size: 14,
           color: context.colorScheme.onSurface,
         ),
@@ -207,11 +208,11 @@ class _LocationRow extends StatelessWidget {
 
 class _MetricChip extends StatelessWidget {
   const _MetricChip({
-    required this.icon,
+    required this.iconAsset,
     required this.label,
   });
 
-  final FaIconData icon;
+  final String iconAsset;
   final String label;
 
   @override
@@ -226,8 +227,8 @@ class _MetricChip extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          FaIcon(
-            icon,
+          AppSvgIcon(
+            iconAsset,
             size: 15,
             color: context.colorScheme.onSurface,
           ),
@@ -248,14 +249,16 @@ class _MetricChip extends StatelessWidget {
 
 class _CardIconButton extends StatelessWidget {
   const _CardIconButton({
-    required this.icon,
+    required this.iconAsset,
     required this.tooltip,
     required this.onPressed,
+    this.color,
   });
 
-  final FaIconData icon;
+  final String iconAsset;
   final String tooltip;
   final VoidCallback onPressed;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -268,10 +271,10 @@ class _CardIconButton extends StatelessWidget {
           width: 20,
           height: 20,
           child: Center(
-            child: FaIcon(
-              icon,
+            child: AppSvgIcon(
+              iconAsset,
               size: 17,
-              color: context.colorScheme.onSurface,
+              color: color ?? context.colorScheme.onSurface,
             ),
           ),
         ),

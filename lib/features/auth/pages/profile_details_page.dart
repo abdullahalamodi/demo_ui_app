@@ -35,7 +35,14 @@ class ProfileDetailsPage extends StatelessWidget {
                         children: [
                           Text(context.loc.skip),
                           const SizedBox(width: 5),
-                          FaIcon(FontAwesomeIcons.angleRight, size: 14),
+                          RotatedBox(
+                            quarterTurns: 2,
+                            child: AppSvgIcon(
+                              FixedAssets.chevronLeft,
+                              size: 14,
+                              color: context.customColors.white,
+                            ),
+                          ),
                         ],
                       ),
                     ),

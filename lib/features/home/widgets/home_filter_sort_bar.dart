@@ -30,7 +30,7 @@ class HomeFilterSortBar extends StatelessWidget {
         children: [
           Expanded(
             child: _FilterSortButton(
-              icon: FontAwesomeIcons.filter,
+              iconAsset: FixedAssets.filterList,
               label: context.loc.homeFilter,
               onPressed: onFilterPressed,
             ),
@@ -46,7 +46,7 @@ class HomeFilterSortBar extends StatelessWidget {
           ),
           Expanded(
             child: _FilterSortButton(
-              icon: FontAwesomeIcons.arrowDownShortWide,
+              iconAsset: FixedAssets.sortAscending,
               label: context.loc.homeSort,
               onPressed: onSortPressed,
             ),
@@ -59,12 +59,12 @@ class HomeFilterSortBar extends StatelessWidget {
 
 class _FilterSortButton extends StatelessWidget {
   const _FilterSortButton({
-    required this.icon,
+    required this.iconAsset,
     required this.label,
     required this.onPressed,
   });
 
-  final FaIconData icon;
+  final String iconAsset;
   final String label;
   final VoidCallback onPressed;
 
@@ -78,8 +78,8 @@ class _FilterSortButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FaIcon(
-              icon,
+            AppSvgIcon(
+              iconAsset,
               size: 15,
               color: context.colorScheme.onSurface,
             ),

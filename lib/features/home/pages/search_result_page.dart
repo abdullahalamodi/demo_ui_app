@@ -152,7 +152,7 @@ class _SearchResultsHeader extends StatelessWidget {
     return Row(
       children: [
         _SearchHeaderButton(
-          icon: FontAwesomeIcons.chevronLeft,
+          iconAsset: FixedAssets.chevronLeft,
           tooltip: MaterialLocalizations.of(context).backButtonTooltip,
           onPressed: onBackPressed,
         ),
@@ -187,7 +187,7 @@ class _SearchResultsHeader extends StatelessWidget {
         ),
         const SizedBox(width: 12),
         _SearchHeaderButton(
-          icon: FontAwesomeIcons.sliders,
+          iconAsset: FixedAssets.filterLines,
           tooltip: context.loc.homeFilter,
           onPressed: onFilterPressed,
         ),
@@ -198,12 +198,12 @@ class _SearchResultsHeader extends StatelessWidget {
 
 class _SearchHeaderButton extends StatelessWidget {
   const _SearchHeaderButton({
-    required this.icon,
+    required this.iconAsset,
     required this.tooltip,
     required this.onPressed,
   });
 
-  final FaIconData icon;
+  final String iconAsset;
   final String tooltip;
   final VoidCallback onPressed;
 
@@ -222,8 +222,8 @@ class _SearchHeaderButton extends StatelessWidget {
           child: SizedBox.square(
             dimension: 56,
             child: Center(
-              child: FaIcon(
-                icon,
+              child: AppSvgIcon(
+                iconAsset,
                 size: 18,
                 color: context.colorScheme.onSurface,
               ),

@@ -63,14 +63,14 @@ class HomeHeader extends StatelessWidget {
             ),
             SizedBox(width: textActionGap),
             _HeaderActionButton(
-              icon: FontAwesomeIcons.sliders,
+              iconAsset: FixedAssets.filterLines,
               size: actionSize,
               tooltip: context.loc.homeSettingsAction,
               onPressed: onFilterPressed,
             ),
             SizedBox(width: actionGap),
             _HeaderActionButton(
-              icon: FontAwesomeIcons.bell,
+              iconAsset: FixedAssets.bell,
               size: actionSize,
               tooltip: context.loc.homeNotificationsAction,
               onPressed: onNotificationsPressed,
@@ -84,13 +84,13 @@ class HomeHeader extends StatelessWidget {
 
 class _HeaderActionButton extends StatelessWidget {
   const _HeaderActionButton({
-    required this.icon,
+    required this.iconAsset,
     required this.size,
     required this.tooltip,
     required this.onPressed,
   });
 
-  final FaIconData icon;
+  final String iconAsset;
   final double size;
   final String tooltip;
   final VoidCallback onPressed;
@@ -111,8 +111,8 @@ class _HeaderActionButton extends StatelessWidget {
             width: size,
             height: size,
             child: Center(
-              child: FaIcon(
-                icon,
+              child: AppSvgIcon(
+                iconAsset,
                 size: 19,
                 color: context.colorScheme.onSurface,
               ),

@@ -34,8 +34,8 @@ class OnboardingPage extends StatelessWidget {
                         Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            FaIcon(
-                              FontAwesomeIcons.solidStar,
+                            AppSvgIcon(
+                              FixedAssets.star,
                               size: 23,
                               color: context.customColors.accent,
                             ),

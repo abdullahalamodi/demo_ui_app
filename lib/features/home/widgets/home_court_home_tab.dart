@@ -151,14 +151,23 @@ class _AmenityItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final svgAsset = _svgAsset;
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        FaIcon(
-          amenity.icon,
-          size: 24,
-          color: context.customColors.iconMuted,
-        ),
+        if (svgAsset == null)
+          FaIcon(
+            amenity.icon,
+            size: 24,
+            color: context.customColors.iconMuted,
+          )
+        else
+          AppSvgIcon(
+            svgAsset,
+            size: 24,
+            color: context.customColors.iconMuted,
+          ),
         const SizedBox(height: 10),
         Text(
           _label(context),
@@ -171,6 +180,16 @@ class _AmenityItem extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  String? get _svgAsset {
+    return switch (amenity.type) {
+      HomeCourtAmenityType.racket => FixedAssets.tennisRacket,
+      HomeCourtAmenityType.ball => FixedAssets.tennisBall,
+      HomeCourtAmenityType.shower ||
+      HomeCourtAmenityType.toilet ||
+      HomeCourtAmenityType.water => null,
+    };
   }
 
   String _label(BuildContext context) {

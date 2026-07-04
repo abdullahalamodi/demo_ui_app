@@ -78,8 +78,8 @@ class _BottomNavButton extends StatelessWidget {
             width: 55,
             height: 55,
             child: Center(
-              child: FaIcon(
-                item.icon,
+              child: AppSvgIcon(
+                item.iconAsset,
                 size: 20,
                 color: foregroundColor,
               ),

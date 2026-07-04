@@ -77,8 +77,8 @@ class _HomeSportCategoryChip extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  FaIcon(
-                    category.icon,
+                  AppSvgIcon(
+                    category.iconAsset,
                     size: category.isIconOnly ? 20 : 16,
                     color: foregroundColor,
                   ),

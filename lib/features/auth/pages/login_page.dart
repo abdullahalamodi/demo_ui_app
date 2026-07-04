@@ -63,7 +63,9 @@ class LoginPage extends StatelessWidget {
                     onPressed: () {},
                     style: TextButton.styleFrom(
                       foregroundColor: context.colorScheme.onSurface,
-                      textStyle: context.textTheme.labelSmall,
+                      textStyle: context.textTheme.labelMedium!.copyWith(
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                     child: Text(context.loc.forgotPassword),
                   ),
@@ -72,13 +74,14 @@ class LoginPage extends StatelessWidget {
               const SizedBox(height: 18),
               SocialAuthButton(
                 label: context.loc.continueWithGoogle,
-                icon: FontAwesomeIcons.google,
+                iconAsset: FixedAssets.google,
                 onPressed: () {},
               ),
               const SizedBox(height: 13),
               SocialAuthButton(
                 label: context.loc.continueWithApple,
-                icon: FontAwesomeIcons.apple,
+                iconAsset: FixedAssets.apple,
+                iconSize: 20,
                 onPressed: () {},
               ),
               const SizedBox(height: 18),

@@ -20,12 +20,12 @@ class HomeUser {
 class HomeSportCategory {
   const HomeSportCategory({
     required this.id,
-    required this.icon,
+    required this.iconAsset,
     this.label,
   });
 
   final String id;
-  final FaIconData icon;
+  final String iconAsset;
   final String? label;
 
   bool get isIconOnly => label == null;
@@ -33,21 +33,21 @@ class HomeSportCategory {
   static const demoItems = [
     HomeSportCategory(
       id: 'saved',
-      icon: FontAwesomeIcons.bookmark,
+      iconAsset: FixedAssets.bookmark,
     ),
     HomeSportCategory(
       id: 'paddle',
-      icon: FontAwesomeIcons.tableTennisPaddleBall,
+      iconAsset: FixedAssets.padel,
       label: 'Paddle',
     ),
     HomeSportCategory(
       id: 'tennis',
-      icon: FontAwesomeIcons.tableTennisPaddleBall,
+      iconAsset: FixedAssets.tennisRacket,
       label: 'Tennis',
     ),
     HomeSportCategory(
       id: 'table-tennis',
-      icon: FontAwesomeIcons.tableTennisPaddleBall,
+      iconAsset: FixedAssets.tennisBall,
       label: 'Paddle',
     ),
   ];
@@ -471,13 +471,13 @@ enum HomeBottomNavItem {
   menu
   ;
 
-  FaIconData get icon {
+  String get iconAsset {
     return switch (this) {
-      HomeBottomNavItem.home => FontAwesomeIcons.house,
-      HomeBottomNavItem.calendar => FontAwesomeIcons.calendarDays,
-      HomeBottomNavItem.profile => FontAwesomeIcons.user,
-      HomeBottomNavItem.trophy => FontAwesomeIcons.trophy,
-      HomeBottomNavItem.menu => FontAwesomeIcons.grip,
+      HomeBottomNavItem.home => FixedAssets.home,
+      HomeBottomNavItem.calendar => FixedAssets.calendar,
+      HomeBottomNavItem.profile => FixedAssets.user,
+      HomeBottomNavItem.trophy => FixedAssets.cup,
+      HomeBottomNavItem.menu => FixedAssets.menuGrid,
     };
   }
 }

@@ -21,7 +21,7 @@ class ShowHomeCourtHeaderSection extends StatelessWidget {
     return Row(
       children: [
         _HeaderCircleButton(
-          icon: FontAwesomeIcons.chevronLeft,
+          iconAsset: FixedAssets.chevronLeft,
           tooltip: MaterialLocalizations.of(context).backButtonTooltip,
           onPressed: onBackPressed,
         ),
@@ -56,15 +56,16 @@ class ShowHomeCourtHeaderSection extends StatelessWidget {
         ),
         const SizedBox(width: 12),
         _HeaderCircleButton(
-          icon: isFavorite
-              ? FontAwesomeIcons.solidHeart
-              : FontAwesomeIcons.heart,
+          iconAsset: FixedAssets.heart,
           tooltip: context.loc.homeSavedAction,
+          color: isFavorite
+              ? context.colorScheme.primary
+              : context.colorScheme.onSurface,
           onPressed: onFavoritePressed,
         ),
         const SizedBox(width: 10),
         _HeaderCircleButton(
-          icon: FontAwesomeIcons.shareNodes,
+          iconAsset: FixedAssets.share,
           tooltip: context.loc.homeShareAction,
           onPressed: onSharePressed,
         ),
@@ -75,14 +76,16 @@ class ShowHomeCourtHeaderSection extends StatelessWidget {
 
 class _HeaderCircleButton extends StatelessWidget {
   const _HeaderCircleButton({
-    required this.icon,
+    required this.iconAsset,
     required this.tooltip,
     required this.onPressed,
+    this.color,
   });
 
-  final FaIconData icon;
+  final String iconAsset;
   final String tooltip;
   final VoidCallback onPressed;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -99,10 +102,10 @@ class _HeaderCircleButton extends StatelessWidget {
           child: SizedBox.square(
             dimension: 53,
             child: Center(
-              child: FaIcon(
-                icon,
+              child: AppSvgIcon(
+                iconAsset,
                 size: 18,
-                color: context.colorScheme.onSurface,
+                color: color ?? context.colorScheme.onSurface,
               ),
             ),
           ),

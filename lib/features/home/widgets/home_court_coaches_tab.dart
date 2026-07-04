@@ -303,8 +303,8 @@ class _CoachInfo extends StatelessWidget {
         const SizedBox(height: 11),
         Row(
           children: [
-            FaIcon(
-              FontAwesomeIcons.baseball,
+            AppSvgIcon(
+              FixedAssets.tennisBall,
               size: 15,
               color: context.colorScheme.onSurface,
             ),

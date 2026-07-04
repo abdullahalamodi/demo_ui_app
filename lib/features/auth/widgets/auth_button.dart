@@ -49,6 +49,9 @@ class AuthSecondaryButton extends StatelessWidget {
         ),
         child: Text(
           label,
+          style: context.textTheme.titleMedium!.copyWith(
+            fontWeight: FontWeight.w700,
+          ),
         ),
       ),
     );
@@ -58,13 +61,15 @@ class AuthSecondaryButton extends StatelessWidget {
 class SocialAuthButton extends StatelessWidget {
   const SocialAuthButton({
     required this.label,
-    required this.icon,
+    required this.iconAsset,
+    this.iconSize = 18,
     required this.onPressed,
     super.key,
   });
 
   final String label;
-  final FaIconData icon;
+  final String iconAsset;
+  final double iconSize;
   final VoidCallback? onPressed;
 
   @override
@@ -81,14 +86,14 @@ class SocialAuthButton extends StatelessWidget {
           foregroundColor: context.colorScheme.onSurface,
           textStyle: context.textTheme.labelLarge,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          padding: const EdgeInsets.symmetric(horizontal: 26),
         ),
         child: Row(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            FaIcon(icon, size: 18),
-            SizedBox(width: 32),
+            AppSvgIcon(iconAsset, size: iconSize),
             Text(label),
-            SizedBox(width: 32),
+            AppSvgIcon(iconAsset, size: iconSize, color: Colors.transparent),
           ],
         ),
       ),
