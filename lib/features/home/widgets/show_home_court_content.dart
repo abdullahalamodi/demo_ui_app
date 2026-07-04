@@ -82,12 +82,12 @@ class ShowHomeCourtContent extends StatelessWidget {
                           onFavoritePressed: onFavoritePressed,
                           onSharePressed: onSharePressed,
                         ),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: 12),
                         ShowHomeCourtTabsSection(
                           selectedTab: selectedTab,
                           onSelected: onTabSelected,
                         ),
-                        const SizedBox(height: 16),
+                        const SizedBox(height: 12),
                         _SelectedHomeCourtTabContent(
                           selectedTab: selectedTab,
                           venue: venue,
@@ -104,28 +104,30 @@ class ShowHomeCourtContent extends StatelessWidget {
                           onCoachBookPressed: onCoachBookPressed,
                           onCoachShowProfilePressed: onCoachShowProfilePressed,
                         ),
+                        _HomeCourtActionButtons(
+                          venue: venue,
+                          onCancelPressed: onCancelPressed,
+                          onBookPressed: onBookPressed,
+                        ),
                       ],
                     ),
                   ),
                 ),
               ),
-              SizedBox(
-                height: 122,
-                child: _SubscriptionBar(onPressed: onSubscriptionPressed),
-              ),
+              const SizedBox(height: 100),
             ],
           ),
         ),
         PositionedDirectional(
           start: 0,
           end: 0,
-          bottom: 72,
-          child: _BottomActionPanel(
-            venue: venue,
-            onCancelPressed: onCancelPressed,
-            onBookPressed: onBookPressed,
+          bottom: 0,
+          child: SizedBox(
+            height: 100,
+            child: _SubscriptionBar(onPressed: onSubscriptionPressed),
           ),
         ),
+        const _RoundedActionCap(),
       ],
     );
   }
@@ -199,8 +201,32 @@ class _SelectedHomeCourtTabContent extends StatelessWidget {
   }
 }
 
-class _BottomActionPanel extends StatelessWidget {
-  const _BottomActionPanel({
+class _RoundedActionCap extends StatelessWidget {
+  const _RoundedActionCap();
+
+  @override
+  Widget build(BuildContext context) {
+    return PositionedDirectional(
+      start: 0,
+      end: 0,
+      bottom: 74,
+      child: SizedBox(
+        height: 28,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: context.colorScheme.surface,
+            borderRadius: const BorderRadius.vertical(
+              bottom: Radius.circular(28),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _HomeCourtActionButtons extends StatelessWidget {
+  const _HomeCourtActionButtons({
     required this.venue,
     required this.onCancelPressed,
     required this.onBookPressed,
@@ -212,41 +238,30 @@ class _BottomActionPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: context.colorScheme.surface,
-        borderRadius: const BorderRadius.vertical(
-          bottom: Radius.circular(28),
+    return Row(
+      children: [
+        Expanded(
+          flex: 1,
+          child: _ActionButton(
+            label: context.loc.homeCancel,
+            foregroundColor: context.colorScheme.onSurface,
+            backgroundColor: context.colorScheme.surface,
+            borderColor: context.colorScheme.outlineVariant,
+            onPressed: onCancelPressed,
+          ),
         ),
-      ),
-      child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(13, 24, 13, 30),
-        child: Row(
-          children: [
-            Expanded(
-              flex: 1,
-              child: _ActionButton(
-                label: context.loc.homeCancel,
-                foregroundColor: context.colorScheme.onSurface,
-                backgroundColor: context.colorScheme.surface,
-                borderColor: context.colorScheme.outlineVariant,
-                onPressed: onCancelPressed,
-              ),
-            ),
-            const SizedBox(width: 18),
-            Expanded(
-              flex: 2,
-              child: _ActionButton(
-                label: context.loc.homeCourtBook,
-                price: venue.bookingPriceText,
-                foregroundColor: context.customColors.onSurfaceInverse,
-                backgroundColor: context.customColors.surfaceInverse,
-                onPressed: onBookPressed,
-              ),
-            ),
-          ],
+        const SizedBox(width: 18),
+        Expanded(
+          flex: 2,
+          child: _ActionButton(
+            label: context.loc.homeCourtBook,
+            price: venue.bookingPriceText,
+            foregroundColor: context.customColors.onSurfaceInverse,
+            backgroundColor: context.customColors.surfaceInverse,
+            onPressed: onBookPressed,
+          ),
         ),
-      ),
+      ],
     );
   }
 }
@@ -272,12 +287,12 @@ class _ActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final textStyle = context.textTheme.titleMedium?.copyWith(
       fontSize: 15,
-      fontWeight: FontWeight.w700,
+      fontWeight: FontWeight.w600,
       color: foregroundColor,
     );
 
     return SizedBox(
-      height: 48,
+      height: 47,
       child: OutlinedButton(
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(
@@ -342,19 +357,16 @@ class _SubscriptionBar extends StatelessWidget {
       color: context.colorScheme.primary,
       child: InkWell(
         onTap: onPressed,
-        child: Padding(
-          padding: const EdgeInsetsDirectional.only(top: 72),
-          child: Align(
-            alignment: AlignmentDirectional.topCenter,
-            child: Text(
-              context.loc.homeCourtGetSubscriptionPack,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: context.textTheme.titleLarge?.copyWith(
-                fontSize: 16,
-                color: context.colorScheme.onPrimary,
-                fontWeight: FontWeight.w600,
-              ),
+        child: Align(
+          alignment: AlignmentDirectional.center,
+          child: Text(
+            context.loc.homeCourtGetSubscriptionPack,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: context.textTheme.titleLarge?.copyWith(
+              fontSize: 16,
+              color: context.colorScheme.onPrimary,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),
