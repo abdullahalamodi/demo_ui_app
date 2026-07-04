@@ -357,16 +357,19 @@ class _SubscriptionBar extends StatelessWidget {
       color: context.colorScheme.primary,
       child: InkWell(
         onTap: onPressed,
-        child: Align(
-          alignment: AlignmentDirectional.center,
-          child: Text(
-            context.loc.homeCourtGetSubscriptionPack,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: context.textTheme.titleLarge?.copyWith(
-              fontSize: 16,
-              color: context.colorScheme.onPrimary,
-              fontWeight: FontWeight.w600,
+        child: Padding(
+          padding: EdgeInsetsGeometry.only(top: 10),
+          child: Align(
+            alignment: AlignmentDirectional.center,
+            child: Text(
+              context.loc.homeCourtGetSubscriptionPack,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: context.textTheme.titleLarge?.copyWith(
+                fontSize: 16,
+                color: context.colorScheme.onPrimary,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
         ),
