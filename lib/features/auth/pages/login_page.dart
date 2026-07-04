@@ -56,7 +56,9 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(width: 10),
                   Text(
                     context.loc.rememberMe,
-                    style: context.textTheme.bodySmall,
+                    style: context.textTheme.bodySmall!.copyWith(
+                      fontWeight: FontWeight.w200,
+                    ),
                   ),
                   const Spacer(),
                   TextButton(

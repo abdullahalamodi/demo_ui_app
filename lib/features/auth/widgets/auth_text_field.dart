@@ -31,23 +31,26 @@ class _AuthTextFieldState extends State<AuthTextField> {
           ),
         ),
         const SizedBox(height: 8),
-        TextFormField(
-          initialValue: widget.initialValue,
-          obscureText: _obscure,
-          obscuringCharacter: '*',
-          decoration: InputDecoration(
-            suffixIcon: widget.obscure
-                ? IconButton(
-                    onPressed: () => setState(() => _obscure = !_obscure),
-                    icon: FaIcon(
-                      _obscure
-                          ? FontAwesomeIcons.eyeSlash
-                          : FontAwesomeIcons.eye,
-                      size: 17,
-                      color: context.colorScheme.onSurface,
-                    ),
-                  )
-                : null,
+        SizedBox(
+          height: 51,
+          child: TextFormField(
+            initialValue: widget.initialValue,
+            obscureText: _obscure,
+            obscuringCharacter: '*',
+            decoration: InputDecoration(
+              suffixIcon: widget.obscure
+                  ? IconButton(
+                      onPressed: () => setState(() => _obscure = !_obscure),
+                      icon: FaIcon(
+                        _obscure
+                            ? FontAwesomeIcons.eyeSlash
+                            : FontAwesomeIcons.eye,
+                        size: 17,
+                        color: context.colorScheme.onSurface,
+                      ),
+                    )
+                  : null,
+            ),
           ),
         ),
       ],

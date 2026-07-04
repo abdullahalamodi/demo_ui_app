@@ -15,7 +15,7 @@ const double kRadiusL = 16;
 const double kRadiusXl = 24;
 const double kRadiusPill = 999;
 
-const double kButtonHeight = 48;
+const double kButtonHeight = 52;
 const double kCompactControlHeight = 36;
 const double kChipHeight = 36;
 const double kIconButtonSize = 48;

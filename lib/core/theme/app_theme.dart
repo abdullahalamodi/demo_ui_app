@@ -80,7 +80,7 @@ abstract final class AppTheme {
           bodyColor: colorScheme.onSurface,
           displayColor: colorScheme.onSurface,
         );
-    final baseTextTheme = GoogleFonts.poppinsTextTheme(materialTextTheme);
+    final baseTextTheme = materialTextTheme.apply(fontFamily: 'Poppins');
     final textTheme = baseTextTheme.copyWith(
       displayLarge: baseTextTheme.displayLarge?.copyWith(
         fontSize: 48,
@@ -151,7 +151,7 @@ abstract final class AppTheme {
         letterSpacing: 0,
       ),
       labelMedium: baseTextTheme.labelMedium?.copyWith(
-        fontSize: 12,
+        fontSize: 13,
         height: 1.2,
         fontWeight: FontWeight.w600,
         letterSpacing: 0,
@@ -171,6 +171,7 @@ abstract final class AppTheme {
       useMaterial3: true,
       brightness: brightness,
       colorScheme: colorScheme,
+      fontFamily: 'Poppins',
       scaffoldBackgroundColor: appColors.surfaceMuted,
       textTheme: textTheme,
       extensions: [appColors],
@@ -204,7 +205,7 @@ abstract final class AppTheme {
         fillColor: appColors.surfaceRaised,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 14,
-          vertical: 12,
+          vertical: 22,
         ),
         constraints: const BoxConstraints(minHeight: kButtonHeight),
         hintStyle: textTheme.bodyMedium?.copyWith(
