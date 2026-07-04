@@ -307,10 +307,22 @@ class _ActionButton extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 12),
-                  Text(
-                    'SAR $price',
-                    maxLines: 1,
-                    style: textStyle,
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      AppSvgIcon(
+                        FixedAssets.riyalSymbol,
+                        width: 10,
+                        height: 11,
+                        color: foregroundColor,
+                      ),
+                      const SizedBox(width: 4),
+                      Text(
+                        price!,
+                        maxLines: 1,
+                        style: textStyle,
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -341,7 +353,7 @@ class _SubscriptionBar extends StatelessWidget {
               style: context.textTheme.titleLarge?.copyWith(
                 fontSize: 16,
                 color: context.colorScheme.onPrimary,
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),

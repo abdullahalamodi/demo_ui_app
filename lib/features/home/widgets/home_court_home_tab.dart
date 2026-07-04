@@ -126,9 +126,10 @@ class _AmenityRail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         for (var index = 0; index < amenities.length; index++) ...[
-          Expanded(child: _AmenityItem(amenity: amenities[index])),
+          _AmenityItem(amenity: amenities[index]),
           if (index != amenities.length - 1)
             SizedBox(
               height: 16,
@@ -158,7 +159,6 @@ class _AmenityItem extends StatelessWidget {
       children: [
         AppSvgIcon(
           svgAsset,
-          size: 24,
         ),
         const SizedBox(height: 10),
         Text(
@@ -167,20 +167,20 @@ class _AmenityItem extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
           style: context.textTheme.bodyMedium?.copyWith(
             fontSize: 11,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w500,
           ),
         ),
       ],
     );
   }
 
-  String? get _svgAsset {
+  String get _svgAsset {
     return switch (amenity.type) {
-      HomeCourtAmenityType.racket => FixedAssets.tennisRacket,
-      HomeCourtAmenityType.ball => FixedAssets.tennisBall,
-      HomeCourtAmenityType.shower ||
-      HomeCourtAmenityType.toilet ||
-      HomeCourtAmenityType.water => null,
+      HomeCourtAmenityType.racket => FixedAssets.racketCourtService,
+      HomeCourtAmenityType.ball => FixedAssets.ballCourtService,
+      HomeCourtAmenityType.shower => FixedAssets.showerCourtService,
+      HomeCourtAmenityType.toilet => FixedAssets.toiletCourtService,
+      HomeCourtAmenityType.water => FixedAssets.waterCourtService,
     };
   }
 
@@ -204,7 +204,7 @@ class _DescriptionPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: context.customColors.surfaceTinted,
+        color: Color(0xFFE7EEEB),
         borderRadius: BorderRadius.circular(kRadiusM),
       ),
       child: Padding(
@@ -214,7 +214,7 @@ class _DescriptionPanel extends StatelessWidget {
           textAlign: TextAlign.center,
           style: context.textTheme.bodyMedium?.copyWith(
             fontSize: 11,
-            height: 1.55,
+            height: 1.7,
             fontWeight: FontWeight.w300,
           ),
         ),
@@ -231,32 +231,25 @@ class _StatsRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Expanded(
-          child: _StatItem(
-            label: context.loc.homeCourtRating,
-            value: venue.detailRatingText,
-          ),
+        _StatItem(
+          label: context.loc.homeCourtRating,
+          value: venue.detailRatingText,
         ),
-        Expanded(
-          child: _StatItem(
-            label: context.loc.homeType,
-            value: venue.isIndoor
-                ? context.loc.homeIndoor
-                : context.loc.homeOutdoor,
-          ),
+        _StatItem(
+          label: context.loc.homeType,
+          value: venue.isIndoor
+              ? context.loc.homeIndoor
+              : context.loc.homeOutdoor,
         ),
-        Expanded(
-          child: _StatItem(
-            label: context.loc.homeCourtDistance,
-            value: venue.detailDistanceText,
-          ),
+        _StatItem(
+          label: context.loc.homeCourtDistance,
+          value: venue.detailDistanceText,
         ),
-        Expanded(
-          child: _StatItem(
-            label: context.loc.homeCourtZone,
-            value: venue.zone,
-          ),
+        _StatItem(
+          label: context.loc.homeCourtZone,
+          value: venue.zone,
         ),
       ],
     );
@@ -287,7 +280,7 @@ class _StatItem extends StatelessWidget {
             color: context.customColors.onSurfaceSubtle,
           ),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 6),
         Text(
           value,
           maxLines: 1,

@@ -29,12 +29,17 @@ abstract final class FixedAssets {
   static const String menuGrid = '${_svg}menu-grid.svg';
   static const String menuGridSelected = '${_svg}menu-grid-selected.svg';
   static const String padel = '${_svg}padel.svg';
+  static const String ballCourtService = '${_svg}ball-court-service.svg';
+  static const String racketCourtService = '${_svg}racket-court-service.svg';
   static const String riyalSymbol = '${_svg}riyal-symbol.svg';
   static const String share = '${_svg}share.svg';
+  static const String showerCourtService = '${_svg}shower-court-service.svg';
   static const String sortAscending = '${_svg}sort-ascending.svg';
   static const String star = '${_svg}star.svg';
   static const String starFilled = '${_svg}star-filled.svg';
   static const String tennisBall = '${_svg}tennis-ball.svg';
   static const String tennisRacket = '${_svg}tennis-racket.svg';
+  static const String toiletCourtService = '${_svg}toilet-court-service.svg';
   static const String user = '${_svg}user.svg';
+  static const String waterCourtService = '${_svg}water-court-service.svg';
 }
