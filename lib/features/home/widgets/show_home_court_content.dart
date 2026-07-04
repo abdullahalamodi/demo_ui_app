@@ -250,7 +250,7 @@ class _HomeCourtActionButtons extends StatelessWidget {
             onPressed: onCancelPressed,
           ),
         ),
-        const SizedBox(width: 18),
+        const SizedBox(width: 8),
         Expanded(
           flex: 2,
           child: _ActionButton(
