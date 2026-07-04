@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> {
               ListView(
                 padding: const EdgeInsetsDirectional.fromSTEB(
                   13,
-                  28,
+                  0,
                   13,
                   185,
                 ),

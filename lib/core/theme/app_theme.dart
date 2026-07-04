@@ -43,7 +43,7 @@ abstract final class AppTheme {
         accent: Color(0xFFFFC83D),
         selection: secondaryColor,
         onSelection: Color(0xFF10201E),
-        surfaceTinted: Color(0xFFEAF4F0),
+        surfaceTinted: Color(0xFFE7EEEB),
         surfaceSelected: Color(0xFFDDF1EC),
         surfaceInverse: Color(0xFF241F21),
         onSurfaceInverse: Color(0xFFFFFFFF),

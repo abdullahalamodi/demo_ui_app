@@ -20,7 +20,7 @@ class HomeHeader extends StatelessWidget {
         final avatarGap = isTight ? 12.0 : 20.0;
         final actionGap = isTight ? 8.0 : 16.0;
         final textActionGap = isTight ? 8.0 : 12.0;
-        final actionSize = isTight ? 48.0 : 53.0;
+        final actionSize = isTight ? 48.0 : 52.0;
 
         return Row(
           children: [
@@ -44,7 +44,7 @@ class HomeHeader extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     style: context.textTheme.headlineMedium?.copyWith(
                       fontSize: 17,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -55,7 +55,7 @@ class HomeHeader extends StatelessWidget {
                     style: context.textTheme.bodyLarge?.copyWith(
                       fontSize: 12,
                       fontWeight: FontWeight.w300,
-                      color: context.colorScheme.onSurfaceVariant,
+                      color: Color(0xFF6A6A6A),
                     ),
                   ),
                 ],

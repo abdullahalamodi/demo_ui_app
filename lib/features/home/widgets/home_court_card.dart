@@ -25,12 +25,12 @@ class HomeCourtCard extends StatelessWidget {
     return Material(
       color: context.colorScheme.surface,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(kRadiusL),
-        side: BorderSide(color: context.colorScheme.outlineVariant),
+        borderRadius: BorderRadius.circular(kRadiusM),
+        side: BorderSide(color: Color(0xFFE7E7E7)),
       ),
       child: InkWell(
         onTap: onPressed,
-        borderRadius: BorderRadius.circular(kRadiusL),
+        borderRadius: BorderRadius.circular(kRadiusM),
         child: Padding(
           padding: const EdgeInsetsDirectional.fromSTEB(13, 14, 13, 14),
           child: Column(
@@ -63,7 +63,7 @@ class HomeCourtCard extends StatelessWidget {
                                 overflow: TextOverflow.ellipsis,
                                 style: context.textTheme.titleLarge?.copyWith(
                                   fontSize: 14,
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w500,
                                 ),
                               ),
                             ),
@@ -92,7 +92,7 @@ class HomeCourtCard extends StatelessWidget {
                           child: Row(
                             children: [
                               _MetricChip(
-                                iconAsset: FixedAssets.riyalSymbol,
+                                iconAsset: FixedAssets.dollar,
                                 label: venue.priceText,
                               ),
                               const SizedBox(width: 8),
@@ -113,7 +113,7 @@ class HomeCourtCard extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 12),
               Text(
                 context.loc.homeAvailableTimeslots,
                 style: context.textTheme.titleMedium?.copyWith(
@@ -158,7 +158,7 @@ class _LocationRow extends StatelessWidget {
       children: [
         AppSvgIcon(
           FixedAssets.locationPin,
-          size: 14,
+          size: 12,
           color: context.colorScheme.onSurface,
         ),
         const SizedBox(width: 8),
@@ -198,7 +198,7 @@ class _LocationRow extends StatelessWidget {
           maxLines: 1,
           style: context.textTheme.bodyMedium?.copyWith(
             fontSize: 11,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w500,
           ),
         ),
       ],
@@ -229,10 +229,9 @@ class _MetricChip extends StatelessWidget {
         children: [
           AppSvgIcon(
             iconAsset,
-            size: 15,
             color: context.colorScheme.onSurface,
           ),
-          const SizedBox(width: 10),
+          const SizedBox(width: 8),
           Text(
             label,
             maxLines: 1,
@@ -273,7 +272,7 @@ class _CardIconButton extends StatelessWidget {
           child: Center(
             child: AppSvgIcon(
               iconAsset,
-              size: 17,
+              size: 14,
               color: color ?? context.colorScheme.onSurface,
             ),
           ),

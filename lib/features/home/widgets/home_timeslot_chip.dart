@@ -27,12 +27,12 @@ class HomeTimeslotChip extends StatelessWidget {
     return Material(
       color: backgroundColor,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(kRadiusM),
-        side: BorderSide(color: context.colorScheme.outlineVariant),
+        borderRadius: BorderRadius.circular(10),
+        side: BorderSide(color: Color(0xFFE6E6E6)),
       ),
       child: InkWell(
         onTap: isEnabled ? onSelected : null,
-        borderRadius: BorderRadius.circular(kRadiusM),
+        borderRadius: BorderRadius.circular(10),
         child: SizedBox(
           width: 55,
           height: 46,
@@ -44,7 +44,7 @@ class HomeTimeslotChip extends StatelessWidget {
                 maxLines: 1,
                 style: context.textTheme.labelLarge?.copyWith(
                   fontSize: 12,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w500,
                   color: foregroundColor,
                 ),
               ),

@@ -79,7 +79,6 @@ class _HomeSportCategoryChip extends StatelessWidget {
                 children: [
                   AppSvgIcon(
                     category.iconAsset,
-                    size: category.isIconOnly ? 20 : 18,
                     color: foregroundColor,
                   ),
                   if (label != null) ...[
