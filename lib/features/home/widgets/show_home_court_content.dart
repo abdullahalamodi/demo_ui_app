@@ -68,7 +68,7 @@ class ShowHomeCourtContent extends StatelessWidget {
                   child: SingleChildScrollView(
                     padding: EdgeInsetsDirectional.fromSTEB(
                       13,
-                      20,
+                      0,
                       13,
                       26,
                     ),
@@ -82,40 +82,28 @@ class ShowHomeCourtContent extends StatelessWidget {
                           onFavoritePressed: onFavoritePressed,
                           onSharePressed: onSharePressed,
                         ),
-                        const SizedBox(height: 30),
+                        const SizedBox(height: 16),
                         ShowHomeCourtTabsSection(
                           selectedTab: selectedTab,
                           onSelected: onTabSelected,
                         ),
-                        const SizedBox(height: 22),
-                        if (selectedTab == HomeCourtDetailTab.home)
-                          HomeCourtHomeTab(venue: venue),
-                        if (selectedTab == HomeCourtDetailTab.booking)
-                          HomeCourtBookingTab(
-                            venue: venue,
-                            package: HomeBookingPackage.demo,
-                            dates: HomeReservationDate.demoItems,
-                            durations: HomeBookingDuration.demoItems,
-                            courts: HomeBookingCourt.demoItems,
-                            selectedDateId: selectedReservationDateId,
-                            selectedTimeslotId: selectedTimeslotId,
-                            selectedDurationId: selectedDurationId,
-                            selectedCourtId: selectedCourtId,
-                            onDateSelected: onReservationDateSelected,
-                            onTimeslotSelected: onTimeslotSelected,
-                            onDurationSelected: onDurationSelected,
-                            onCourtSelected: onCourtSelected,
-                            onUsePackagePressed: () {},
-                          ),
-                        if (selectedTab == HomeCourtDetailTab.coaches)
-                          HomeCourtCoachesTab(
-                            dates: HomeCoachDate.demoItems,
-                            coaches: HomeCoachProfile.demoItems,
-                            selectedDateId: selectedCoachDateId,
-                            onDateSelected: onCoachDateSelected,
-                            onBookPressed: onCoachBookPressed,
-                            onShowProfilePressed: onCoachShowProfilePressed,
-                          ),
+                        const SizedBox(height: 16),
+                        _SelectedHomeCourtTabContent(
+                          selectedTab: selectedTab,
+                          venue: venue,
+                          selectedReservationDateId: selectedReservationDateId,
+                          selectedCoachDateId: selectedCoachDateId,
+                          selectedTimeslotId: selectedTimeslotId,
+                          selectedDurationId: selectedDurationId,
+                          selectedCourtId: selectedCourtId,
+                          onReservationDateSelected: onReservationDateSelected,
+                          onCoachDateSelected: onCoachDateSelected,
+                          onTimeslotSelected: onTimeslotSelected,
+                          onDurationSelected: onDurationSelected,
+                          onCourtSelected: onCourtSelected,
+                          onCoachBookPressed: onCoachBookPressed,
+                          onCoachShowProfilePressed: onCoachShowProfilePressed,
+                        ),
                       ],
                     ),
                   ),
@@ -140,6 +128,74 @@ class ShowHomeCourtContent extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+class _SelectedHomeCourtTabContent extends StatelessWidget {
+  const _SelectedHomeCourtTabContent({
+    required this.selectedTab,
+    required this.venue,
+    required this.selectedReservationDateId,
+    required this.selectedCoachDateId,
+    required this.selectedTimeslotId,
+    required this.selectedDurationId,
+    required this.selectedCourtId,
+    required this.onReservationDateSelected,
+    required this.onCoachDateSelected,
+    required this.onTimeslotSelected,
+    required this.onDurationSelected,
+    required this.onCourtSelected,
+    required this.onCoachBookPressed,
+    required this.onCoachShowProfilePressed,
+  });
+
+  final HomeCourtDetailTab selectedTab;
+  final HomeCourtVenue venue;
+  final String selectedReservationDateId;
+  final String selectedCoachDateId;
+  final String selectedTimeslotId;
+  final String selectedDurationId;
+  final String selectedCourtId;
+  final ValueChanged<HomeReservationDate> onReservationDateSelected;
+  final ValueChanged<HomeCoachDate> onCoachDateSelected;
+  final ValueChanged<HomeTimeSlot> onTimeslotSelected;
+  final ValueChanged<HomeBookingDuration> onDurationSelected;
+  final ValueChanged<HomeBookingCourt> onCourtSelected;
+  final ValueChanged<HomeCoachProfile> onCoachBookPressed;
+  final ValueChanged<HomeCoachProfile> onCoachShowProfilePressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return switch (selectedTab) {
+      HomeCourtDetailTab.home => HomeCourtHomeTab(venue: venue),
+      HomeCourtDetailTab.booking => HomeCourtBookingTab(
+        venue: venue,
+        package: HomeBookingPackage.demo,
+        dates: HomeReservationDate.demoItems,
+        durations: HomeBookingDuration.demoItems,
+        courts: HomeBookingCourt.demoItems,
+        selectedDateId: selectedReservationDateId,
+        selectedTimeslotId: selectedTimeslotId,
+        selectedDurationId: selectedDurationId,
+        selectedCourtId: selectedCourtId,
+        onDateSelected: onReservationDateSelected,
+        onTimeslotSelected: onTimeslotSelected,
+        onDurationSelected: onDurationSelected,
+        onCourtSelected: onCourtSelected,
+        onUsePackagePressed: () {},
+      ),
+      HomeCourtDetailTab.coaches => HomeCourtCoachesTab(
+        dates: HomeCoachDate.demoItems,
+        coaches: HomeCoachProfile.demoItems,
+        selectedDateId: selectedCoachDateId,
+        onDateSelected: onCoachDateSelected,
+        onBookPressed: onCoachBookPressed,
+        onShowProfilePressed: onCoachShowProfilePressed,
+      ),
+      HomeCourtDetailTab.openMatch ||
+      HomeCourtDetailTab.competitions ||
+      HomeCourtDetailTab.community => const SizedBox.shrink(),
+    };
   }
 }
 

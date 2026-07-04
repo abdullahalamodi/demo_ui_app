@@ -63,6 +63,7 @@ class HomeCourtCard extends StatelessWidget {
                                 overflow: TextOverflow.ellipsis,
                                 style: context.textTheme.titleLarge?.copyWith(
                                   fontSize: 14,
+                                  color: Colors.black,
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -93,6 +94,7 @@ class HomeCourtCard extends StatelessWidget {
                             children: [
                               _MetricChip(
                                 iconAsset: FixedAssets.dollar,
+                                labelIconAsset: FixedAssets.riyalSymbol,
                                 label: venue.priceText,
                               ),
                               const SizedBox(width: 8),
@@ -210,10 +212,12 @@ class _MetricChip extends StatelessWidget {
   const _MetricChip({
     required this.iconAsset,
     required this.label,
+    this.labelIconAsset,
   });
 
   final String iconAsset;
   final String label;
+  final String? labelIconAsset;
 
   @override
   Widget build(BuildContext context) {
@@ -231,7 +235,14 @@ class _MetricChip extends StatelessWidget {
             iconAsset,
             color: context.colorScheme.onSurface,
           ),
-          const SizedBox(width: 8),
+          const SizedBox(width: 4),
+          if (labelIconAsset != null) ...[
+            AppSvgIcon(
+              labelIconAsset!,
+              color: context.colorScheme.onSurface,
+            ),
+            const SizedBox(width: 4),
+          ],
           Text(
             label,
             maxLines: 1,
@@ -273,7 +284,7 @@ class _CardIconButton extends StatelessWidget {
             child: AppSvgIcon(
               iconAsset,
               size: 14,
-              color: color ?? context.colorScheme.onSurface,
+              color: color,
             ),
           ),
         ),

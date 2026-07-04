@@ -88,7 +88,6 @@ class _FilterSortButton extends StatelessWidget {
               label,
               maxLines: 1,
               style: context.textTheme.bodyMedium?.copyWith(
-                fontSize: 13,
                 color: context.colorScheme.onSurface,
               ),
             ),

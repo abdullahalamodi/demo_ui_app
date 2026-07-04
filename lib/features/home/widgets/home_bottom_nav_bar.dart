@@ -54,6 +54,9 @@ class _BottomNavButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final selectedIconAsset = item.selectedIconAsset;
+    final isUsingSelectedIcon = isSelected && selectedIconAsset != null;
+    final iconAsset = isUsingSelectedIcon ? selectedIconAsset : item.iconAsset;
     final foregroundColor = isSelected
         ? context.colorScheme.onPrimary
         : context.colorScheme.onSurface;
@@ -79,9 +82,11 @@ class _BottomNavButton extends StatelessWidget {
             height: 55,
             child: Center(
               child: AppSvgIcon(
-                item.iconAsset,
+                iconAsset,
                 size: 20,
-                color: foregroundColor,
+                color: isUsingSelectedIcon || !isSelected
+                    ? null
+                    : foregroundColor,
               ),
             ),
           ),

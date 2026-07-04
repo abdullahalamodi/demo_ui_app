@@ -480,4 +480,11 @@ enum HomeBottomNavItem {
       HomeBottomNavItem.menu => FixedAssets.menuGrid,
     };
   }
+
+  String? get selectedIconAsset {
+    return switch (this) {
+      HomeBottomNavItem.menu => FixedAssets.menuGridSelected,
+      _ => null,
+    };
+  }
 }

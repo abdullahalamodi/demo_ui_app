@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                   13,
                   0,
                   13,
-                  185,
+                  160,
                 ),
                 children: [
                   HomeHeader(

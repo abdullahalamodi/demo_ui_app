@@ -37,7 +37,7 @@ class ShowHomeCourtHeaderSection extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 style: context.textTheme.titleLarge?.copyWith(
                   fontSize: 15,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               const SizedBox(height: 4),
@@ -94,7 +94,7 @@ class _HeaderCircleButton extends StatelessWidget {
       child: Material(
         color: context.colorScheme.surface,
         shape: CircleBorder(
-          side: BorderSide(color: context.colorScheme.outlineVariant),
+          side: BorderSide(color: Color(0xFFD9D6D0)),
         ),
         child: InkWell(
           onTap: onPressed,
@@ -104,8 +104,7 @@ class _HeaderCircleButton extends StatelessWidget {
             child: Center(
               child: AppSvgIcon(
                 iconAsset,
-                size: 18,
-                color: color ?? context.colorScheme.onSurface,
+                size: 17,
               ),
             ),
           ),

@@ -27,6 +27,7 @@ abstract final class FixedAssets {
   static const String location = '${_svg}location.svg';
   static const String locationPin = '${_svg}location-pin.svg';
   static const String menuGrid = '${_svg}menu-grid.svg';
+  static const String menuGridSelected = '${_svg}menu-grid-selected.svg';
   static const String padel = '${_svg}padel.svg';
   static const String riyalSymbol = '${_svg}riyal-symbol.svg';
   static const String share = '${_svg}share.svg';

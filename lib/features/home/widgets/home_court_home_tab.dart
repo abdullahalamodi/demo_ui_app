@@ -156,18 +156,10 @@ class _AmenityItem extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        if (svgAsset == null)
-          FaIcon(
-            amenity.icon,
-            size: 24,
-            color: context.customColors.iconMuted,
-          )
-        else
-          AppSvgIcon(
-            svgAsset,
-            size: 24,
-            color: context.customColors.iconMuted,
-          ),
+        AppSvgIcon(
+          svgAsset,
+          size: 24,
+        ),
         const SizedBox(height: 10),
         Text(
           _label(context),
